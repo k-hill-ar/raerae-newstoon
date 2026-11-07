@@ -6,6 +6,8 @@
 ## 1. 준비
 - `config/rules.md`를 읽고 선별 기준을 따른다.
 - 오늘 날짜: `python scripts/discord_bot.py today` 의 결과를 DATE로 쓴다 (한국 시간).
+- `docs/DATE/meta.json`이 이미 있으면 오늘 만화는 이미 준비된 것이다. 후보를 뽑지 말고 아래 알림만 보내고 끝낸다.
+  `python scripts/discord_bot.py notify "☀️ 오늘(DATE) 만화는 이미 준비되어 있어서 후보를 보내지 않아요. 08:07에 링크가 갑니다."`
 - `docs/DATE/candidates.json`이 이미 있으면 4단계(전송)만 한다.
 
 ## 2. 뉴스 찾기

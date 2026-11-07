@@ -158,8 +158,35 @@ def cmd_choice(date):
     print(f"선택: {picked[0]}{note}")
 
 
+def wait_for_pages_build(timeout=300):
+    """GitHub API로 최신 커밋의 Pages 빌드가 끝났는지 확인한다.
+    클라우드에서는 github.io 접속이 막혀 있지만 gh(GitHub API)는 쓸 수 있다.
+    확인할 수 없으면 None."""
+    import subprocess
+    try:
+        head = subprocess.run(["git", "rev-parse", "HEAD"], cwd=ROOT, capture_output=True, text=True, timeout=10).stdout.strip()
+        repo = "k-hill-ar/raerae-newstoon"
+        deadline = time.time() + timeout
+        while time.time() < deadline:
+            r = subprocess.run(["gh", "api", f"repos/{repo}/pages/builds/latest"], capture_output=True, text=True, timeout=30)
+            if r.returncode != 0:
+                return None
+            b = json.loads(r.stdout)
+            if b.get("commit") == head and b.get("status") == "built":
+                return True
+            if b.get("commit") == head and b.get("status") == "errored":
+                return False
+            time.sleep(10)
+        return False
+    except (OSError, subprocess.SubprocessError, ValueError):
+        return None
+
+
 def wait_for_page(url, timeout=300):
-    """GitHub Pages 반영을 기다린다. 접속 자체가 막힌 환경이면 바로 넘어간다."""
+    """GitHub Pages 반영을 기다린다. GitHub API로 먼저 확인하고, 안 되면 페이지를 직접 열어 본다."""
+    built = wait_for_pages_build(timeout)
+    if built is not None:
+        return built
     deadline = time.time() + timeout
     while time.time() < deadline:
         try:
