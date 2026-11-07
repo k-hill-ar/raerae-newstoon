@@ -1,16 +1,25 @@
 """래래 뉴스툰 디스코드 봇 (서버 없이 동작)
 
 상시 대기하지 않고, 필요할 때 한 번씩 실행되는 방식입니다.
+PC에서도, Claude 클라우드 예약 작업에서도 똑같이 동작합니다.
 
 사용법:
   python scripts/discord_bot.py test                     # 연결 확인 메시지 보내기
+  python scripts/discord_bot.py today                    # 한국 시간 기준 오늘 날짜 출력 (YYYY-MM-DD)
   python scripts/discord_bot.py candidates 2026-11-07    # 후보 5개 보내기 + 1~5 반응 달기
-  python scripts/discord_bot.py choice 2026-11-07        # 부모님이 누른 번호 확인
-  python scripts/discord_bot.py link 2026-11-07          # 완성된 만화 링크 보내기
+  python scripts/discord_bot.py choice 2026-11-07        # 부모님이 누른 번호 확인 (없으면 종료코드 2)
+  python scripts/discord_bot.py link 2026-11-07          # 웹페이지 반영을 기다린 뒤 링크 보내기
+  python scripts/discord_bot.py notify "메시지"           # 알림 보내기 (실패 알림 등)
 
-설정은 프로젝트 폴더의 .env 파일에서 읽습니다 (.env.example 참고).
+설정:
+  - 채널 ID와 사이트 주소: config/settings.json (공개해도 되는 값)
+  - 봇 토큰: 환경 변수 또는 .env 의 DISCORD_BOT_TOKEN
+    클라우드에서는 토큰을 '네트워크 시크릿'으로 등록하면, 토큰 없이 실행해도
+    클라우드 프록시가 discord.com 요청에 자동으로 붙여 줍니다.
 """
+import datetime
 import json
+import os
 import sys
 import time
 import urllib.error
@@ -22,102 +31,120 @@ ROOT = Path(__file__).resolve().parent.parent
 DOCS = ROOT / "docs"
 STATE = ROOT / "state"
 API = "https://discord.com/api/v10"
+KST = datetime.timezone(datetime.timedelta(hours=9))
 NUM_EMOJI = ["1️⃣", "2️⃣", "3️⃣", "4️⃣", "5️⃣"]
+UA = "DiscordBot (https://github.com/k-hill-ar/raerae-newstoon, 1.1)"
 
 
-def load_env():
-    env = {}
-    path = ROOT / ".env"
-    if not path.exists():
-        sys.exit(".env 파일이 없습니다. .env.example을 복사해서 .env를 만들고 값을 채워 주세요.")
-    for line in path.read_text(encoding="utf-8-sig").splitlines():
-        line = line.strip()
-        if line and not line.startswith("#") and "=" in line:
-            k, v = line.split("=", 1)
-            env[k.strip()] = v.strip().strip('"')
-    for key in ("DISCORD_BOT_TOKEN", "DISCORD_CHANNEL_ID", "SITE_BASE_URL"):
-        if not env.get(key):
-            sys.exit(f".env에 {key} 값이 비어 있습니다.")
-    return env
+def load_config():
+    cfg = json.loads((ROOT / "config" / "settings.json").read_text(encoding="utf-8"))
+    token = os.environ.get("DISCORD_BOT_TOKEN", "").strip()
+    env_file = ROOT / ".env"
+    if not token and env_file.exists():
+        for line in env_file.read_text(encoding="utf-8-sig").splitlines():
+            line = line.strip()
+            if line.startswith("DISCORD_BOT_TOKEN="):
+                token = line.split("=", 1)[1].strip().strip('"')
+    cfg["token"] = token  # 비어 있으면 클라우드 프록시가 붙여 준다고 가정
+    return cfg
 
 
-ENV = None
+CFG = None
 
 
 def api(method, path, body=None):
     url = API + path
     data = json.dumps(body).encode("utf-8") if body is not None else None
+    headers = {"Content-Type": "application/json", "User-Agent": UA}
+    if CFG["token"]:
+        headers["Authorization"] = f"Bot {CFG['token']}"
     for _ in range(5):
-        req = urllib.request.Request(url, data=data, method=method, headers={
-            "Authorization": f"Bot {ENV['DISCORD_BOT_TOKEN']}",
-            "Content-Type": "application/json",
-            "User-Agent": "DiscordBot (https://github.com/k-hill-ar/raerae-newstoon, 1.0)",
-        })
+        req = urllib.request.Request(url, data=data, method=method, headers=headers)
         try:
             with urllib.request.urlopen(req, timeout=20) as r:
                 raw = r.read()
                 return json.loads(raw) if raw else None
         except urllib.error.HTTPError as e:
-            if e.code == 429:  # 너무 빨리 보냄: 잠깐 기다렸다 다시
+            if e.code == 429:
                 wait = json.loads(e.read() or b"{}").get("retry_after", 1)
                 time.sleep(float(wait) + 0.2)
                 continue
             detail = e.read().decode("utf-8", "replace")
-            hint = {401: "봇 토큰이 틀렸습니다.", 403: "봇에게 이 채널 권한이 없습니다.", 404: "채널 ID가 틀렸습니다."}.get(e.code, "")
+            hint = {401: "봇 토큰이 없거나 틀렸습니다 (클라우드라면 네트워크 시크릿 확인).",
+                    403: "봇에게 이 채널 권한이 없습니다.",
+                    404: "채널 ID가 틀렸습니다."}.get(e.code, "")
             sys.exit(f"디스코드 오류 {e.code}: {hint}\n{detail}")
+        except urllib.error.URLError as e:
+            sys.exit(f"디스코드에 접속하지 못했습니다 (네트워크 허용 설정 확인): {e.reason}")
     sys.exit("디스코드가 계속 '잠시 후 다시' 응답을 보냅니다. 나중에 다시 실행해 주세요.")
 
 
 def channel():
-    return ENV["DISCORD_CHANNEL_ID"]
+    return CFG["discord_channel_id"]
 
 
-def state_path(date):
+def candidates_header(date):
+    return f"☀️ **{date} 래래 뉴스툰 후보**"
+
+
+def find_candidates_message(date):
+    """오늘 보낸 후보 메시지를 찾는다. 로컬 기록이 없으면 디스코드에서 직접 찾는다."""
+    p = STATE / f"{date}.json"
+    if p.exists():
+        mid = json.loads(p.read_text(encoding="utf-8")).get("candidates_message_id")
+        if mid:
+            return mid
+    me = api("GET", "/users/@me")
+    for m in api("GET", f"/channels/{channel()}/messages?limit=50") or []:
+        if m["author"]["id"] == me["id"] and m.get("content", "").startswith(candidates_header(date)):
+            return m["id"]
+    return None
+
+
+def save_state(date, **kv):
     STATE.mkdir(exist_ok=True)
-    return STATE / f"{date}.json"
+    p = STATE / f"{date}.json"
+    st = json.loads(p.read_text(encoding="utf-8")) if p.exists() else {}
+    st.update(kv)
+    p.write_text(json.dumps(st, ensure_ascii=False, indent=2), encoding="utf-8")
 
 
-def load_state(date):
-    p = state_path(date)
-    return json.loads(p.read_text(encoding="utf-8")) if p.exists() else {}
-
-
-def save_state(date, data):
-    state_path(date).write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
+def cmd_today():
+    print(datetime.datetime.now(KST).strftime("%Y-%m-%d"))
 
 
 def cmd_test():
     me = api("GET", "/users/@me")
-    api("POST", f"/channels/{channel()}/messages", {"content": "⚡ 꼬미 연결 완료! 래래 뉴스툰 봇이 준비됐어요."})
+    api("POST", f"/channels/{channel()}/messages", {"content": "⚡ 피카 연결 완료! 래래 뉴스툰 봇이 준비됐어요."})
     print(f"연결 성공: 봇 이름 {me['username']}")
 
 
 def cmd_candidates(date):
-    src = DOCS / date / "candidates.json"
-    items = json.loads(src.read_text(encoding="utf-8"))["candidates"]
+    if find_candidates_message(date):
+        print(f"{date} 후보는 이미 보냈습니다. 다시 보내지 않습니다.")
+        return
+    items = json.loads((DOCS / date / "candidates.json").read_text(encoding="utf-8"))["candidates"]
     fields = [{
         "name": f"{NUM_EMOJI[i]} {c['emoji']} {c['title']}",
         "value": f"{c['summary']}\n└ 흥미 포인트: {c['hook']}",
         "inline": False,
     } for i, c in enumerate(items[:5])]
     msg = api("POST", f"/channels/{channel()}/messages", {
-        "content": f"☀️ **{date} 래래 뉴스툰 후보**\n만화로 만들 뉴스의 번호 반응을 눌러 주세요!",
+        "content": candidates_header(date) + "\n만화로 만들 뉴스의 번호 반응을 눌러 주세요! (07:07에 만화 제작 시작)",
         "embeds": [{"color": 0xFFE14D, "fields": fields}],
     })
     for e in NUM_EMOJI[:len(fields)]:
         api("PUT", f"/channels/{channel()}/messages/{msg['id']}/reactions/{urllib.parse.quote(e)}/@me")
         time.sleep(0.3)
-    st = load_state(date)
-    st["candidates_message_id"] = msg["id"]
-    save_state(date, st)
+    save_state(date, candidates_message_id=msg["id"])
     print(f"후보 {len(fields)}개 전송 완료 (메시지 {msg['id']})")
 
 
 def cmd_choice(date):
-    st = load_state(date)
-    mid = st.get("candidates_message_id")
+    mid = find_candidates_message(date)
     if not mid:
-        sys.exit(f"{date} 후보 메시지 기록이 없습니다. 먼저 candidates를 실행해 주세요.")
+        print(f"{date} 후보 메시지를 찾지 못했습니다.")
+        sys.exit(3)
     picked = []
     for i, e in enumerate(NUM_EMOJI):
         users = api("GET", f"/channels/{channel()}/messages/{mid}/reactions/{urllib.parse.quote(e)}")
@@ -126,11 +153,27 @@ def cmd_choice(date):
     if not picked:
         print("아직 선택 없음")
         sys.exit(2)
-    choice = picked[0]
-    st["choice"] = choice
-    save_state(date, st)
+    save_state(date, choice=picked[0])
     note = f" (여러 개 눌려 있어 가장 앞 번호 선택: {picked})" if len(picked) > 1 else ""
-    print(f"선택: {choice}{note}")
+    print(f"선택: {picked[0]}{note}")
+
+
+def wait_for_page(url, timeout=300):
+    """GitHub Pages 반영을 기다린다. 접속 자체가 막힌 환경이면 바로 넘어간다."""
+    deadline = time.time() + timeout
+    while time.time() < deadline:
+        try:
+            req = urllib.request.Request(url, headers={"User-Agent": UA, "Cache-Control": "no-cache"})
+            with urllib.request.urlopen(req, timeout=15) as r:
+                if r.status == 200:
+                    return True
+        except urllib.error.HTTPError as e:
+            if e.code != 404:
+                return False
+        except urllib.error.URLError:
+            return False  # 네트워크 정책으로 막힘: 확인 생략
+        time.sleep(10)
+    return False
 
 
 def cmd_link(date):
@@ -139,24 +182,33 @@ def cmd_link(date):
         sys.exit(f"{meta_path} 가 없습니다. 만화를 먼저 만들어 주세요.")
     meta = json.loads(meta_path.read_text(encoding="utf-8"))
     title = f"{meta.get('category', '')} {meta.get('title', '오늘의 뉴스툰')}".strip()
-    url = f"{ENV['SITE_BASE_URL'].rstrip('/')}/{date}/"
+    url = f"{CFG['site_base_url'].rstrip('/')}/{date}/"
+    ok = wait_for_page(url)
+    note = "" if ok else "\n(웹페이지 반영 확인을 못 했어요. 링크가 안 열리면 1~2분 뒤 다시 눌러 주세요.)"
     api("POST", f"/channels/{channel()}/messages", {
-        "content": f"🎉 **오늘의 만화 완성!**\n{title}\n{url}\n\n👉 이 링크를 아이들에게 보내 주세요. 키즈폰에서 안 열리면 페이지 아래 '이미지로 저장'을 눌러 이미지를 보내면 돼요.",
+        "content": f"🎉 **오늘의 만화 완성!**\n{title}\n{url}{note}\n\n👉 이 링크를 아이들에게 보내 주세요. 키즈폰에서 안 열리면 페이지 아래 '이미지로 저장'을 눌러 이미지를 보내면 돼요.",
     })
-    print(f"링크 전송 완료: {url}")
+    print(f"링크 전송 완료: {url} (반영 확인: {ok})")
+
+
+def cmd_notify(text):
+    api("POST", f"/channels/{channel()}/messages", {"content": text[:1900]})
+    print("알림 전송 완료")
 
 
 def main():
-    global ENV
+    global CFG
     sys.stdout.reconfigure(encoding="utf-8")
     if len(sys.argv) < 2:
         sys.exit(__doc__)
-    ENV = load_env()
     cmd, args = sys.argv[1], sys.argv[2:]
+    if cmd == "today":
+        return cmd_today()
+    CFG = load_config()
     if cmd == "test":
         cmd_test()
-    elif cmd in ("candidates", "choice", "link") and args:
-        {"candidates": cmd_candidates, "choice": cmd_choice, "link": cmd_link}[cmd](args[0])
+    elif cmd in ("candidates", "choice", "link", "notify") and args:
+        {"candidates": cmd_candidates, "choice": cmd_choice, "link": cmd_link, "notify": cmd_notify}[cmd](args[0])
     else:
         sys.exit(__doc__)
 

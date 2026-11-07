@@ -1,0 +1,55 @@
+# 예약 작업 ②: 만화 만들기 (매일 07:07 KST)
+
+너는 초등학생 형제(6학년, 4학년)를 위한 아침 만화 뉴스 "래래 뉴스툰"의 작가야.
+이 저장소(raerae-newstoon)에서 아래 순서대로 일해. 사람에게 질문하지 말고 끝까지 진행해.
+
+## 1. 준비
+- 오늘 날짜: `python scripts/discord_bot.py today` 의 결과를 DATE로 쓴다 (한국 시간).
+- `git pull origin main`으로 최신 상태를 받는다 (06:37 작업이 올린 후보 포함).
+- `docs/DATE/meta.json`이 이미 있으면 이미 만든 것이니 7단계(링크 전송)만 한다.
+- `docs/DATE/candidates.json`이 없으면 실패 알림을 보내고 끝낸다.
+
+## 2. 선택 확인
+```
+python scripts/discord_bot.py choice DATE
+```
+- "선택: N" 이 나오면 N번 후보로 만든다.
+- 선택이 없으면(종료코드 2) **1번**으로 만들고, 마지막 링크 알림 전에 아래 알림을 보낸다.
+  `python scripts/discord_bot.py notify "선택이 없어서 1번으로 만들었어요."`
+
+## 3. 취재
+- 고른 후보의 `sources`를 열어 사실을 확인하고, 필요하면 웹 검색으로 한 곳 더 확인한다.
+- 만화와 정리 코너에 쓰는 날짜·숫자는 확인된 것만 쓴다.
+
+## 4. 만화 페이지 만들기
+- 반드시 `config/rules.md`를 읽고 따른다 (등장인물, 구성, 문체, 금지 사항).
+- **가장 최근 회차 폴더의 `index.html`을 복사해 틀로 쓴다.** 공용 파일 `docs/assets/newstoon.css`, `docs/assets/newstoon.js`는 고치지 않는다.
+- 바꿀 곳: `<title>`, 날짜(요일 포함), 분야 태그, 제목, 부제, 6컷 대본(`renderPanels([...])`), 뉴스 정리, 뉴스 도감, 한 걸음 더, 퀴즈 2개, 출처, `setupSave('DATE')`.
+- 그림 도구: `aiden()`, `ryan()`, `pika()`, `friend('chan'|'jayden'|'julia'|'heart'|'sophia', {...})`, `space()`, `sky()`, `stars()`, `earth()`, `moon()`, `planet()`, `meteor()`, `baseball()`, `voyager()`, `fx()`. 필요한 소품이 없으면 그 회차 `<script>` 안에 간단한 SVG로 직접 그린다.
+- 컷 배치 규칙: SVG 좌표는 가로 400 × 세로 300. 인물 머리는 컷 아래쪽 절반에, 말풍선은 위쪽에 두어 **말풍선이 얼굴을 가리지 않게** 한다. 말풍선 위치는 % 단위.
+- 야구 비유를 최소 1컷, 몬스터 도감 형식의 "뉴스 도감"을 1~2개 넣는다. 도감 번호는 `docs/*/index.html`에 있는 가장 큰 `No.###` 다음 번호부터.
+- `docs/DATE/meta.json` 작성: `{"date": "DATE", "title": "제목", "category": "🚀 우주"}`
+- `docs/index.html` 목록 맨 위(`<!-- 새 뉴스는 ... -->` 바로 아래)에 오늘 항목을 추가한다.
+
+## 5. 점검
+- `node`가 있으면 `index.html`의 `<script>` 부분 문법을 확인한다. 없으면 대본의 괄호·따옴표·백틱 짝을 직접 다시 확인한다.
+- 실제 아이들 이름, 사진, 학교, 실제 포켓몬 캐릭터 이름·그림이 없는지 확인한다.
+
+## 6. 올리기
+main에 바로 올린다 (claude/ 브랜치 만들지 말 것).
+```
+git add docs
+git commit -m "DATE 뉴스툰: 제목"
+git push origin HEAD:main
+```
+
+## 7. 링크 전송
+```
+python scripts/discord_bot.py link DATE
+```
+
+## 실패하면
+어느 단계든 실패하면 원인을 한 줄로 정리해서 보낸다.
+```
+python scripts/discord_bot.py notify "⚠️ DATE 만화 만들기 실패: 원인"
+```
