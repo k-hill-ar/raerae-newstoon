@@ -1,0 +1,41 @@
+{
+  "date": "2026-11-07",
+  "comic_title": "보이저 1호, 빛으로 '하루' 걸리는 곳에 가다!",
+  "candidates": [
+    {
+      "emoji": "⚾",
+      "title": "한국시리즈 삼성 2승1패 리드, 가을야구 50경기 연속 매진",
+      "summary": "삼성과 KT가 우승을 다투는 중. 7일 대구에서 4차전, 2023년부터 포스트시즌 표가 50경기 연속으로 다 팔렸다.",
+      "hook": "야구, 응원팀, '매진'과 숫자 기록",
+      "sources": ["https://www.newspim.com/news/view/20261107000077"]
+    },
+    {
+      "emoji": "🚀",
+      "title": "보이저 1호, 11월 18일 '빛으로 하루' 거리 도착",
+      "summary": "1977년에 출발한 탐사선이 지구에서 약 259억 km, 빛도 꼬박 하루 걸리는 곳에 도착한다.",
+      "hook": "빛의 속도, 우주의 크기, 49년째 여행 중인 탐사선",
+      "sources": ["https://earthsky.org/space/voyager-1-1-light-day-from-earth-november-17-18-2026/"]
+    },
+    {
+      "emoji": "🌠",
+      "title": "11월 밤하늘 이벤트: 유성우·행성 만남·슈퍼문",
+      "summary": "17~18일 사자자리 유성우, 15~16일 화성과 목성이 나란히, 24일부터 3달 연속 슈퍼문.",
+      "hook": "가족과 함께 직접 관측 가능",
+      "sources": ["https://www.sciencedaily.com/releases/2026/11/261105224547.htm"]
+    },
+    {
+      "emoji": "🛰️",
+      "title": "국제우주정거장 우주인들, 우주유영으로 태양전지판 설치",
+      "summary": "6일 우주인 2명이 정거장 밖으로 나가 새 태양전지판을 달았다.",
+      "hook": "우주복, 무중력, 태양에너지",
+      "sources": ["https://www.nasa.gov/news/recently-published/"]
+    },
+    {
+      "emoji": "🍂",
+      "title": "오늘은 겨울이 시작되는 '입동'",
+      "summary": "24절기 중 19번째, 김장 준비와 겨울 대비를 시작하는 시기.",
+      "hook": "절기, 김장, 계절 변화",
+      "sources": []
+    }
+  ]
+}
