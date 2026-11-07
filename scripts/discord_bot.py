@@ -7,8 +7,10 @@ PC에서도, Claude 클라우드 예약 작업에서도 똑같이 동작합니�
   python scripts/discord_bot.py test                     # 연결 확인 메시지 보내기
   python scripts/discord_bot.py today                    # 한국 시간 기준 오늘 날짜 출력 (YYYY-MM-DD)
   python scripts/discord_bot.py candidates 2026-11-07    # 후보 5개 보내기 + 1~5 반응 달기
+  python scripts/discord_bot.py candidates 2026-11-07 --special   # 이미 만화가 있는 날: 특별편 후보로 보내기
   python scripts/discord_bot.py choice 2026-11-07        # 부모님이 누른 번호 확인 (없으면 종료코드 2)
   python scripts/discord_bot.py link 2026-11-07          # 웹페이지 반영을 기다린 뒤 링크 보내기
+  python scripts/discord_bot.py link 2026-11-07-special  # 특별편 링크 보내기
   python scripts/discord_bot.py notify "메시지"           # 알림 보내기 (실패 알림 등)
 
 설정:
@@ -119,7 +121,8 @@ def cmd_test():
     print(f"연결 성공: 봇 이름 {me['username']}")
 
 
-def cmd_candidates(date):
+def cmd_candidates(date, *flags):
+    special = "--special" in flags
     if find_candidates_message(date):
         print(f"{date} 후보는 이미 보냈습니다. 다시 보내지 않습니다.")
         return
@@ -129,8 +132,11 @@ def cmd_candidates(date):
         "value": f"{c['summary']}\n└ 흥미 포인트: {c['hook']}",
         "inline": False,
     } for i, c in enumerate(items[:5])]
+    guide = ("\n⭐ 오늘 만화는 이미 준비되어 있어요. **특별편**을 원하면 번호를 눌러 주세요! "
+             "(안 누르면 준비된 만화만 08:07에 보내요)") if special else \
+        "\n만화로 만들 뉴스의 번호 반응을 눌러 주세요! (08:07에 만화 제작 시작)"
     msg = api("POST", f"/channels/{channel()}/messages", {
-        "content": candidates_header(date) + "\n만화로 만들 뉴스의 번호 반응을 눌러 주세요! (08:07에 만화 제작 시작)",
+        "content": candidates_header(date) + guide,
         "embeds": [{"color": 0xFFE14D, "fields": fields}],
     })
     for e in NUM_EMOJI[:len(fields)]:
@@ -203,19 +209,21 @@ def wait_for_page(url, timeout=300):
     return False
 
 
-def cmd_link(date):
-    meta_path = DOCS / date / "meta.json"
+def cmd_link(slug):
+    """slug: 날짜(2026-11-08) 또는 특별편 폴더(2026-11-08-special)"""
+    meta_path = DOCS / slug / "meta.json"
     if not meta_path.exists():
         sys.exit(f"{meta_path} 가 없습니다. 만화를 먼저 만들어 주세요.")
     meta = json.loads(meta_path.read_text(encoding="utf-8"))
     title = f"{meta.get('category', '')} {meta.get('title', '오늘의 뉴스툰')}".strip()
-    url = f"{CFG['site_base_url'].rstrip('/')}/{date}/"
+    head = "⭐ **특별편 완성!**" if meta.get("special") else "🎉 **오늘의 만화 완성!**"
+    url = f"{CFG['site_base_url'].rstrip('/')}/{slug}/"
     ok = wait_for_page(url)
     if ok is None:  # 확인할 방법이 없는 환경(클라우드): 보통 1분 안에 반영되므로 넉넉히 기다린다
         time.sleep(90)
     note = "\n(웹페이지 반영이 늦어지고 있어요. 링크가 안 열리면 1~2분 뒤 다시 눌러 주세요.)" if ok is False else ""
     api("POST", f"/channels/{channel()}/messages", {
-        "content": f"🎉 **오늘의 만화 완성!**\n{title}\n{url}{note}\n\n👉 이 링크를 아이들에게 보내 주세요. 키즈폰에서 안 열리면 페이지 아래 '이미지로 저장'을 눌러 이미지를 보내면 돼요.",
+        "content": f"{head}\n{title}\n{url}{note}\n\n👉 이 링크를 아이들에게 보내 주세요. 키즈폰에서 안 열리면 페이지 아래 '이미지로 저장'을 눌러 이미지를 보내면 돼요.",
     })
     print(f"링크 전송 완료: {url} (반영 확인: {ok})")
 
@@ -236,8 +244,10 @@ def main():
     CFG = load_config()
     if cmd == "test":
         cmd_test()
-    elif cmd in ("candidates", "choice", "link", "notify") and args:
-        {"candidates": cmd_candidates, "choice": cmd_choice, "link": cmd_link, "notify": cmd_notify}[cmd](args[0])
+    elif cmd == "candidates" and args:
+        cmd_candidates(args[0], *args[1:])
+    elif cmd in ("choice", "link", "notify") and args:
+        {"choice": cmd_choice, "link": cmd_link, "notify": cmd_notify}[cmd](args[0])
     else:
         sys.exit(__doc__)
 
