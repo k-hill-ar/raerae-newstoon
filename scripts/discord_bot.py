@@ -134,8 +134,11 @@ def cmd_choice(date):
 
 
 def cmd_link(date):
-    meta = json.loads((DOCS / date / "candidates.json").read_text(encoding="utf-8"))
-    title = meta.get("comic_title", "오늘의 뉴스툰")
+    meta_path = DOCS / date / "meta.json"
+    if not meta_path.exists():
+        sys.exit(f"{meta_path} 가 없습니다. 만화를 먼저 만들어 주세요.")
+    meta = json.loads(meta_path.read_text(encoding="utf-8"))
+    title = f"{meta.get('category', '')} {meta.get('title', '오늘의 뉴스툰')}".strip()
     url = f"{ENV['SITE_BASE_URL'].rstrip('/')}/{date}/"
     api("POST", f"/channels/{channel()}/messages", {
         "content": f"🎉 **오늘의 만화 완성!**\n{title}\n{url}\n\n👉 이 링크를 아이들에게 보내 주세요. 키즈폰에서 안 열리면 페이지 아래 '이미지로 저장'을 눌러 이미지를 보내면 돼요.",
