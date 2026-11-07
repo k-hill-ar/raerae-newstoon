@@ -1,0 +1,10 @@
+{
+  "date": "2026-11-08",
+  "candidates": [
+    {"emoji": "⚾", "title": "한국시리즈, 삼성이 우승까지 1승!", "summary": "삼성 라이온즈가 KT 위즈와의 한국시리즈 4차전에서 10-5로 이겨 3승 1패가 됐어요. 남은 경기에서 1승만 더 하면 12년 만의 우승이에요.", "hook": "1차전을 지고도 3연승! 먼저 4승 하면 우승하는 7전 4선승제 승부", "sources": ["https://m.sedaily.com/article/20111468", "https://www.osen.co.kr/article/G1112906084"]},
+    {"emoji": "🧢", "title": "노시환, 메이저리그 도전장!", "summary": "한화 노시환 선수가 MLB 진출을 위한 포스팅을 신청했어요. 이제 미국 30개 구단이 정해진 기간 동안 계약 협상을 할 수 있어요.", "hook": "포스팅이 뭘까? 야구 선수가 바다 건너 빅리그에 가는 방법", "sources": ["https://www.news1.kr/sports/overseas-baseball/6340917", "https://sports.news.nate.com/view/20261031n09239"]},
+    {"emoji": "🪐", "title": "탐사선 베피콜롬보, 수성에 도착한다", "summary": "유럽·일본의 수성 탐사선 베피콜롬보가 11월 21일 수성 궤도에 들어갈 예정이에요. 8년 넘게 날아온 긴 여행의 마지막 단계예요.", "hook": "태양 바로 옆 가장 뜨거운 행성에 어떻게 가까이 갈까?", "sources": ["https://www.newsspace.kr/news/article.html?no=5181", "https://news.nate.com/view/20260905n07591"]},
+    {"emoji": "🍂", "title": "겨울의 문턱, 입동이 왔어요", "summary": "2026년 입동은 11월 7일 저녁 6시 52분쯤이에요. 입동부터 입춘 전날까지를 겨울로 보고, 옛날에는 이맘때 김장을 했어요.", "hook": "달력의 겨울은 언제 시작할까? 24절기와 김장 이야기", "sources": ["https://dallyeok.com/solarterms/ipdong/", "https://www.month2k.com/lunar/2026-11"]},
+    {"emoji": "⚛️", "title": "우주정거장에서 원자를 떨어뜨렸더니", "summary": "중국 우주정거장 톈궁에서 서로 다른 두 종류의 루비듐 원자를 떨어뜨려 봤더니 거의 똑같이 떨어졌어요. 무게가 달라도 같이 떨어진다는 갈릴레이의 생각이 아주 정밀하게 확인됐어요.", "hook": "야구공과 탁구공을 같이 떨어뜨리면? 원자로 해 본 우주 실험", "sources": ["https://www.sciencenews.org/article/atoms-gravity-space-galileo-einstein", "https://arxiv.org/pdf/2603.22981"]}
+  ]
+}
