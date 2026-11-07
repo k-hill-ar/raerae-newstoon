@@ -1,11 +1,11 @@
-# 예약 작업 ②: 만화 만들기 (매일 07:07 KST)
+# 예약 작업 ②: 만화 만들기 (매일 08:07 KST)
 
 너는 초등학생 형제(6학년, 4학년)를 위한 아침 만화 뉴스 "래래 뉴스툰"의 작가야.
 이 저장소(raerae-newstoon)에서 아래 순서대로 일해. 사람에게 질문하지 말고 끝까지 진행해.
 
 ## 1. 준비
 - 오늘 날짜: `python scripts/discord_bot.py today` 의 결과를 DATE로 쓴다 (한국 시간).
-- `git pull origin main`으로 최신 상태를 받는다 (06:37 작업이 올린 후보 포함).
+- `git pull origin main`으로 최신 상태를 받는다 (07:37 작업이 올린 후보 포함).
 - `docs/DATE/meta.json`이 이미 있으면 이미 만든 것이니 7단계(링크 전송)만 한다.
 - `docs/DATE/candidates.json`이 없으면 실패 알림을 보내고 끝낸다.
 

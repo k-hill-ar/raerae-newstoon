@@ -130,7 +130,7 @@ def cmd_candidates(date):
         "inline": False,
     } for i, c in enumerate(items[:5])]
     msg = api("POST", f"/channels/{channel()}/messages", {
-        "content": candidates_header(date) + "\n만화로 만들 뉴스의 번호 반응을 눌러 주세요! (07:07에 만화 제작 시작)",
+        "content": candidates_header(date) + "\n만화로 만들 뉴스의 번호 반응을 눌러 주세요! (08:07에 만화 제작 시작)",
         "embeds": [{"color": 0xFFE14D, "fields": fields}],
     })
     for e in NUM_EMOJI[:len(fields)]:
