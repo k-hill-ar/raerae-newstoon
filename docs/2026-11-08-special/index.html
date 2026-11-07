@@ -10,6 +10,19 @@
 <link rel="stylesheet" href="../assets/newstoon.css">
 <script src="https://cdn.jsdelivr.net/npm/html-to-image@1.11.11/dist/html-to-image.js"></script>
 <script src="../assets/newstoon.js"></script>
+<style>
+  .hist{border:2.5px solid var(--line);border-radius:12px;background:#fff;padding:10px 12px;margin-bottom:12px}
+  .hist:last-child{margin-bottom:0}
+  .hist h3{font-family:Jua,sans-serif;font-weight:400;font-size:18px;margin:0 0 6px}
+  .hist p{margin:4px 0;font-size:15px}
+  .series{display:flex;gap:4px;flex-wrap:wrap;margin:6px 0}
+  .series span{font-family:Jua,sans-serif;font-size:13px;border:2px solid var(--line);border-radius:6px;padding:1px 6px;background:#eee}
+  .series .w{background:#2f6fde;color:#fff} .series .l{background:#ddd;color:#666}
+  .years{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin:8px 0}
+  .years div{border:2px solid var(--line);border-radius:8px;padding:4px;text-align:center;font-size:13px;background:#fffbe6}
+  .years b{display:block;font-family:Jua,sans-serif;font-size:18px;font-weight:400}
+  .big{font-family:Jua,sans-serif;font-size:22px;color:var(--red)}
+</style>
 </head>
 <body>
 <div class="wrap">
@@ -18,11 +31,11 @@
   <header class="card">
     <div class="brand"><a href="../"><b>래래 뉴스툰</b> · 아침 만화 뉴스</a><span>2026.11.08 (일)</span></div>
     <span class="tag">⭐ 특별편 · ⚾ 야구 뉴스</span>
-    <h1>한국시리즈, 삼성이 <em>우승까지 1승!</em></h1>
-    <p class="sub">KT를 10-5로 꺾고 4차전까지 3승 1패!</p>
+    <h1>삼성 3승 1패! <em>역전은 가능할까?</em></h1>
+    <p class="sub">한국시리즈와 메이저리그 역사 속 '3승 1패'를 알아봐요</p>
   </header>
 
-  <section id="comic" aria-label="6컷 만화">
+  <section id="comic" aria-label="8컷 만화">
     <div class="comic-title">⭐ 에이든 & 라이언의 특별편 ⚡</div>
     <div id="panels"></div>
   </section>
@@ -31,10 +44,40 @@
   <section class="card">
     <h2><span class="chip">📰 뉴스 정리</span></h2>
     <ul class="facts">
-      <li>11월 7일 대구에서 열린 한국시리즈 4차전에서 <b>삼성이 KT를 10-5</b>로 이겼어요.</li>
-      <li>삼성은 1회말에만 <b>6점</b>을 내며 초반부터 경기를 이끌었어요.</li>
-      <li>한국시리즈는 <b>먼저 4승</b>을 하면 우승하는 7전 4선승제예요. 삼성은 <b>3승 1패</b>라 남은 경기에서 <b>1승</b>만 더 하면 우승해요.</li>
+      <li>11월 7일 대구에서 열린 한국시리즈 4차전에서 <b>삼성이 KT를 10-5</b>로 이겼어요. KT가 1회초 홈런으로 먼저 1점을 냈지만, 삼성이 1회말에만 <b>6점</b>을 내며 뒤집었어요.</li>
+      <li>삼성은 1차전을 졌지만 2·3·4차전을 연달아 이겨 <b>3승 1패</b>가 됐어요. 오늘(8일) 5차전을 이기면 <b>2014년 이후 12년 만의 우승</b>이에요.</li>
+      <li>KT는 정규시즌 <b>1위</b> 팀이고, 삼성은 플레이오프를 거쳐 올라왔어요. 삼성이 우승하면 아래 팀이 1위 팀을 꺾는 <b>'업셋'</b>이 돼요.</li>
+      <li>이날 경기도 2만 3550석이 모두 팔려, 한국시리즈 <b>25경기 연속 매진</b> 기록이 이어졌어요.</li>
     </ul>
+  </section>
+
+  <section class="card">
+    <h2><span class="chip">📊 역사 속 3승 1패</span></h2>
+
+    <div class="hist">
+      <h3>🇰🇷 한국시리즈 (1982년~)</h3>
+      <p>2013년 전까지 <b>1승 3패로 몰린 팀은 13번 모두 우승을 놓쳤어요.</b></p>
+      <p>그런데 <b>2013년 삼성</b>이 처음으로 역사를 바꿨어요!</p>
+      <div class="series">
+        <span class="l">1차전 패</span><span class="w">2차전 승</span><span class="l">3차전 패</span><span class="l">4차전 패</span>
+        <span class="w">5차전 승</span><span class="w">6차전 승</span><span class="w">7차전 승 7-3</span>
+      </div>
+      <p>상대는 두산. 1승 3패에서 5·6·7차전을 모두 이겨 <b>4승 3패로 역전 우승</b>했어요. 이 우승으로 삼성은 <b>사상 첫 3년 연속 통합 우승</b>을 해냈고, MVP는 박한이 선수였어요.</p>
+      <p>👉 1승 3패를 뒤집은 팀은 <b>지금까지 2013년 삼성 딱 한 팀</b>이에요. 그 팀이 바로 지금 3승 1패로 앞선 삼성이라니, 신기하죠?</p>
+      <p>또 한국시리즈에서 <b>1차전을 지고 2~4차전을 이긴 팀은 6번 모두 우승</b>했어요. 올해 삼성이 바로 그 상황이에요!</p>
+    </div>
+
+    <div class="hist">
+      <h3>🇺🇸 메이저리그 월드시리즈</h3>
+      <p>1승 3패에서 뒤집고 우승한 팀은 <span class="big">6번</span> 있었어요.</p>
+      <div class="years">
+        <div><b>1925</b>피츠버그</div><div><b>1958</b>뉴욕 양키스</div><div><b>1968</b>디트로이트</div>
+        <div><b>1979</b>피츠버그</div><div><b>1985</b>캔자스시티</div><div><b>2016</b>시카고 컵스</div>
+      </div>
+      <p>⭐ 피츠버그는 <b>두 번</b>이나 뒤집었고, 세인트루이스는 1968·1985년 <b>두 번</b> 역전을 당했어요.</p>
+      <p>⭐ <b>2016년 시카고 컵스</b>는 1승 3패를 뒤집고, 7차전 연장 10회에 8-7로 이겨 <b>108년 만에</b> 우승했어요!</p>
+      <p>🔥 보너스: <b>2004년 보스턴 레드삭스</b>는 포스트시즌 7전 4선승제 시리즈에서 <b>0승 3패</b>를 뒤집었어요. 메이저리그에서 단 한 번뿐인 기록이에요.</p>
+    </div>
   </section>
 
   <section class="card">
@@ -43,14 +86,28 @@
       <div class="no">도감<b>No.005</b></div>
       <div class="body">
         <div class="name">4선승제 <span class="type" style="background:#e8443a">야구 타입</span></div>
-        <p>먼저 4번 이기는 팀이 우승하는 방식. 7경기까지 갈 수 있어서 마지막까지 어떻게 될지 몰라요!</p>
+        <p>먼저 4번 이기는 팀이 우승하는 방식. 최대 7경기까지 해서 '7전 4선승제'라고 불러요.</p>
       </div>
     </div>
     <div class="dex">
       <div class="no" style="background:var(--blue)">도감<b>No.006</b></div>
       <div class="body">
         <div class="name">빅이닝 <span class="type" style="background:#5b6bd6">타격 타입</span></div>
-        <p>한 이닝에 점수를 크게 내는 것. 오늘은 삼성이 1회에 6점을 낸 빅이닝이었어요.</p>
+        <p>한 이닝에 점수를 크게 내는 것. 4차전 삼성의 1회말 6점이 바로 빅이닝!</p>
+      </div>
+    </div>
+    <div class="dex">
+      <div class="no" style="background:#7b4fd6">도감<b>No.007</b></div>
+      <div class="body">
+        <div class="name">리버스 스윕 <span class="type" style="background:#e64980">역전 타입</span></div>
+        <p>시리즈에서 몰린 팀이 남은 경기를 모두 이겨 뒤집는 것. 2013년 삼성, 2016년 컵스가 해냈어요.</p>
+      </div>
+    </div>
+    <div class="dex">
+      <div class="no" style="background:#2e9d5b">도감<b>No.008</b></div>
+      <div class="body">
+        <div class="name">업셋 <span class="type" style="background:#f08c00">이변 타입</span></div>
+        <p>순위가 낮거나 약하다고 여겨진 팀이 강한 팀을 이기는 것. 영어로 '뒤집다'라는 뜻이에요.</p>
       </div>
     </div>
   </section>
@@ -58,22 +115,27 @@
   <section class="card">
     <h2><span class="chip">🔭 한 걸음 더</span><span style="font-size:14px;color:var(--muted)">6학년 도전</span></h2>
     <div class="step">
-      7전 4선승제에서 이기려면 4승이 필요해요. 몇 경기를 해야 우승이 정해질까요?
-      <span class="calc">가장 빨리: 4승 0패 → 4경기</span>
-      <span class="calc">가장 늦게: 3승 3패 뒤 마지막 경기 → 7경기</span>
-      3승 1패에서 삼성이 1승만 더 하면 끝! 반대로 KT는 <b>남은 경기를 모두 이겨야</b> 해요(3연승).
+      KT가 우승하려면 남은 3경기를 <b>모두</b> 이겨야 해요. 매 경기 이길 확률이 동전 던지기처럼 <b>반반(1/2)</b>이라면?
+      <span class="calc">1/2 × 1/2 × 1/2 = 1/8 = 12.5%</span>
+      그런데 실제 한국시리즈 역사는 더 냉정해요. 2013년까지 1승 3패 팀은 <b>14번 중 1번</b>만 뒤집었어요.
+      <span class="calc">1 ÷ 14 ≈ 0.07 → 약 7%</span>
+      계산(12.5%)보다 실제(약 7%)가 더 낮은 이유는 뭘까요? 3승 1패까지 온 팀은 보통 <b>더 강한 팀</b>이라서, 매 경기 반반이 아니기 때문이에요.
     </div>
   </section>
 
   <section class="card">
     <h2><span class="chip">❓ 오늘의 퀴즈</span></h2>
     <details>
-      <summary><span class="lv lv4">4학년</span>삼성이 1회에 낸 점수는 몇 점일까요?<span class="hint">① 2점 ② 4점 ③ 6점 ④ 10점 — 눌러서 정답 확인</span></summary>
-      <div class="answer">정답은 <b>③ 6점</b>! 이렇게 크게 점수를 내는 걸 빅이닝이라고 해요.</div>
+      <summary><span class="lv lv4">4학년</span>한국시리즈에서 1승 3패를 뒤집고 우승한 유일한 팀은?<span class="hint">① 두산(2013) ② 삼성(2013) ③ KT(2021) — 눌러서 정답 확인</span></summary>
+      <div class="answer">정답은 <b>② 2013년 삼성</b>! 두산을 상대로 5·6·7차전을 모두 이겼어요.</div>
     </details>
     <details>
-      <summary><span class="lv lv6">6학년</span>3승 1패인 팀이 우승하려면 최소 몇 승이 더 필요할까요? 지고 있는 팀은 우승하려면 몇 번을 연속으로 이겨야 할까요?<span class="hint">눌러서 정답 확인</span></summary>
-      <div class="answer">정답은 <b>1승</b>, 그리고 <b>3연승</b>! 4승이 필요한데 지고 있는 팀은 1승뿐이거든요.</div>
+      <summary><span class="lv lv4">4학년</span>2016년 시카고 컵스는 몇 년 만에 월드시리즈 우승을 했을까요?<span class="hint">① 18년 ② 58년 ③ 108년 — 눌러서 정답 확인</span></summary>
+      <div class="answer">정답은 <b>③ 108년</b>! 그것도 1승 3패를 뒤집은 역전 우승이었어요.</div>
+    </details>
+    <details>
+      <summary><span class="lv lv6">6학년</span>매 경기 이길 확률이 반반일 때, 한 팀이 3경기를 연달아 이길 확률은 몇 %일까요?<span class="hint">눌러서 정답 확인</span></summary>
+      <div class="answer">정답은 <b>12.5%</b>! 1/2를 세 번 곱하면 1/8이에요.</div>
     </details>
   </section>
 
@@ -87,9 +149,13 @@
   </section>
 
   <section class="card src">
-    출처: <a href="https://www.insight.co.kr/news/581063">인사이트</a> ·
-    <a href="https://m.sedaily.com/article/20111468">서울경제</a> ·
-    <a href="https://www.osen.co.kr/article/G1112906084">OSEN</a><br>
+    출처: <a href="https://biz.heraldcorp.com/article/10929297">헤럴드경제 (4차전)</a> ·
+    <a href="https://www.insight.co.kr/news/581063">인사이트 (4차전)</a> ·
+    <a href="https://www.seoul.co.kr/news/sport/baseball/2013/11/02/20131102800008">서울신문 (2013 역전)</a> ·
+    <a href="https://www.hankyung.com/article/2013110156701">한국경제 (2013 역전)</a> ·
+    <a href="https://www.sportsseoul.com/news/read/1369670">스포츠서울 (1승3패 역전 유일)</a> ·
+    <a href="https://en.wikipedia.org/wiki/List_of_teams_that_have_overcome_3%E2%80%931_series_deficits">3-1 역전 목록 (위키백과)</a> ·
+    <a href="https://www.mlb.com/news/cubs-complete-historic-world-series-comeback-c207973266">MLB.com (2016 컵스)</a><br>
     에이든, 라이언, 피카는 래래 뉴스툰의 오리지널 캐릭터예요.
   </section>
 
@@ -97,43 +163,71 @@
 </div>
 
 <script>
-const field = (sky_='#bfe3ff') => `<rect width="400" height="300" fill="${sky_}"/><path d="M 0 200 Q 200 170 400 200 V 300 H 0 Z" fill="#4caf50" stroke="${INK}" stroke-width="3"/>`;
+const field = (top = '#bfe3ff') => `<rect width="400" height="300" fill="${top}"/><path d="M 0 214 Q 200 186 400 214 V 300 H 0 Z" fill="#4caf50" stroke="${INK}" stroke-width="3"/>`;
+/* 전광판: rows = [[글자, 색], ...] */
+function board(x, y, w, h, title, rows, fs) {
+  fs = fs || 17;
+  const gap = (h - 50) / rows.length;
+  return `<rect x="${x}" y="${y}" width="${w}" height="${h}" rx="8" fill="#1f4d3a" ${S}/>
+    <text x="${x + w / 2}" y="${y + 30}" font-family="Jua" font-size="${fs + 3}" text-anchor="middle" fill="#ffe14d">${title}</text>
+    <line x1="${x + 10}" y1="${y + 42}" x2="${x + w - 10}" y2="${y + 42}" stroke="#3c7a5e" stroke-width="2"/>` +
+    rows.map((r, i) => `<text x="${x + 16}" y="${y + 42 + gap * (i + .5) + fs * .35}" font-family="Jua" font-size="${fs}" fill="${r[1] || '#fff'}">${r[0]}</text>`).join('');
+}
+const W = '#7ec8ff', L = '#9aa5a0', G = '#ffe14d';
+
 renderPanels([
   { // 1. 도입
-    svg: field() + aiden({ x: 110, y: 190, s: .85, expr: 'talk' }) + ryan({ x: 240, y: 196, s: .8, expr: 'wow', flip: true }),
-    html: `<div class="nar" style="left:2%;top:2.5%">일요일 아침, 거실에서</div>
-      <div class="b t-br" style="left:44%;top:14%;width:52%">형! 어제 삼성 이겼대!</div>`
+    svg: field() + aiden({ x: 112, y: 192, s: .85, expr: 'talk' }) + ryan({ x: 252, y: 198, s: .8, expr: 'sad', flip: true }),
+    html: `<div class="b t-br" style="left:46%;top:3%;width:50%">우리 KT가 10-5로 졌어… 😢</div>
+      <div class="b box t-bl" style="left:2%;top:19%;width:46%">삼성이 3승 1패네. 오늘 지면 끝이야.</div>`
   },
-  { // 2. 피카 등장
-    svg: field('#ffe9a8') + fx('뿅!', 320, 110, 46, 12) + pika({ x: 318, y: 220, s: 1.05, pose: 'explain', flip: true }) + baseball(90, 150, 22),
-    html: `<div class="nar" style="left:2%;top:2.5%;width:62%">한국시리즈 4차전, 삼성 대 KT!</div>
-      <div class="b box t-r" style="left:3%;top:68%;width:58%">해설 몬스터 피카 등장! 10-5로 삼성이 이겼어!</div>`
+  { // 2. 시리즈 전광판
+    svg: field('#ffe9a8') + board(16, 22, 250, 186, '2026 한국시리즈', [
+      ['1차전  KT 승', L], ['2차전  삼성 승', W], ['3차전  삼성 승', W], ['4차전  삼성 승 (10-5)', G]]) +
+      fx('뿅!', 338, 92, 42, 12) + pika({ x: 334, y: 196, s: .95, pose: 'explain', flip: true }),
+    html: `<div class="b box t-r" style="left:3%;top:73%;width:66%">1차전 지고 3연승한 팀은 6번 모두 우승했대!</div>`
   },
-  { // 3. 핵심 사실
-    svg: `<rect width="400" height="300" fill="#f4f8ff"/>
-      <text x="200" y="70" font-family="Jua" font-size="30" text-anchor="middle" fill="#2f6fde">삼성 3승 1패</text>
-      <text x="200" y="116" font-family="Jua" font-size="22" text-anchor="middle" fill="${INK}">1회에 6점!</text>` +
-      pika({ x: 70, y: 252, s: .82, pose: 'explain' }) + ryan({ x: 335, y: 240, s: .62, expr: 'think', flip: true }),
-    html: `<div class="b box t-l" style="left:28%;top:56%;width:46%">먼저 4승 하면 우승! 이제 1승 남았어!</div>`
+  { // 3. 질문
+    svg: `<rect width="400" height="300" fill="#efe7ff"/>` + fx('역사 여행 출발!', 200, 62, 30, -4, '#fff') +
+      ryan({ x: 104, y: 206, s: .78, expr: 'sad' }) + pika({ x: 306, y: 222, s: .85, pose: 'explain', flip: true }),
+    html: `<div class="b box t-bl" style="left:2%;top:29%;width:44%">피카야… KT는 이제 끝난 거야?</div>
+      <div class="b box t-br" style="left:52%;top:31%;width:45%">울지 마! 역사 속 3승 1패를 보러 가자!</div>`
   },
-  { // 4. 야구 비유
-    svg: field() + `<rect x="150" y="150" width="14" height="14" fill="#fff" transform="rotate(45 157 157)" stroke="${INK}" stroke-width="2"/>` +
-      aiden({ x: 108, y: 190, s: .85, expr: 'talk', pose: 'pitch' }) + pika({ x: 340, y: 240, s: .62, expr: 'wow', flip: true }),
-    html: `<div class="b box t-bl" style="left:2%;top:2.5%;width:52%">1회에 6점이면 선발 투수는 마음이 편하겠다!</div>
-      <div class="b shout t-r" style="left:48%;top:58%;width:42%">빅이닝!</div>`
+  { // 4. 2013년
+    svg: `<rect width="400" height="300" fill="#f3e2c0"/>` + board(14, 44, 272, 196, '2013 삼성 vs 두산', [
+      ['1~4차전  두산 3승 1패', L], ['5차전  삼성 승', W], ['6차전  삼성 승', W], ['7차전  삼성 승 (7-3)', W]], 16) +
+      pika({ x: 348, y: 238, s: .58, expr: 'wow', flip: true }),
+    html: `<div class="nar" style="left:2%;top:2.5%;width:66%">2013년 한국시리즈 (13년 전)</div>
+      <div class="b shout t-r" style="left:30%;top:82%;width:52%">1승 3패를 뒤집었어!</div>`
   },
-  { // 5. 놀라운 포인트
-    svg: `<rect width="400" height="300" fill="#fff3d6"/>
-      <text x="200" y="90" font-family="Jua" font-size="26" text-anchor="middle" fill="${INK}">KT가 우승하려면?</text>
-      <text x="200" y="150" font-family="Jua" font-size="40" text-anchor="middle" fill="#e8443a">3연승!</text>` +
-      ryan({ x: 90, y: 262, s: .6, expr: 'wow' }),
-    html: `<div class="b shout t-l" style="left:35%;top:70%;width:58%">아직 모르는 거네?!</div>`
+  { // 5. 확률
+    svg: `<rect width="400" height="300" fill="#fff"/>
+      <text x="200" y="48" font-family="Jua" font-size="20" text-anchor="middle" fill="${INK}">2013년까지 1승 3패로 몰린 팀</text>
+      <text x="200" y="100" font-family="Jua" font-size="38" text-anchor="middle" fill="#e8443a">14번 중 1번만 역전!</text>
+      <text x="200" y="130" font-family="Jua" font-size="15" text-anchor="middle" fill="#6b6658">(그 1번이 2013년 삼성)</text>` +
+      ryan({ x: 84, y: 254, s: .58, expr: 'wow' }) + aiden({ x: 320, y: 256, s: .58, expr: 'talk', flip: true }),
+    html: `<div class="b shout t-bl" style="left:2%;top:52%;width:44%">그래도 0번은 아니잖아!</div>
+      <div class="b box t-br" style="left:50%;top:52%;width:48%">맞아, 기적은 진짜 있었어!</div>`
   },
-  { // 6. 마무리
+  { // 6. 메이저리그
+    svg: `<rect width="400" height="300" fill="#dbeeff"/>` + board(14, 46, 272, 170, '월드시리즈 1승 3패 역전', [
+      ['1925  1958  1968', '#fff'], ['1979  1985  2016', '#fff'], ['모두 6번!', G]], 18) +
+      pika({ x: 348, y: 236, s: .58, pose: 'explain', flip: true }),
+    html: `<div class="nar" style="left:2%;top:2.5%;width:70%">미국 메이저리그에서는?</div>
+      <div class="b box t-r" style="left:3%;top:76%;width:68%">2016년 컵스는 108년 만에 우승했어!</div>`
+  },
+  { // 7. 교훈
+    svg: field() + aiden({ x: 108, y: 206, s: .8, expr: 'talk', pose: 'pitch' }) + ryan({ x: 296, y: 212, s: .72, expr: 'happy', flip: true }),
+    html: `<div class="nar" style="left:2%;top:2.5%;width:84%">보너스! 2004년 보스턴은 0승 3패도 뒤집었어!</div>
+      <div class="b box t-bl" style="left:2%;top:19%;width:44%">마지막 아웃까지 모르는 거야!</div>
+      <div class="b shout t-br" style="left:52%;top:20%;width:44%">KT도 할 수 있어!</div>`
+  },
+  { // 8. 마무리
     svg: field() + aiden({ x: 112, y: 196, s: .8, expr: 'happy', pose: 'wave' }) + ryan({ x: 228, y: 202, s: .76, expr: 'happy', pose: 'wave' }) +
-      pika({ x: 335, y: 240, s: .62, expr: 'happy', flip: true }),
-    html: `<div class="b shout t-bl" style="left:6%;top:4%;width:56%">다음 경기도 파이팅~!</div>
-      <div class="nar" style="left:2%;bottom:3%;width:70%">삼성이 1승을 더 하면 우승!</div>`
+      pika({ x: 336, y: 242, s: .62, expr: 'happy', flip: true }),
+    html: `<div class="b box t-bl" style="left:2%;top:4%;width:44%">어느 팀이 이기든 멋진 경기 보자!</div>
+      <div class="b shout t-br" style="left:50%;top:6%;width:46%">KT 파이팅! 6차전 가자!</div>
+      <div class="nar" style="left:2%;bottom:3%;width:74%">삼성이 이기면 12년 만의 우승! KT가 이기면 6차전으로!</div>`
   }
 ]);
 setupSave('2026-11-08-special');
