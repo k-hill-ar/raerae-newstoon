@@ -1,0 +1,385 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>래래 뉴스툰 11월 7일</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jua&family=Gowun+Dodum&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/html-to-image@1.11.11/dist/html-to-image.js"></script>
+<style>
+  :root{
+    --ink:#1d1d1f; --paper:#fffdf6; --bg:#f3efe4; --yellow:#ffe14d; --red:#e8443a;
+    --blue:#2f6fde; --green:#2e9d5b; --muted:#6b6658; --line:#1d1d1f;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:"Gowun Dodum",system-ui,sans-serif;line-height:1.6}
+  .wrap{max-width:560px;margin:0 auto;padding:16px}
+  .card{background:var(--paper);border:3px solid var(--line);border-radius:14px;padding:16px;margin-bottom:16px;box-shadow:4px 4px 0 var(--line)}
+  header.card{padding:14px 16px}
+  .brand{display:flex;justify-content:space-between;align-items:center;font-family:Jua,sans-serif;font-size:15px;color:var(--muted)}
+  .brand b{color:var(--red);font-weight:400;font-size:18px}
+  .tag{display:inline-block;background:var(--blue);color:#fff;border-radius:999px;padding:1px 10px;font-size:13px;font-family:Jua,sans-serif;margin-top:8px}
+  h1{font-family:Jua,sans-serif;font-weight:400;font-size:27px;line-height:1.3;margin:6px 0 2px}
+  h1 em{font-style:normal;background:linear-gradient(transparent 55%,var(--yellow) 55%)}
+  .sub{margin:0;color:var(--muted);font-size:14px}
+
+  /* 만화 */
+  #comic{background:var(--paper);border:3px solid var(--line);border-radius:14px;padding:10px;margin-bottom:16px;box-shadow:4px 4px 0 var(--line)}
+  .comic-title{font-family:Jua,sans-serif;text-align:center;font-size:20px;margin:2px 0 8px}
+  .panel{position:relative;aspect-ratio:4/3;border:3px solid var(--line);border-radius:6px;overflow:hidden;margin-bottom:10px;container-type:inline-size;background:#fff}
+  .panel:last-child{margin-bottom:0}
+  .panel svg{position:absolute;inset:0;width:100%;height:100%;display:block}
+  .num{position:absolute;right:6px;bottom:4px;font-family:Jua,sans-serif;font-size:3.6cqw;color:#fff;background:var(--line);border-radius:999px;padding:0 2.2cqw;z-index:3}
+  .b{position:absolute;z-index:2;background:#fff;border:2.5px solid var(--line);border-radius:999px;padding:1.6cqw 3.4cqw;
+     font-family:Jua,sans-serif;font-size:4.6cqw;line-height:1.3;text-align:center;word-break:keep-all}
+  .b.box{border-radius:3.5cqw}
+  .b.shout{background:var(--yellow);border-width:3px;font-size:5.6cqw;border-radius:2cqw;transform:rotate(-2deg)}
+  .b::after,.b::before{content:"";position:absolute;width:0;height:0;border-style:solid}
+  /* 말꼬리: 아래쪽 */
+  .t-bl::before{left:18%;bottom:-15px;border-width:15px 10px 0 4px;border-color:var(--line) transparent transparent transparent}
+  .t-bl::after{left:calc(18% + 2px);bottom:-10px;border-width:11px 7px 0 3px;border-color:#fff transparent transparent transparent}
+  .t-br::before{right:18%;bottom:-15px;border-width:15px 4px 0 10px;border-color:var(--line) transparent transparent transparent}
+  .t-br::after{right:calc(18% + 2px);bottom:-10px;border-width:11px 3px 0 7px;border-color:#fff transparent transparent transparent}
+  .shout.t-bl::after,.shout.t-br::after{border-top-color:var(--yellow)}
+  .t-l::before{left:-15px;top:40%;border-width:5px 15px 9px 0;border-color:transparent var(--line) transparent transparent}
+  .t-l::after{left:-10px;top:calc(40% + 2px);border-width:3px 11px 6px 0;border-color:transparent #fff transparent transparent}
+  .t-r::before{right:-15px;top:40%;border-width:5px 0 9px 15px;border-color:transparent transparent transparent var(--line)}
+  .t-r::after{right:-10px;top:calc(40% + 2px);border-width:3px 0 6px 11px;border-color:transparent transparent transparent #fff}
+  .shout.t-l::after{border-right-color:var(--yellow)} .shout.t-r::after{border-left-color:var(--yellow)}
+  .nar{position:absolute;z-index:2;background:#fff6c2;border:2.5px solid var(--line);padding:1.2cqw 2.6cqw;font-family:"Gowun Dodum",sans-serif;font-weight:700;font-size:3.8cqw;line-height:1.35}
+
+  /* 본문 카드 */
+  h2{font-family:Jua,sans-serif;font-weight:400;font-size:21px;margin:0 0 10px;display:flex;align-items:center;gap:8px}
+  h2 .chip{background:var(--yellow);border:2px solid var(--line);border-radius:8px;padding:0 8px;font-size:15px}
+  .facts{margin:0;padding-left:20px}
+  .facts li{margin-bottom:6px}
+  .dex{display:flex;gap:12px;align-items:stretch;border:2.5px solid var(--line);border-radius:12px;overflow:hidden;margin-bottom:10px;background:#fff}
+  .dex:last-child{margin-bottom:0}
+  .dex .no{background:var(--red);color:#fff;font-family:Jua,sans-serif;display:flex;flex-direction:column;align-items:center;justify-content:center;min-width:76px;padding:8px;font-size:13px}
+  .dex .no b{font-weight:400;font-size:22px}
+  .dex .body{padding:8px 10px 8px 0}
+  .dex .name{font-family:Jua,sans-serif;font-size:19px}
+  .dex .type{display:inline-block;font-size:12px;border-radius:999px;padding:0 8px;margin-left:4px;color:#fff;vertical-align:2px}
+  .dex p{margin:2px 0 0;font-size:15px}
+  .step{background:#eef4ff;border-left:5px solid var(--blue);border-radius:8px;padding:10px 12px;font-size:15px}
+  .step .calc{font-family:Jua,sans-serif;font-size:17px;display:block;margin:6px 0}
+  details{border:2.5px solid var(--line);border-radius:12px;padding:10px 12px;margin-bottom:10px;background:#fff}
+  details:last-child{margin-bottom:0}
+  summary{cursor:pointer;font-family:Jua,sans-serif;font-size:17px;list-style:none}
+  summary::-webkit-details-marker{display:none}
+  summary .lv{display:inline-block;font-size:12px;color:#fff;border-radius:999px;padding:0 8px;margin-right:6px;vertical-align:2px}
+  .lv4{background:var(--red)} .lv6{background:var(--blue)}
+  summary .hint{display:block;font-family:"Gowun Dodum",sans-serif;font-size:13px;color:var(--muted)}
+  details[open] summary .hint{display:none}
+  .answer{margin-top:8px;padding-top:8px;border-top:2px dashed #ccc;font-size:15px}
+  .answer b{color:var(--red)}
+  .btns{display:flex;gap:8px;flex-wrap:wrap}
+  button{font-family:Jua,sans-serif;font-size:16px;border:2.5px solid var(--line);background:var(--yellow);border-radius:10px;padding:8px 14px;cursor:pointer;box-shadow:3px 3px 0 var(--line);color:var(--ink)}
+  button:active{transform:translate(2px,2px);box-shadow:1px 1px 0 var(--line)}
+  button.alt{background:#fff}
+  .src{font-size:13px;color:var(--muted)}
+  .src a{color:var(--muted);word-break:break-all}
+  .status{font-size:13px;color:var(--muted);margin-top:8px;min-height:1em}
+  footer{text-align:center;font-size:12px;color:var(--muted);padding:4px 0 24px}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div id="capture">
+  <header class="card">
+    <div class="brand"><span><b>래래 뉴스툰</b> · 아침 만화 뉴스</span><span>2026.11.07 (토)</span></div>
+    <span class="tag">🚀 우주 뉴스</span>
+    <h1>보이저 1호, <em>빛으로 '하루'</em> 걸리는 곳에 가다!</h1>
+    <p class="sub">49년째 날아가는 탐사선이 11월 18일 큰 기록을 세워요</p>
+  </header>
+
+  <section id="comic" aria-label="6컷 만화">
+    <div class="comic-title">⚾ 준 & 율의 우주 뉴스 ⚡</div>
+    <div id="panels"></div>
+  </section>
+  </div>
+
+  <section class="card">
+    <h2><span class="chip">📰 뉴스 정리</span></h2>
+    <ul class="facts">
+      <li><b>보이저 1호</b>는 1977년 9월 미국 NASA가 쏘아 올린 무인 탐사선이에요. 지금 사람이 만든 물건 중 <b>지구에서 가장 멀리</b> 있어요.</li>
+      <li>NASA에 따르면 <b>2026년 11월 18일</b>, 보이저 1호와 지구 사이가 <b>약 259억 km</b>가 돼요. 세상에서 가장 빠른 빛도 <b>꼬박 하루(24시간)</b> 달려야 닿는 거리예요.</li>
+      <li>그래서 지구에서 명령을 보내고 대답을 받으려면 <b>최소 이틀</b>이 걸려요. 쌍둥이 탐사선 보이저 2호는 <b>2035년쯤</b> 같은 거리에 도착할 예정이에요.</li>
+    </ul>
+  </section>
+
+  <section class="card">
+    <h2><span class="chip">📖 뉴스 도감</span></h2>
+    <div class="dex">
+      <div class="no">도감<b>No.001</b></div>
+      <div class="body">
+        <div class="name">광일 <span class="type" style="background:#f2b705">빛 타입</span></div>
+        <p>빛이 하루 동안 달리는 거리. 약 259억 km예요. 빛은 1초에 지구를 7바퀴 반이나 돌 만큼 빨라요!</p>
+      </div>
+    </div>
+    <div class="dex">
+      <div class="no" style="background:var(--blue)">도감<b>No.002</b></div>
+      <div class="body">
+        <div class="name">탐사선 <span class="type" style="background:#5b6bd6">우주 타입</span></div>
+        <p>사람 대신 우주로 날아가 사진을 찍고 정보를 모아 보내는 기계. 보이저는 목성·토성 사진을 처음 자세히 보내 줬어요.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2><span class="chip">🔭 한 걸음 더</span><span style="font-size:14px;color:var(--muted)">6학년 도전</span></h2>
+    <div class="step">
+      빛은 1초에 약 30만 km를 가요. 하루는 몇 초일까요?
+      <span class="calc">24시간 × 60분 × 60초 = 86,400초</span>
+      <span class="calc">30만 km × 86,400초 ≈ 259억 km</span>
+      그래서 '빛으로 하루' 거리는 약 259억 km! 야구공을 시속 150km로 던지면 이 거리를 가는 데 <b>약 2만 년</b>이 걸려요.
+    </div>
+  </section>
+
+  <section class="card">
+    <h2><span class="chip">❓ 오늘의 퀴즈</span></h2>
+    <details>
+      <summary><span class="lv lv4">4학년</span>11월 18일, 지구에서 출발한 빛이 보이저 1호까지 가는 데 얼마나 걸릴까요?<span class="hint">① 1분 ② 1시간 ③ 1일 ④ 1년 — 눌러서 정답 확인</span></summary>
+      <div class="answer">정답은 <b>③ 1일</b>! 그래서 '빛으로 하루' 거리라고 불러요.</div>
+    </details>
+    <details>
+      <summary><span class="lv lv6">6학년</span>보이저 1호에 "사진 찍어!"라고 명령하고, 사진을 받아 보려면 최소 며칠을 기다려야 할까요?<span class="hint">눌러서 정답 확인</span></summary>
+      <div class="answer">정답은 <b>최소 2일</b>! 명령이 가는 데 하루, 사진이 돌아오는 데 하루가 걸려요.</div>
+    </details>
+  </section>
+
+  <section class="card">
+    <h2><span class="chip">💾 저장하기</span></h2>
+    <div class="btns">
+      <button type="button" id="saveComic">🖼️ 만화만 이미지로 저장</button>
+      <button type="button" class="alt" id="saveAll">📄 전체 페이지 저장</button>
+    </div>
+    <div class="status" id="status"></div>
+  </section>
+
+  <section class="card src">
+    출처: <a href="https://earthsky.org/space/voyager-1-1-light-day-from-earth-november-17-18-2026/">EarthSky</a> ·
+    <a href="https://iflscience.com/its-official-voyager-1-will-cross-the-1-light-day-threshold-on-november-18-2026-82733">IFLScience</a> ·
+    <a href="https://www.nasa.gov/mission/voyager/">NASA Voyager</a><br>
+    등장인물과 꼬미는 래래 뉴스툰의 오리지널 캐릭터예요.
+  </section>
+
+  <footer>래래 뉴스툰 · 매일 아침 하나의 뉴스</footer>
+</div>
+
+<script>
+/* ---------- 그림 도구 ---------- */
+const INK = '#1d1d1f', SKIN = '#ffd9b8';
+const S = 'stroke="' + INK + '" stroke-width="3" stroke-linejoin="round"';
+
+function arm(x1, y1, x2, y2, color) {
+  return `<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="${INK}" stroke-width="15" stroke-linecap="round"/>
+          <line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="${color}" stroke-width="9" stroke-linecap="round"/>
+          <circle cx="${x2}" cy="${y2}" r="8" fill="${SKIN}" ${S}/>`;
+}
+function baseball(x, y, r) {
+  return `<circle cx="${x}" cy="${y}" r="${r}" fill="#fff" ${S}/>
+          <path d="M ${x - r * .55} ${y - r * .7} Q ${x - r * .1} ${y} ${x - r * .55} ${y + r * .7}" stroke="#e8443a" stroke-width="2" fill="none"/>
+          <path d="M ${x + r * .55} ${y - r * .7} Q ${x + r * .1} ${y} ${x + r * .55} ${y + r * .7}" stroke="#e8443a" stroke-width="2" fill="none"/>`;
+}
+
+/* 준(형)과 율(동생) */
+function kid(o) {
+  const f = o.flip ? -1 : 1, s = o.s || 1, big = o.big ? 1.25 : 1;
+  const jersey = o.jersey, cap = o.cap;
+  let arms = '';
+  if (o.pose === 'point') arms = arm(-24, 52, -36, 96, jersey) + arm(24, 52, 54, -6, jersey);
+  else if (o.pose === 'wave') arms = arm(-24, 52, -56, 4, jersey) + arm(24, 52, 56, 4, jersey);
+  else if (o.pose === 'pitch') arms = arm(24, 52, 44, 92, jersey) + arm(-24, 52, -66, 18, jersey) + baseball(-74, 8, 10);
+  else arms = arm(-24, 52, -36, 96, jersey) + arm(24, 52, 36, 96, jersey);
+
+  const ex = 4; // 바라보는 방향으로 눈 이동
+  let eyes, mouth, extra = '';
+  const eye = (x) => `<ellipse cx="${x + ex}" cy="8" rx="${4.2 * big}" ry="${6.2 * big}" fill="${INK}"/><circle cx="${x + ex + 1.5}" cy="${5.5}" r="${1.8 * big}" fill="#fff"/>`;
+  switch (o.expr) {
+    case 'wow':
+      eyes = [-13, 13].map(x => `<circle cx="${x + ex}" cy="7" r="${8 * big}" fill="#fff" ${S}/><circle cx="${x + ex}" cy="8" r="${2.6 * big}" fill="${INK}"/>`).join('');
+      mouth = `<ellipse cx="${ex}" cy="27" rx="7" ry="9" fill="#a8322c" ${S}/>`;
+      extra = `<path d="M 44 -30 L 52 -42 M 50 -22 L 62 -28 M 40 -38 L 42 -52" stroke="${INK}" stroke-width="3" stroke-linecap="round"/>`;
+      break;
+    case 'happy':
+      eyes = [-13, 13].map(x => `<path d="M ${x + ex - 6} 10 Q ${x + ex} 0 ${x + ex + 6} 10" stroke="${INK}" stroke-width="3.5" fill="none" stroke-linecap="round"/>`).join('');
+      mouth = `<path d="M ${ex - 12} 20 Q ${ex} 38 ${ex + 12} 20 Z" fill="#a8322c" ${S}/>`;
+      break;
+    case 'talk':
+      eyes = eye(-13) + eye(13);
+      mouth = `<path d="M ${ex - 9} 21 Q ${ex} 33 ${ex + 9} 21 Z" fill="#a8322c" ${S}/>`;
+      break;
+    case 'think':
+      eyes = eye(-13) + eye(13);
+      mouth = `<path d="M ${ex - 6} 25 L ${ex + 6} 23" stroke="${INK}" stroke-width="3" stroke-linecap="round"/>`;
+      break;
+    default:
+      eyes = eye(-13) + eye(13);
+      mouth = `<path d="M ${ex - 9} 22 Q ${ex} 30 ${ex + 9} 22" stroke="${INK}" stroke-width="3" fill="none" stroke-linecap="round"/>`;
+  }
+  const numX = f === 1 ? -12 : 12;
+  return `<g transform="translate(${o.x},${o.y}) scale(${f * s},${s})">
+    <rect x="-22" y="100" width="18" height="44" rx="6" fill="#d9d4c7" ${S}/>
+    <rect x="4" y="100" width="18" height="44" rx="6" fill="#d9d4c7" ${S}/>
+    <rect x="-29" y="38" width="58" height="70" rx="18" fill="${jersey}" ${S}/>
+    <path d="M -12 42 V 104 M 12 42 V 104" stroke="#fff" stroke-width="2" opacity=".55"/>
+    <path d="M -10 38 L 0 50 L 10 38" fill="#fff" ${S}/>
+    ${arms}
+    <circle cx="0" cy="0" r="38" fill="${SKIN}" ${S}/>
+    <path d="M -38 -2 Q -44 16 -32 20 L -30 0 Z M 38 -2 Q 44 16 32 20 L 30 0 Z" fill="#3a2a1e"/>
+    <path d="M -39 -1 A 39 39 0 0 1 39 -1 Q 0 -9 -39 -1 Z" fill="${cap}" ${S}/>
+    <path d="M 8 -5 Q 46 -12 64 -1 Q 46 5 8 2 Z" fill="${cap}" ${S}/>
+    <text x="${numX}" y="-14" transform="scale(${f},1)" font-family="Jua" font-size="20" fill="#fff" text-anchor="middle">${o.num}</text>
+    <ellipse cx="${-22 + ex}" cy="20" rx="6" ry="3.5" fill="#ff8f8f" opacity=".7"/>
+    <ellipse cx="${22 + ex}" cy="20" rx="6" ry="3.5" fill="#ff8f8f" opacity=".7"/>
+    ${eyes}${mouth}${extra}
+  </g>`;
+}
+const jun = (o) => kid(Object.assign({ jersey: '#2f6fde', cap: '#1f4fa8', num: '6' }, o));
+const yul = (o) => kid(Object.assign({ jersey: '#e8443a', cap: '#b52b23', num: '4', big: true }, o));
+
+/* 꼬미: 오리지널 해설 몬스터 */
+function kkomi(o) {
+  const s = o.s || 1, f = o.flip ? -1 : 1;
+  const armUp = o.pose === 'explain'
+    ? `<ellipse cx="32" cy="-6" rx="7" ry="13" transform="rotate(35 32 -6)" fill="#ffd43b" ${S}/>`
+    : `<ellipse cx="31" cy="8" rx="7" ry="11" transform="rotate(-20 31 8)" fill="#ffd43b" ${S}/>`;
+  const mouth = o.expr === 'wow'
+    ? `<ellipse cx="0" cy="12" rx="6" ry="7" fill="#a8322c" ${S}/>`
+    : `<path d="M -8 9 Q -4 15 0 10 Q 4 15 8 9" stroke="${INK}" stroke-width="3" fill="none" stroke-linecap="round"/>`;
+  return `<g transform="translate(${o.x},${o.y}) scale(${f * s},${s})">
+    <path d="M -2 -28 L -12 -50 L 0 -47 L -7 -70 L 13 -42 L 1 -45 L 7 -28 Z" fill="#ffb800" ${S}/>
+    <circle cx="-25" cy="-20" r="11" fill="#ffd43b" ${S}/><circle cx="-25" cy="-20" r="5" fill="#ff9aa2"/>
+    <circle cx="25" cy="-20" r="11" fill="#ffd43b" ${S}/><circle cx="25" cy="-20" r="5" fill="#ff9aa2"/>
+    <ellipse cx="-13" cy="31" rx="10" ry="6" fill="#ffb800" ${S}/>
+    <ellipse cx="13" cy="31" rx="10" ry="6" fill="#ffb800" ${S}/>
+    <ellipse cx="-31" cy="8" rx="7" ry="11" transform="rotate(20 -31 8)" fill="#ffd43b" ${S}/>
+    ${armUp}
+    <circle cx="0" cy="0" r="31" fill="#ffd43b" ${S}/>
+    <ellipse cx="0" cy="14" rx="17" ry="12" fill="#fff3b0"/>
+    <ellipse cx="-11" cy="-5" rx="6" ry="8.5" fill="${INK}"/><circle cx="-9" cy="-8" r="2.6" fill="#fff"/>
+    <ellipse cx="11" cy="-5" rx="6" ry="8.5" fill="${INK}"/><circle cx="13" cy="-8" r="2.6" fill="#fff"/>
+    <circle cx="-21" cy="6" r="5" fill="#ff6b6b" opacity=".85"/><circle cx="21" cy="6" r="5" fill="#ff6b6b" opacity=".85"/>
+    ${mouth}
+  </g>`;
+}
+
+function voyager(x, y, s, rot) {
+  return `<g transform="translate(${x},${y}) rotate(${rot || 0}) scale(${s})">
+    <line x1="0" y1="10" x2="-70" y2="40" stroke="${INK}" stroke-width="3"/>
+    <line x1="0" y1="10" x2="60" y2="38" stroke="${INK}" stroke-width="3"/>
+    <rect x="52" y="32" width="14" height="10" fill="#c9c9c9" ${S}/>
+    <line x1="0" y1="10" x2="10" y2="-40" stroke="${INK}" stroke-width="2"/>
+    <rect x="-14" y="6" width="28" height="16" rx="2" fill="#e0a800" ${S}/>
+    <path d="M -36 -6 Q 0 26 36 -6 Z" fill="#fff" ${S}/>
+    <ellipse cx="0" cy="-6" rx="36" ry="9" fill="#f2f2f2" ${S}/>
+    <line x1="0" y1="-6" x2="0" y2="-22" stroke="${INK}" stroke-width="3"/>
+    <circle cx="0" cy="-23" r="3" fill="${INK}"/>
+  </g>`;
+}
+function earth(x, y, r) {
+  return `<g><circle cx="${x}" cy="${y}" r="${r}" fill="#3d8bfd" ${S}/>
+    <path d="M ${x - r * .6} ${y - r * .3} q ${r * .3} ${-r * .4} ${r * .6} ${-r * .1} q ${r * .1} ${r * .4} ${-r * .3} ${r * .5} q ${-r * .3} 0 ${-r * .3} ${-r * .4} Z" fill="#43c463" stroke="${INK}" stroke-width="2"/>
+    <path d="M ${x + r * .1} ${y + r * .2} q ${r * .4} ${-r * .2} ${r * .6} ${r * .1} q ${-r * .1} ${r * .4} ${-r * .5} ${r * .3} Z" fill="#43c463" stroke="${INK}" stroke-width="2"/></g>`;
+}
+function stars(n, seed, h) {
+  let out = '', a = seed;
+  const rnd = () => (a = (a * 9301 + 49297) % 233280) / 233280;
+  for (let i = 0; i < n; i++) {
+    const x = rnd() * 400, y = rnd() * (h || 300), r = rnd() * 1.8 + .6;
+    out += `<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="${r.toFixed(1)}" fill="#fff" opacity="${(.5 + rnd() * .5).toFixed(2)}"/>`;
+  }
+  return out;
+}
+function fx(text, x, y, size, rot, color) {
+  return `<text x="${x}" y="${y}" transform="rotate(${rot} ${x} ${y})" font-family="Jua" font-size="${size}" fill="${color || '#ffe14d'}"
+    stroke="${INK}" stroke-width="5" paint-order="stroke" stroke-linejoin="round" text-anchor="middle">${text}</text>`;
+}
+const space = (seed) => `<defs><linearGradient id="sp${seed}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0b1236"/><stop offset="1" stop-color="#2a1f5c"/></linearGradient></defs>
+  <rect width="400" height="300" fill="url(#sp${seed})"/>${stars(60, seed)}`;
+
+/* ---------- 6컷 대본 ---------- */
+const panels = [
+  { // 1. 도입
+    svg: space(3) + `<rect x="0" y="252" width="400" height="48" fill="#3b3550"/><rect x="0" y="248" width="400" height="6" fill="${INK}"/>
+      <g transform="translate(330,200)"><line x1="0" y1="10" x2="-14" y2="50" stroke="${INK}" stroke-width="4"/><line x1="0" y1="10" x2="14" y2="50" stroke="${INK}" stroke-width="4"/>
+      <rect x="-30" y="-6" width="60" height="16" rx="4" transform="rotate(-30)" fill="#ddd" ${S}/></g>` +
+      jun({ x: 110, y: 168, s: .82, expr: 'talk' }) + yul({ x: 232, y: 176, s: .78, expr: 'talk', pose: 'point', flip: true }),
+    html: `<div class="nar" style="left:2%;top:2.5%">어젯밤, 옥상에서</div>
+      <div class="b t-br" style="left:44%;top:3%;width:52%">형! 하늘 끝에는 뭐가 있어?</div>
+      <div class="b box t-bl" style="left:2%;top:19%;width:46%">사람이 만든 것 중 제일 멀리 간 건 보이저 1호야!</div>`
+  },
+  { // 2. 꼬미 등장
+    svg: space(11) + voyager(130, 120, 1.35, -12) + fx('뿅!', 330, 120, 46, 12) + kkomi({ x: 318, y: 210, s: 1.05, pose: 'explain', flip: true }),
+    html: `<div class="nar" style="left:2%;top:2.5%;width:62%">1977년, 미국 NASA가 쏘아 올린 탐사선 <b>보이저 1호</b></div>
+      <div class="b box t-r" style="left:3%;top:70%;width:58%">해설 몬스터 꼬미 등장! 보이저는 49년째 날아가는 중이야!</div>`
+  },
+  { // 3. 핵심 사실
+    svg: `<rect width="400" height="300" fill="#f4f8ff"/>
+      ${earth(48, 70, 28)}${voyager(352, 70, .55, -10)}
+      <line x1="80" y1="70" x2="318" y2="70" stroke="#ffb800" stroke-width="8" stroke-dasharray="14 8"/>
+      <path d="M 318 70 l -16 -10 v 20 Z" fill="#ffb800" ${S}/>
+      <text x="200" y="50" font-family="Jua" font-size="20" text-anchor="middle" fill="${INK}">빛으로 꼬박 24시간!</text>
+      <text x="200" y="102" font-family="Jua" font-size="17" text-anchor="middle" fill="#2f6fde">약 259억 km</text>` +
+      kkomi({ x: 62, y: 248, s: .82, pose: 'explain' }) + yul({ x: 338, y: 236, s: .62, expr: 'think', flip: true }) +
+      fx('?', 300, 168, 40, -10, '#fff'),
+    html: `<div class="b box t-l" style="left:26%;top:52%;width:44%">11월 18일, 보이저가 '빛으로 하루' 거리에 도착해!</div>`
+  },
+  { // 4. 야구 비유
+    svg: `<rect width="400" height="300" fill="#bfe3ff"/><path d="M 0 210 Q 200 180 400 210 V 300 H 0 Z" fill="#4caf50" stroke="${INK}" stroke-width="3"/>
+      <path d="M 0 250 Q 200 225 400 250" stroke="#c98c4a" stroke-width="18" fill="none" opacity=".7"/>
+      ${[0, 1, 2, 3, 4].map(i => `<line x1="${170 + i * 6}" y1="${104 + i * 9}" x2="${250 + i * 6}" y2="${104 + i * 9}" stroke="${INK}" stroke-width="3" stroke-linecap="round" opacity=".6"/>`).join('')}
+      ${baseball(282, 120, 13)}` +
+      fx('시속 150km!', 300, 78, 30, -6, '#fff') +
+      jun({ x: 108, y: 160, s: .9, expr: 'talk', pose: 'pitch', flip: false }) + kkomi({ x: 350, y: 250, s: .62, expr: 'wow', flip: true }),
+    html: `<div class="b box t-bl" style="left:2%;top:2.5%;width:48%">내 강속구로 보이저까지 던지면?</div>
+      <div class="b shout t-r" style="left:42%;top:56%;width:42%">무려 2만 년!</div>`
+  },
+  { // 5. 놀라운 포인트
+    svg: space(27) + earth(56, 140, 34) + voyager(346, 140, .7, -8) +
+      `<path d="M 92 110 Q 200 50 312 110" stroke="#7ee3ff" stroke-width="4" fill="none" stroke-dasharray="10 7"/>
+      <path d="M 312 110 l -16 -2 l 9 -13 Z" fill="#7ee3ff"/>
+      <path d="M 312 172 Q 200 232 92 172" stroke="#ffe14d" stroke-width="4" fill="none" stroke-dasharray="10 7"/>
+      <path d="M 92 172 l 16 2 l -9 13 Z" fill="#ffe14d"/>
+      <text x="200" y="58" font-family="Jua" font-size="18" text-anchor="middle" fill="#7ee3ff">"사진 찍어!" ▶ 1일</text>
+      <text x="200" y="232" font-family="Jua" font-size="18" text-anchor="middle" fill="#ffe14d">◀ 사진 도착! 1일</text>` +
+      yul({ x: 46, y: 268, s: .5, expr: 'wow' }),
+    html: `<div class="b shout t-l" style="left:25%;top:80%;width:62%">대답 듣는 데 이틀이나?!</div>`
+  },
+  { // 6. 마무리
+    svg: space(41) + `<rect x="0" y="252" width="400" height="48" fill="#3b3550"/><rect x="0" y="248" width="400" height="6" fill="${INK}"/>` +
+      `<g opacity=".9">${voyager(330, 50, .35, -15)}</g>` +
+      jun({ x: 112, y: 176, s: .8, expr: 'happy', pose: 'wave' }) + yul({ x: 228, y: 182, s: .76, expr: 'happy', pose: 'wave' }) +
+      kkomi({ x: 335, y: 228, s: .62, expr: 'happy', flip: true }),
+    html: `<div class="b shout t-bl" style="left:6%;top:4%;width:56%">보이저야, 힘내라~!</div>
+      <div class="nar" style="left:2%;bottom:3%;width:70%">쌍둥이 보이저 2호는 2035년쯤 이 거리에 도착할 예정!</div>`
+  }
+];
+
+document.getElementById('panels').innerHTML = panels.map((p, i) =>
+  `<div class="panel"><svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">${p.svg}</svg>${p.html}<span class="num">${i + 1}</span></div>`
+).join('');
+
+/* ---------- 이미지 저장 ---------- */
+const status = document.getElementById('status');
+async function save(el, name) {
+  status.textContent = '이미지를 만드는 중…';
+  try {
+    if (!window.htmlToImage) throw new Error('저장 도구를 불러오지 못했어요');
+    const url = await htmlToImage.toPng(el, { pixelRatio: 2, backgroundColor: '#f3efe4' });
+    const a = document.createElement('a');
+    a.href = url; a.download = name; document.body.appendChild(a); a.click(); a.remove();
+    status.textContent = '저장했어요! 휴대폰은 다운로드 폴더나 사진첩을 확인하세요.';
+  } catch (e) {
+    status.textContent = '저장에 실패했어요. 화면을 캡처해서 보내 주세요. (' + e.message + ')';
+  }
+}
+document.getElementById('saveComic').onclick = () => save(document.getElementById('capture'), 'newstoon-2026-11-07.png');
+document.getElementById('saveAll').onclick = () => save(document.querySelector('.wrap'), 'newstoon-2026-11-07-full.png');
+</script>
+</body>
+</html>
