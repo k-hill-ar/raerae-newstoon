@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>래래 뉴스툰 11월 8일 특별편</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jua&family=Gowun+Dodum&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/newstoon.css">
+<script src="https://cdn.jsdelivr.net/npm/html-to-image@1.11.11/dist/html-to-image.js"></script>
+<script src="../assets/newstoon.js"></script>
+</head>
+<body>
+<div class="wrap">
+
+  <div id="capture">
+  <header class="card">
+    <div class="brand"><a href="../"><b>래래 뉴스툰</b> · 아침 만화 뉴스</a><span>2026.11.08 (일)</span></div>
+    <span class="tag">⭐ 특별편 · ⚾ 야구 뉴스</span>
+    <h1>한국시리즈, 삼성이 <em>우승까지 1승!</em></h1>
+    <p class="sub">KT를 10-5로 꺾고 4차전까지 3승 1패!</p>
+  </header>
+
+  <section id="comic" aria-label="6컷 만화">
+    <div class="comic-title">⭐ 에이든 & 라이언의 특별편 ⚡</div>
+    <div id="panels"></div>
+  </section>
+  </div>
+
+  <section class="card">
+    <h2><span class="chip">📰 뉴스 정리</span></h2>
+    <ul class="facts">
+      <li>11월 7일 대구에서 열린 한국시리즈 4차전에서 <b>삼성이 KT를 10-5</b>로 이겼어요.</li>
+      <li>삼성은 1회말에만 <b>6점</b>을 내며 초반부터 경기를 이끌었어요.</li>
+      <li>한국시리즈는 <b>먼저 4승</b>을 하면 우승하는 7전 4선승제예요. 삼성은 <b>3승 1패</b>라 남은 경기에서 <b>1승</b>만 더 하면 우승해요.</li>
+    </ul>
+  </section>
+
+  <section class="card">
+    <h2><span class="chip">📖 뉴스 도감</span></h2>
+    <div class="dex">
+      <div class="no">도감<b>No.005</b></div>
+      <div class="body">
+        <div class="name">4선승제 <span class="type" style="background:#e8443a">야구 타입</span></div>
+        <p>먼저 4번 이기는 팀이 우승하는 방식. 7경기까지 갈 수 있어서 마지막까지 어떻게 될지 몰라요!</p>
+      </div>
+    </div>
+    <div class="dex">
+      <div class="no" style="background:var(--blue)">도감<b>No.006</b></div>
+      <div class="body">
+        <div class="name">빅이닝 <span class="type" style="background:#5b6bd6">타격 타입</span></div>
+        <p>한 이닝에 점수를 크게 내는 것. 오늘은 삼성이 1회에 6점을 낸 빅이닝이었어요.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2><span class="chip">🔭 한 걸음 더</span><span style="font-size:14px;color:var(--muted)">6학년 도전</span></h2>
+    <div class="step">
+      7전 4선승제에서 이기려면 4승이 필요해요. 몇 경기를 해야 우승이 정해질까요?
+      <span class="calc">가장 빨리: 4승 0패 → 4경기</span>
+      <span class="calc">가장 늦게: 3승 3패 뒤 마지막 경기 → 7경기</span>
+      3승 1패에서 삼성이 1승만 더 하면 끝! 반대로 KT는 <b>남은 경기를 모두 이겨야</b> 해요(3연승).
+    </div>
+  </section>
+
+  <section class="card">
+    <h2><span class="chip">❓ 오늘의 퀴즈</span></h2>
+    <details>
+      <summary><span class="lv lv4">4학년</span>삼성이 1회에 낸 점수는 몇 점일까요?<span class="hint">① 2점 ② 4점 ③ 6점 ④ 10점 — 눌러서 정답 확인</span></summary>
+      <div class="answer">정답은 <b>③ 6점</b>! 이렇게 크게 점수를 내는 걸 빅이닝이라고 해요.</div>
+    </details>
+    <details>
+      <summary><span class="lv lv6">6학년</span>3승 1패인 팀이 우승하려면 최소 몇 승이 더 필요할까요? 지고 있는 팀은 우승하려면 몇 번을 연속으로 이겨야 할까요?<span class="hint">눌러서 정답 확인</span></summary>
+      <div class="answer">정답은 <b>1승</b>, 그리고 <b>3연승</b>! 4승이 필요한데 지고 있는 팀은 1승뿐이거든요.</div>
+    </details>
+  </section>
+
+  <section class="card">
+    <h2><span class="chip">💾 저장하기</span></h2>
+    <div class="btns">
+      <button type="button" id="saveComic">🖼️ 만화만 이미지로 저장</button>
+      <button type="button" class="alt" id="saveAll">📄 전체 페이지 저장</button>
+    </div>
+    <div class="status" id="status"></div>
+  </section>
+
+  <section class="card src">
+    출처: <a href="https://www.insight.co.kr/news/581063">인사이트</a> ·
+    <a href="https://m.sedaily.com/article/20111468">서울경제</a> ·
+    <a href="https://www.osen.co.kr/article/G1112906084">OSEN</a><br>
+    에이든, 라이언, 피카는 래래 뉴스툰의 오리지널 캐릭터예요.
+  </section>
+
+  <footer><a href="../">← 지난 뉴스툰 모아보기</a></footer>
+</div>
+
+<script>
+const field = (sky_='#bfe3ff') => `<rect width="400" height="300" fill="${sky_}"/><path d="M 0 200 Q 200 170 400 200 V 300 H 0 Z" fill="#4caf50" stroke="${INK}" stroke-width="3"/>`;
+renderPanels([
+  { // 1. 도입
+    svg: field() + aiden({ x: 110, y: 190, s: .85, expr: 'talk' }) + ryan({ x: 240, y: 196, s: .8, expr: 'wow', flip: true }),
+    html: `<div class="nar" style="left:2%;top:2.5%">일요일 아침, 거실에서</div>
+      <div class="b t-br" style="left:44%;top:14%;width:52%">형! 어제 삼성 이겼대!</div>`
+  },
+  { // 2. 피카 등장
+    svg: field('#ffe9a8') + fx('뿅!', 320, 110, 46, 12) + pika({ x: 318, y: 220, s: 1.05, pose: 'explain', flip: true }) + baseball(90, 150, 22),
+    html: `<div class="nar" style="left:2%;top:2.5%;width:62%">한국시리즈 4차전, 삼성 대 KT!</div>
+      <div class="b box t-r" style="left:3%;top:68%;width:58%">해설 몬스터 피카 등장! 10-5로 삼성이 이겼어!</div>`
+  },
+  { // 3. 핵심 사실
+    svg: `<rect width="400" height="300" fill="#f4f8ff"/>
+      <text x="200" y="70" font-family="Jua" font-size="30" text-anchor="middle" fill="#2f6fde">삼성 3승 1패</text>
+      <text x="200" y="116" font-family="Jua" font-size="22" text-anchor="middle" fill="${INK}">1회에 6점!</text>` +
+      pika({ x: 70, y: 252, s: .82, pose: 'explain' }) + ryan({ x: 335, y: 240, s: .62, expr: 'think', flip: true }),
+    html: `<div class="b box t-l" style="left:28%;top:56%;width:46%">먼저 4승 하면 우승! 이제 1승 남았어!</div>`
+  },
+  { // 4. 야구 비유
+    svg: field() + `<rect x="150" y="150" width="14" height="14" fill="#fff" transform="rotate(45 157 157)" stroke="${INK}" stroke-width="2"/>` +
+      aiden({ x: 108, y: 190, s: .85, expr: 'talk', pose: 'pitch' }) + pika({ x: 340, y: 240, s: .62, expr: 'wow', flip: true }),
+    html: `<div class="b box t-bl" style="left:2%;top:2.5%;width:52%">1회에 6점이면 선발 투수는 마음이 편하겠다!</div>
+      <div class="b shout t-r" style="left:48%;top:58%;width:42%">빅이닝!</div>`
+  },
+  { // 5. 놀라운 포인트
+    svg: `<rect width="400" height="300" fill="#fff3d6"/>
+      <text x="200" y="90" font-family="Jua" font-size="26" text-anchor="middle" fill="${INK}">KT가 우승하려면?</text>
+      <text x="200" y="150" font-family="Jua" font-size="40" text-anchor="middle" fill="#e8443a">3연승!</text>` +
+      ryan({ x: 90, y: 262, s: .6, expr: 'wow' }),
+    html: `<div class="b shout t-l" style="left:35%;top:70%;width:58%">아직 모르는 거네?!</div>`
+  },
+  { // 6. 마무리
+    svg: field() + aiden({ x: 112, y: 196, s: .8, expr: 'happy', pose: 'wave' }) + ryan({ x: 228, y: 202, s: .76, expr: 'happy', pose: 'wave' }) +
+      pika({ x: 335, y: 240, s: .62, expr: 'happy', flip: true }),
+    html: `<div class="b shout t-bl" style="left:6%;top:4%;width:56%">다음 경기도 파이팅~!</div>
+      <div class="nar" style="left:2%;bottom:3%;width:70%">삼성이 1승을 더 하면 우승!</div>`
+  }
+]);
+setupSave('2026-11-08-special');
+</script>
+</body>
+</html>
