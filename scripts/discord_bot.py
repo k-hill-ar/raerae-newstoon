@@ -196,9 +196,9 @@ def wait_for_page(url, timeout=300):
                     return True
         except urllib.error.HTTPError as e:
             if e.code != 404:
-                return False
-        except urllib.error.URLError:
-            return False  # 네트워크 정책으로 막힘: 확인 생략
+                return None  # 프록시가 막는 등 확인 불가
+        except (urllib.error.URLError, OSError):
+            return None  # 네트워크 정책으로 막힘: 확인 불가
         time.sleep(10)
     return False
 
@@ -211,7 +211,9 @@ def cmd_link(date):
     title = f"{meta.get('category', '')} {meta.get('title', '오늘의 뉴스툰')}".strip()
     url = f"{CFG['site_base_url'].rstrip('/')}/{date}/"
     ok = wait_for_page(url)
-    note = "" if ok else "\n(웹페이지 반영 확인을 못 했어요. 링크가 안 열리면 1~2분 뒤 다시 눌러 주세요.)"
+    if ok is None:  # 확인할 방법이 없는 환경(클라우드): 보통 1분 안에 반영되므로 넉넉히 기다린다
+        time.sleep(90)
+    note = "\n(웹페이지 반영이 늦어지고 있어요. 링크가 안 열리면 1~2분 뒤 다시 눌러 주세요.)" if ok is False else ""
     api("POST", f"/channels/{channel()}/messages", {
         "content": f"🎉 **오늘의 만화 완성!**\n{title}\n{url}{note}\n\n👉 이 링크를 아이들에게 보내 주세요. 키즈폰에서 안 열리면 페이지 아래 '이미지로 저장'을 눌러 이미지를 보내면 돼요.",
     })
