@@ -1,0 +1,10 @@
+{
+  "date": "2026-11-10",
+  "candidates": [
+    {"emoji": "⚾", "title": "삼성, KT 꺾고 12년 만에 우승!", "summary": "삼성 라이온즈가 11월 8일 대구에서 KT를 12-1로 꺾고 한국시리즈를 4승 1패로 끝냈다. 통산 9번째 우승이고 12년 만이다.", "hook": "라이언의 KT는 아쉽게 졌지만, 3승 1패에서 끝낸 시리즈의 마지막 경기를 살펴볼 수 있다.", "sources": ["https://nwww.newsis.com/view/NISX20261108_0003859419", "https://www.hankookilbo.com/news/article/A2026110811190004722", "https://www.news1.kr/sports/baseball/6346900"]},
+    {"emoji": "🔭", "title": "22년 일한 스위프트 망원경, 지구로 돌아오다", "summary": "2년 임무로 만든 NASA 스위프트 우주망원경이 약 22년 활동한 뒤 11월 4일 인도네시아 수마트라 상공에서 대기권에 재진입했다. 대부분 불에 타 사라졌을 것으로 본다.", "hook": "2년 계획이 22년이 된 우주 망원경, 별이 터지는 순간을 지켜보던 은퇴한 선수 같은 이야기.", "sources": ["https://www.sciencedaily.com/releases/2026/11/261105224545.htm", "https://www.livescience.com/space/astronomy/swift-has-fallen-nasas-22-year-old-space-telescope-burns-up-over-sumatra", "https://www.space.com/space-exploration/missions/nasa-ends-swift-space-telescope-mission-after-failed-rescue-attempt"]},
+    {"emoji": "🛰️", "title": "허블 망원경을 살려라!", "summary": "허블 우주망원경의 고도가 점점 낮아져 2030년대 중반 재진입할 수 있어, NASA가 민간 기업에 궤도를 높일 아이디어를 물었다. 아직 확정된 계획은 아니다.", "hook": "유명한 우주 사진을 찍어 온 허블을 구하는 방법은 무엇일까?", "sources": ["https://www.space.com/astronomy/hubble-space-telescope/nasa-asks-industry-for-ideas-about-saving-hubble-space-telescope", "https://www.sciencedaily.com/releases/2026/11/261104012254.htm"]},
+    {"emoji": "🔴", "title": "화성 기지에서 378일 살아 본 4명", "summary": "NASA의 화성 모의 기지 대원 4명이 378일 만에 밖으로 나왔다. 화성 탐사를 위한 건강과 생활 자료를 모으는 실험이다.", "hook": "게임기도 없이 1년 넘게 살면 어떤 기분일까? 화성 갈 준비를 지구에서 하는 방법.", "sources": ["https://www.nasa.gov/centers-and-facilities/johnson/chapea-mission-2-crew-reflects-after-378-days-on-simulated-mars/", "https://news1.kr/world/usa-canada/6340024"]},
+    {"emoji": "🦢", "title": "겨울 손님 고니, 멸종위기종이 되다", "summary": "겨울마다 한국을 찾는 철새 고니가 갯벌과 습지 개발로 쉴 곳이 줄어 멸종위기 야생생물로 지정되었다는 소식이다. 낙동강 하구의 먹이 식물도 크게 줄었다.", "hook": "겨울에 찾아오는 하얀 손님이 걱정이라니, 우리가 도울 수 있는 일은 무엇일까?", "sources": ["https://www.news1.kr/society/environment/6340981", "https://imnews.imbc.com/replay/2026/nwdesk/article/6802261_37004.html"]}
+  ]
+}
