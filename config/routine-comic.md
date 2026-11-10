@@ -40,7 +40,7 @@ python scripts/discord_bot.py choice DATE
 ## 4. 만화 페이지 만들기 (`docs/SLUG/`)
 - 반드시 `config/rules.md`를 읽고 따른다 (등장인물, 응원팀, 구성, 지식 깊이, 문체, 금지 사항).
 - **가장 최근 회차 폴더의 `index.html`을 복사해 틀로 쓴다.** 공용 파일 `docs/assets/newstoon.css`, `docs/assets/newstoon.js`는 고치지 않는다.
-- 바꿀 곳: `<title>`, 날짜(요일 포함), 분야 태그, 제목, 부제, 6컷 대본(`renderPanels([...])`), 뉴스 정리, 뉴스 도감, 한 걸음 더, 퀴즈 2개, 출처, `setupSave('SLUG')`.
+- 바꿀 곳: `<title>`, 날짜(요일 포함), 분야 태그, 제목, 부제, 6컷 대본(`renderPanels([...])`), 뉴스 정리, 뉴스 도감, 한 걸음 더, 퀴즈 3개(4학년·6학년·🧠 창의 도전 — `config/rules.md` 4-2, 예시는 `docs/2026-11-10/index.html`), 출처, `setupSave('SLUG')`.
 - 특별편이면: `<title>`에 "특별편"을 넣고, 분야 태그 앞에 `⭐ 특별편 ·`을 붙이고, 만화 제목 줄을 "⭐ 에이든 & 라이언의 특별편 ⚡"으로 한다.
 - 그림 도구: `aiden()`, `ryan()`, `pika()`, `friend('chan'|'jayden'|'julia'|'heart'|'sophia', {...})`, `space()`, `sky()`, `stars()`, `earth()`, `moon()`, `planet()`, `meteor()`, `baseball()`, `voyager()`, `fx()`. 필요한 소품이 없으면 그 회차 `<script>` 안에 간단한 SVG로 직접 그린다.
 - 컷 배치 규칙: SVG 좌표는 가로 400 × 세로 300. 인물 머리는 컷 아래쪽 절반에, 말풍선은 위쪽에 두어 **말풍선이 얼굴을 가리지 않게** 한다. 말풍선 위치는 % 단위.
