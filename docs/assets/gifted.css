@@ -1,0 +1,85 @@
+/* 영재원편 추가 스타일: 원작 공용 스타일 위에 덧붙임 */
+:root{--purple:#7b4fd6;--teal:#12a08a;--gold:#c27c00}
+.tag.gifted{background:var(--purple)}
+.dday{display:inline-block;margin-left:6px;background:var(--yellow);color:var(--ink);border:2px solid var(--line);border-radius:999px;padding:0 9px;font-family:Jua,sans-serif;font-size:13px}
+.exam{background:#f1eaff;border:2.5px solid var(--line);border-radius:12px;padding:10px 12px;font-size:14.5px;margin-top:10px}
+.exam b{color:var(--purple)}
+.replay{display:flex;justify-content:center;margin-top:10px}
+.replay button{font-size:15px;padding:6px 14px}
+.lvS{background:var(--teal)} .lvE{background:var(--gold)}
+.hist{border:2.5px solid var(--line);border-radius:12px;background:#fff;padding:10px 12px;margin-bottom:12px}
+.hist:last-child{margin-bottom:0}
+.hist h3{font-family:Jua,sans-serif;font-weight:400;font-size:18px;margin:0 0 6px}
+.hist p{margin:4px 0;font-size:15px}
+.rank{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin:8px 0}
+.rank div{border:2px solid var(--line);border-radius:8px;padding:4px;text-align:center;font-size:13px;background:#eef6ff}
+.rank b{display:block;font-family:Jua,sans-serif;font-size:18px;font-weight:400}
+.rank .me{background:#ffe14d}
+.nk{border:2.5px solid var(--line);border-radius:12px;background:#fff;overflow-x:auto}
+.nk svg{display:block;width:100%;min-width:460px;height:auto}
+.link table{border-collapse:collapse;width:100%;font-size:14.5px}
+.link td{padding:6px 4px;border-top:2px dashed #ddd;vertical-align:top}
+.link td:first-child{white-space:nowrap;font-family:Jua,sans-serif;padding-right:10px}
+.parent ul{margin:0;padding-left:20px}
+.parent li{margin-bottom:6px;font-size:15px}
+summary:focus-visible,button:focus-visible{outline:3px solid var(--blue);outline-offset:3px}
+
+/* ── 애니메이션 ── */
+.bob{animation:bob 2.6s ease-in-out infinite;transform-box:fill-box;transform-origin:50% 100%}
+.bob.d1{animation-delay:-.9s}.bob.d2{animation-delay:-1.7s}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
+.hop{animation:hop 1.4s ease-in-out infinite;transform-box:fill-box;transform-origin:50% 100%}
+@keyframes hop{0%,60%,100%{transform:translateY(0)}30%{transform:translateY(-10px) rotate(-3deg)}}
+.spin{animation:spin 26s linear infinite;transform-box:fill-box;transform-origin:center}
+@keyframes spin{to{transform:rotate(360deg)}}
+.sn{animation:fall linear infinite}
+@keyframes fall{from{transform:translateY(-310px)}to{transform:translateY(0)}}
+.twinkle{animation:tw 1.8s ease-in-out infinite}
+@keyframes tw{0%,100%{opacity:1}50%{opacity:.35}}
+.pulse{animation:pulse 1.6s ease-in-out infinite;transform-box:fill-box;transform-origin:center}
+@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.08)}}
+/* 컷이 화면에 들어오면 컷이 살짝 튀어나오고 말풍선이 순서대로 뿅 */
+.panel.in{animation:panelIn .5s cubic-bezier(.2,1.4,.4,1) both}
+@keyframes panelIn{from{transform:translateY(14px) scale(.97)}to{transform:none}}
+.panel.in .b,.panel.in .nar{animation:pop .45s cubic-bezier(.3,1.7,.5,1) both}
+.panel.in .nar{animation-delay:.15s}
+@keyframes pop{from{transform:scale(.55)}to{transform:scale(1)}}
+.b.shout{transform:rotate(-2deg)}
+.panel.in .b.shout{animation-name:popTilt}
+@keyframes popTilt{from{transform:scale(.55) rotate(-8deg)}to{transform:scale(1) rotate(-2deg)}}
+.draw path{stroke-dasharray:1;stroke-dashoffset:0}
+.panel.in .draw path{animation:draw 1.6s ease-out both .2s}
+@keyframes draw{from{stroke-dashoffset:1}to{stroke-dashoffset:0}}
+.panel.in .grow{animation:grow .9s cubic-bezier(.2,1.5,.4,1) both;transform-box:fill-box;transform-origin:center}
+.panel.in .grow.g2{animation-delay:.25s}.panel.in .grow.g3{animation-delay:.5s}.panel.in .grow.g4{animation-delay:.75s}.panel.in .grow.g5{animation-delay:1s}.panel.in .grow.g6{animation-delay:1.25s}
+@keyframes grow{from{transform:scale(.2)}to{transform:scale(1)}}
+@media (prefers-reduced-motion:reduce){
+  .bob,.hop,.spin,.sn,.twinkle,.pulse,.panel.in,.panel.in .b,.panel.in .nar,.panel.in .draw path,.panel.in .grow{animation:none!important}
+}
+
+/* ── 날짜 잠금 ── */
+.lock{text-align:center}
+.lock .brand{text-align:left}
+.lock-ico{font-size:56px;line-height:1;margin:18px 0 4px}
+.lock h1{margin:4px 0}
+.lock-when{font-family:Jua,sans-serif;font-size:20px;margin:6px 0 0}
+.lock-count{color:var(--muted);margin:4px 0 14px;font-size:14px;min-height:1.4em}
+.pw{border-top:2px dashed #ccc;padding-top:14px;text-align:left}
+.pw label{display:block;font-size:13px;color:var(--muted);margin-bottom:6px}
+.pw-row{display:flex;gap:8px}
+.pw input{flex:1;min-width:0;font-size:16px;border:2.5px solid var(--line);border-radius:10px;padding:8px 10px;font-family:inherit;background:#fff}
+.pw-msg{font-size:13px;color:var(--red);margin:8px 0 0;min-height:1em}
+.preview-badge{background:var(--ink);color:#fff;font-family:Jua,sans-serif;font-size:14px;border-radius:10px;padding:6px 12px;margin-bottom:12px;text-align:center}
+.lock .dday{margin-left:0}
+.wiggle{animation:wig 2.4s ease-in-out infinite;transform-box:fill-box;transform-origin:center}
+@keyframes wig{0%,100%{transform:rotate(0)}20%{transform:rotate(-14deg)}45%{transform:rotate(9deg)}70%{transform:rotate(-4deg)}}
+.shake{animation:shake .6s ease-in-out infinite;transform-box:fill-box;transform-origin:50% 100%}
+@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-4px) rotate(-1deg)}75%{transform:translateX(4px) rotate(1deg)}}
+.float{animation:float 4s ease-in-out infinite;transform-box:fill-box;transform-origin:center}
+@keyframes float{0%,100%{transform:translate(0,0) rotate(0)}50%{transform:translate(10px,-8px) rotate(8deg)}}
+.wave{animation:wave 1.6s ease-out infinite;transform-box:fill-box;transform-origin:left center;opacity:.9}
+.wave.w2{animation-delay:.4s}.wave.w3{animation-delay:.8s}
+@keyframes wave{0%{transform:scale(.7);opacity:0}30%{opacity:.9}100%{transform:scale(1.25);opacity:0}}
+.zz{animation:zz 2.4s ease-in-out infinite}
+@keyframes zz{0%{transform:translate(0,0);opacity:0}30%{opacity:1}100%{transform:translate(14px,-26px);opacity:0}}
+@media (prefers-reduced-motion:reduce){.wiggle,.shake,.float,.wave,.zz{animation:none!important;opacity:1}}
