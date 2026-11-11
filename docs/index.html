@@ -24,7 +24,8 @@
 <div class="wrap">
   <h1>래래 뉴스툰</h1>
   <p>에이든 & 라이언, 그리고 피카가 전하는 아침 만화 뉴스</p>
-  <a class="item" href="gifted/" style="background:#f1eaff">
+  <!-- 📌 상단 고정: 영재원 특별편 (2026-12-05까지 항상 맨 위). 자동 제작은 이 블록을 옮기거나 지우지 않는다. -->
+  <a class="item" id="pinGifted" href="gifted/" style="background:#f1eaff">
     <span><span class="date">⭐ 라이언의 영재원 대비 · 12월 5일까지</span><br><span class="title">영재원 특별편 모아보기</span></span>
     <span class="go">보기</span>
   </a>
@@ -53,5 +54,12 @@
     <span class="go">보기</span>
   </a>
 </div>
+<script>
+// 12월 5일(한국 시간)이 지나면 영재원 특별편을 목록 맨 아래로 내린다.
+(function(){
+  var pin=document.getElementById('pinGifted');
+  if(pin && Date.now() >= Date.parse('2026-12-06T00:00:00+09:00')) pin.parentNode.appendChild(pin);
+})();
+</script>
 </body>
 </html>
