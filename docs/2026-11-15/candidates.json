@@ -1,0 +1,10 @@
+{
+  "date": "2026-11-15",
+  "candidates": [
+    {"emoji": "📜", "group": "문화·세계", "title": "한지, 유네스코 인류무형유산 등재 눈앞!", "summary": "유네스코 평가기구가 한국의 '한지 제작' 전통 지식과 기술을 인류무형유산 대표목록에 올리라고 권고했다. 최종 결정은 12월 중국 샤먼 위원회에서 나며, 확정되면 한국의 24번째 등재다.", "hook": "닥나무로 만든 종이가 천 년을 가는 비밀! 종이에도 '타입'이 있다면? 우리 문화재 속 한지 찾기", "sources": ["https://www.news1.kr/life-culture/cultural-policy/6343568", "https://www.khan.co.kr/article/202611052134015/"]},
+    {"emoji": "🚀", "group": "우주·천문", "title": "스타십 15차 비행, 로켓 두 개를 다 잡아라", "summary": "13일(미국 시간) 스페이스X 스타십이 15번째 시험비행에 나서 위성 26기를 올리고 우주선이 약 275km 궤도에 올랐다. 1단 부스터는 발사탑 팔로 잡지 못하고 바다에 내렸고, 우주선은 약 22시간 뒤 발사탑 회수를 시도한다.", "hook": "야구공 대신 거대 로켓을 젓가락 팔로 캐치! 재사용 로켓이면 우주여행 값이 내려갈까?", "sources": ["https://www.news1.kr/world/usa-canada/6354095", "https://www.khan.co.kr/article/202611140848001/"]},
+    {"emoji": "⚾", "group": "야구·스포츠", "title": "김도영 결승포! 한국, APBC 결승행", "summary": "한국 야구대표팀이 14일 도쿄돔 APBC 예선 3차전에서 대만을 6-4로 꺾고 2연패 뒤 결승에 올랐다. 15일 일본과 우승을 다툰다.", "hook": "2연패 뒤 기사회생! 일본이 호주를 이긴 점수 덕에 열린 결승 티켓 이야기", "sources": ["https://www.news1.kr/sports/baseball/6354176", "https://www.spotvnews.co.kr/news/articleView.html?idxno=1019861"]},
+    {"emoji": "🌳", "group": "동물·식물", "title": "천 년 은행나무, 한 시간 만에 잎을 떨구다", "summary": "강원 원주 반계리 은행나무(약 1,300년 넘은 천연기념물)가 7일 아침 센 바람과 영하의 추위 뒤 한 시간 남짓 만에 노란 잎을 거의 다 떨어뜨렸다.", "hook": "나무는 왜 잎을 한꺼번에 떨굴까? 떨켜의 비밀과 가을 낙엽 과학", "sources": ["https://www.news1.kr/society/general-society/6348401", "https://www.koreaherald.com/article/10932601"]},
+    {"emoji": "🌊", "group": "날씨·계절", "title": "역대 가장 강한 엘니뇨, 올겨울은 포근하고 촉촉?", "summary": "기상청은 올겨울 엘니뇨가 관측 이래 가장 강해 12월에 절정에 이르고, 겨울 기온이 평년보다 높으며 비·눈이 잦을 것으로 전망했다. 1월에는 일시적 한파 가능성도 있다.", "hook": "바다 온도 때문에 우리 겨울이 달라진다고? 패딩 vs 우산 고민!", "sources": ["https://www.news1.kr/society/environment/6345181", "https://www.khan.co.kr/article/202611061028011", "https://www.koreatimes.co.kr/southkorea/environment-animals/20261106/korea-to-see-warm-wet-winter-due-to-powerful-el-nino"]}
+  ]
+}
