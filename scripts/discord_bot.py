@@ -134,7 +134,8 @@ def cmd_candidates(date, *flags):
     } for i, c in enumerate(items[:5])]
     guide = ("\n⭐ 오늘 만화는 이미 준비되어 있어요. **특별편**을 원하면 번호를 눌러 주세요! "
              "(안 누르면 준비된 만화만 08:07에 보내요)") if special else \
-        "\n만화로 만들 뉴스의 번호 반응을 눌러 주세요! (08:07에 만화 제작 시작)"
+        ("\n만화로 만들 뉴스의 번호 반응을 눌러 주세요! (08:07에 만화 제작 시작)"
+         "\n두 개를 누르면 앞 번호는 **일반편**, 뒤 번호는 **특별편**으로 만들어요. 안 누르면 1번으로 만들어요.")
     msg = api("POST", f"/channels/{channel()}/messages", {
         "content": candidates_header(date) + guide,
         "embeds": [{"color": 0xFFE14D, "fields": fields}],
@@ -159,9 +160,13 @@ def cmd_choice(date):
     if not picked:
         print("아직 선택 없음")
         sys.exit(2)
-    save_state(date, choice=picked[0])
-    note = f" (여러 개 눌려 있어 가장 앞 번호 선택: {picked})" if len(picked) > 1 else ""
-    print(f"선택: {picked[0]}{note}")
+    save_state(date, choice=picked[0], special_choice=picked[1] if len(picked) > 1 else None)
+    print(f"선택: {picked[0]}")
+    if len(picked) > 1:
+        # 두 개를 고르면 앞 번호는 일반편, 뒤 번호는 특별편
+        print(f"특별편: {picked[1]}")
+    if len(picked) > 2:
+        print(f"참고: {len(picked)}개가 눌려 있어 앞의 두 개({picked[0]}, {picked[1]})만 씁니다.")
 
 
 def wait_for_pages_build(timeout=300):

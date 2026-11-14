@@ -20,6 +20,7 @@
 python scripts/discord_bot.py choice DATE
 ```
 - "선택: N" 이 나오면 N번 후보로 만든다.
+- **두 개를 고른 경우**: 출력에 "특별편: M" 줄이 함께 나온다. 정규 모드라면 N번으로 정규편(`DATE`)을, M번으로 특별편(`DATE-special`)을 **둘 다** 만든다. 정규편을 먼저 만들어 올린 뒤 특별편을 만든다(4~6단계를 두 번). 세 개 이상 눌려 있으면 앞의 두 번호만 쓰고, 이 사실을 notify로 알린다.
 - 선택이 없으면(종료코드 2):
   - 정규 모드: **1번**으로 만들고, 마지막 링크 알림 전에 아래 알림을 보낸다.
     `python scripts/discord_bot.py notify "선택이 없어서 1번으로 만들었어요."`
@@ -38,7 +39,7 @@ python scripts/discord_bot.py choice DATE
 - 좋은 예시: `docs/2026-11-08-special/index.html` (3승 1패 역대 기록, 월드시리즈 사례, 확률 계산).
 
 ## 4. 만화 페이지 만들기 (`docs/SLUG/`)
-- 반드시 `config/rules.md`를 읽고 따른다 (등장인물, 응원팀, 구성, 지식 깊이, 문체, 금지 사항).
+- 반드시 `config/rules.md`를 읽고 따른다 (등장인물, 응원팀(LG 트윈스), 구성, 지식 깊이, 문체, 금지 사항).
 - **가장 최근 회차 폴더의 `index.html`을 복사해 틀로 쓴다.** 공용 파일 `docs/assets/newstoon.css`, `docs/assets/newstoon.js`는 고치지 않는다.
 - 바꿀 곳: `<title>`, 날짜(요일 포함), 분야 태그, 제목, 부제, 6컷 대본(`renderPanels([...])`), 뉴스 정리, 뉴스 도감, 한 걸음 더, 퀴즈 3개(4학년·6학년·🧠 창의 도전 — `config/rules.md` 4-2, 예시는 `docs/2026-11-10/index.html`), 출처, `setupSave('SLUG')`.
 - 특별편이면: `<title>`에 "특별편"을 넣고, 분야 태그 앞에 `⭐ 특별편 ·`을 붙이고, 만화 제목 줄을 "⭐ 에이든 & 라이언의 특별편 ⚡"으로 한다.
@@ -62,7 +63,7 @@ git push origin HEAD:main
 ```
 
 ## 7. 링크 전송
-- 정규 모드: `python scripts/discord_bot.py link DATE`
+- 정규 모드: `python scripts/discord_bot.py link DATE` — 두 개를 골라 특별편도 만들었으면 이어서 `link DATE-special`
 - 특별편 모드: 정규 만화 링크를 먼저 보내고(`link DATE`), 특별편을 만들었으면 이어서 `link DATE-special`
 - 단, 실행 요청에 `DATE=`가 들어 있는 테스트·특별편 요청이면 정규 만화 링크는 보내지 않고 특별편 링크만 보낸다.
 
