@@ -1,0 +1,10 @@
+{
+  "date": "2026-11-16",
+  "candidates": [
+    {"emoji": "♨️", "group": "환경", "title": "하수·폐수로 집을 따뜻하게! 수열에너지 확대", "summary": "정부가 수열에너지로 쓸 수 있는 물을 하천수 중심에서 하수·폐수처리수 등 7종으로 넓혔고, 11월 17일부터 시행된다. 하수처리장 방류수만으로 300만 가구 난방 규모의 열을 얻을 수 있다고 추산한다(이론상 잠재량).", "hook": "버려지는 따뜻한 물이 난방 에너지가 된다! 폐기물이 보물로 바뀌는 반전과 '열을 어떻게 옮길까' 궁금증.", "sources": ["https://www.news1.kr/economy/env-policy/6348604", "https://www.hankyung.com/article/202611107169i"]},
+    {"emoji": "🥬", "group": "경제·생활", "title": "배추 한 포기 1900원! 올해 김장비는 20만 원 밑", "summary": "aT 조사로 4인 가족 김장 재료비는 19만9456원으로 작년보다 9% 낮다. 풍작으로 배추 도매가가 포기당 1900원까지 내려왔다.", "hook": "왜 많이 나면 값이 떨어질까? 수요와 공급을 배추로 배우는 경제 기초.", "sources": ["https://www.news1.kr/local/gwangju-jeonnam/6349223", "https://www.hankyung.com/article/202611107713i"]},
+    {"emoji": "☄️", "group": "우주·천문", "title": "헤라 탐사선, 충돌 맞은 소행성을 처음 보다", "summary": "유럽우주국 헤라 탐사선이 NASA DART가 2022년 부딪혀 궤도를 바꾼 소행성 디모르포스(지름 약 151m)를 약 1,280km 거리에서 처음 식별했다. 상세 사진은 11월 25일 공개 예정이다.", "hook": "우주선이 소행성을 일부러 박았다? 지구를 지키는 '행성 방어' 실험의 뒷이야기.", "sources": ["https://www.space.com/space-exploration/asteroid-comet-missions/dimorphos-in-sight-europes-hera-probe-gets-its-1st-look-at-battered-space-rock-photo", "https://www.sciencedaily.com/releases/2026/11/261103003154.htm"]},
+    {"emoji": "⚾", "group": "야구·스포츠", "title": "APBC 결승 1-5 준우승, 일본전 13연패의 벽", "summary": "한국은 15일 도쿄돔 APBC 결승에서 일본에 1-5로 져 3개 대회 연속 준우승을 했다. 프로 대표팀 한일전 마지막 승리는 2015년 프리미어12 준결승(4-3)이다.", "hook": "13연패의 벽, 어떻게 넘을까? 젊은 투수들이 보여 준 희망도 함께.", "sources": ["https://www.news1.kr/sports/baseball/6354616", "https://www.spotvnews.co.kr/news/articleView.html?idxno=1019969"]},
+    {"emoji": "🔭", "group": "우주·천문", "title": "허블 망원경 구하기! NASA가 민간에 손을 내밀다", "summary": "NASA가 10월 29일 허블을 더 높은 궤도로 올리거나 정비할 방법을 민간 기업에 물었다. 손쓰지 않으면 2033~2034년경 대기권에 떨어질 수 있으며, 아직 승인된 임무는 아니다.", "hook": "36년 된 우주 망원경을 구하는 작전! 우주 택배 기사가 필요한 이유.", "sources": ["https://science.nasa.gov/missions/hubble/nasa-explores-potential-commercial-servicing-for-hubble-telescope/", "https://www.space.com/astronomy/hubble-space-telescope/nasa-asks-industry-for-ideas-about-saving-hubble-space-telescope"]}
+  ]
+}
