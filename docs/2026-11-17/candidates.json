@@ -1,0 +1,10 @@
+{
+  "date": "2026-11-17",
+  "candidates": [
+    {"emoji": "🥬", "group": "경제·생활", "title": "배추값 3분의 1 뚝! 올해 김장비용 2020년대 최저", "summary": "한국물가정보 조사에서 4인 가족 김장비용이 전통시장 28만8500원으로 지난해보다 14.8% 낮아졌다. 배추는 33.3%, 쪽파는 50% 싸졌지만 새우젓은 올랐다.", "hook": "날씨가 좋아 배추가 풍년이면 값이 왜 떨어질까? 물건 값이 정해지는 원리(많이 나오면 싸진다)를 김치 담그기로 배워요.", "sources": ["https://www.news1.kr/economy/trend/6354659", "https://www.segye.com/newsView/20261116501842"]},
+    {"emoji": "🌊", "group": "날씨·계절", "title": "역대 가장 센 엘니뇨! 올겨울 날씨는?", "summary": "기상청이 10월 엘니뇨 감시구역 해수면 온도가 평년보다 2.6도 높아 1950년 이후 최고(1997년 2.4도, 2015년 2.3도)라고 밝혔다. 12월에 가장 강해지고 올겨울은 평년보다 따뜻하고 비·눈이 많을 전망이다.", "hook": "바다 온도 2~3도 차이가 우리나라 겨울 날씨를 바꾼다고? 눈사람 만들 수 있을지도 궁금해요.", "sources": ["https://www.khan.co.kr/article/202611061028011", "https://biz.sbs.co.kr/amp/article/20000344700"]},
+    {"emoji": "⚾", "group": "야구·스포츠", "title": "APBC 결승 일본에 1-5, 3연속 준우승", "summary": "11월 15일 도쿄돔 APBC 결승에서 한국이 일본에 1-5로 졌다. 2017·2023년에 이어 세 대회 연속 준우승이고, 프로 대표팀 한일전은 13연패(마지막 승리 2015년 프리미어12)다.", "hook": "LG 팬 형제도 속상한 결과! 하지만 왜 졌고 다음엔 어떻게 이길지 에이든처럼 차분히 분석해 봐요.", "sources": ["https://www.hankyung.com/article/2026111577027", "https://sports.khan.co.kr/article/202611152221003/"]},
+    {"emoji": "🔬", "group": "과학·기술", "title": "비싼 루테늄 대신 니켈! 암모니아에서 수소 뽑는 촉매", "summary": "UNIST·생기원·영남대 연구팀이 크로뮴으로 니켈에 전자를 공급해 550℃에서 암모니아를 95.5% 분해하는 촉매를 개발했다. 값비싼 귀금속 루테늄을 쓰지 않아 수소 생산비를 낮출 수 있다.", "hook": "촉매는 반응을 도와주는 '응원단장'! 피카가 포켓몬 타입 상성처럼 쉽게 설명해 줄 수 있어요.", "sources": ["https://www.khan.co.kr/article/202611161359001/", "https://www.seoul.co.kr/news/society/science-news/2026/11/16/20261116500284"]},
+    {"emoji": "🌙", "group": "우주·천문", "title": "NASA가 100만 달러! 학생들에게 달기지 설계를 맡긴다", "summary": "NASA가 미국 고교·대학생 팀을 대상으로 총 상금 100만 달러의 '문 베이스 챌린지'를 열었다. 전력, 건설, 생명유지, 이동, 통신, 우주인 보호 6개 분야를 다루고 등록 마감은 2027년 1월 25일이다.", "hook": "달에서 살려면 전기·공기·길·통신이 모두 필요해! 내가 달기지를 설계한다면 무엇부터 만들까?", "sources": ["https://www.sciencedaily.com/releases/2026/11/261115085542.htm", "https://space.com/space-exploration/nasa-just-launched-a-usd1-million-moon-base-student-challenge-to-award-cash-prizes-to-students-that-solve-lunar-base-problems"]}
+  ]
+}
