@@ -1,0 +1,10 @@
+{
+  "date": "2026-11-18",
+  "candidates": [
+    {"emoji": "🥶", "group": "날씨·계절", "title": "6년 만의 수능 한파! 내일 아침 서울 영하 1도", "summary": "수능일인 19일 아침 서울 최저기온이 영하 1도로 예보됐다. 서울이 수능일에 영하권인 것은 2020년 이후 6년 만이고, 1993~2026년 수능일 33번 중 8번만 영하였다.", "hook": "33번 중 8번뿐인 추위! 수능 한파는 왜 올까, 형들 응원하며 추위 이기는 법도 알아봐요.", "sources": ["https://www.khan.co.kr/article/202611171536001/", "https://www.ytn.co.kr/_ln/0108_202611131959262977"]},
+    {"emoji": "⚾", "group": "야구·스포츠", "title": "FA 시장 열렸다! 22명 협상 시작, LG 홍창기·박동원은?", "summary": "KBO가 FA 승인 선수 22명을 공시했고 17일부터 모든 구단과 협상할 수 있다. 삼성 구자욱·원태인, LG 홍창기·박동원이 시장의 주목을 받고 있다.", "hook": "우리 LG 선수들은 어디로? 야구는 시즌이 끝나도 겨울 이적 경쟁이 시작돼요.", "sources": ["https://www.spotvnews.co.kr/news/articleView.html?idxno=1020154", "https://www.spotvnews.co.kr/news/articleView.html?idxno=1020191"]},
+    {"emoji": "🤖", "group": "과학·기술", "title": "두 발로 걷는 로봇 휴보, 국가과학유산이 되다", "summary": "국립중앙과학관이 올해 국가중요과학기술자료 23건을 선정했고, 국내 첫 완성형 두발 보행 인간형 로봇 휴보(KHR-3)가 포함됐다. 등록 자료는 누적 115건이 됐다.", "hook": "한국 로봇의 조상님 휴보! 로봇이 걷게 되기까지 이야기가 궁금해요.", "sources": ["https://www.sciencetimes.co.kr/nscvrg/view/menu/254?nscvrgSn=262659", "https://newsseoul.co.kr/news/view/1065583811894081"]},
+    {"emoji": "🛰️", "group": "우주·천문", "title": "NASA가 부딪힌 소행성에 유럽 헤라호가 도착!", "summary": "ESA의 헤라 탐사선이 쌍소행성 디디모스에 도착해 첫 근접 사진을 보냈다. 2022년 9월 26일 NASA의 DART가 디모르포스에 부딪혀 공전 주기를 약 33분 줄였다.", "hook": "사람이 처음으로 천체의 궤도를 바꿨다! 소행성 막기 실험의 뒷이야기를 확인해요.", "sources": ["https://www.sciencedaily.com/releases/2026/11/261116023351.htm", "https://www.space.com/astronomy/asteroids/like-accelerating-from-stationary-to-supersonic-flight-europes-hera-probe-boosts-speed-stays-on-course-for-november-asteroid-rendezvous"]},
+    {"emoji": "🐚", "group": "동물·식물", "title": "바위 하나에 동물 245마리! 깊은 바다 돌멩이의 비밀", "summary": "독일 브레멘대 연구팀이 태평양 깊은 바다의 망간단괴 244개에서 동물 4,139마리를 찾았다. 한 단괴에서 최대 245마리가 나왔고 평균은 17마리였다.", "hook": "작은 돌멩이가 동물들의 아파트! 몇 마리나 살까 맞혀 보는 재미가 있어요.", "sources": ["https://www.sciencedaily.com/releases/2026/11/261114202133.htm", "https://www.eurekalert.org/news-releases/1151260"]}
+  ]
+}
