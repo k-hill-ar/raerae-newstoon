@@ -75,3 +75,18 @@ button.alt{background:#fff}
 .status{font-size:13px;color:var(--muted);margin-top:8px;min-height:1em}
 footer{text-align:center;font-size:12px;color:var(--muted);padding:4px 0 24px}
 footer a{color:inherit}
+
+/* 컷 크기 다양화 (2026-11) */
+.row{display:flex;gap:10px;margin-bottom:10px}
+.row .panel{flex:1;margin-bottom:0;min-width:0}
+.panel.half .b{font-size:8.4cqw;padding:2.6cqw 4.6cqw}
+.panel.half .b.shout{font-size:9.6cqw}
+.panel.half .b.box{border-radius:6cqw}
+.panel.half .nar{font-size:7cqw;padding:2cqw 4cqw}
+.panel.half .num{font-size:6.6cqw;padding:0 3.6cqw}
+/* 생각 말풍선: 점선 테두리 + 동그라미 꼬리 */
+.b.think{border-style:dashed;border-radius:999px;background:#f3f6ff}
+.b.think::before,.b.think::after{border:2.5px solid var(--line);background:#f3f6ff;border-radius:50%}
+.b.think::before{width:3.4cqw;height:3.4cqw;left:22%;bottom:-4.6cqw}
+.b.think::after{width:2cqw;height:2cqw;left:16%;bottom:-7.4cqw}
+.b.think.t-br::before{left:auto;right:22%} .b.think.t-br::after{left:auto;right:16%}

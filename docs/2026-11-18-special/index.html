@@ -29,7 +29,7 @@
     <p class="sub">시즌이 끝나도 야구는 쉬지 않아요. 선수가 팀을 고르는 겨울 'FA 시장'을 알아봐요</p>
   </header>
 
-  <section id="comic" aria-label="8컷 만화">
+  <section id="comic" aria-label="9컷 만화">
     <div class="comic-title">⭐ 에이든 & 라이언의 특별편 ⚡</div>
     <div id="panels"></div>
   </section>
@@ -152,55 +152,75 @@ const cal = (x, y, top, big, c) => `<rect x="${x}" y="${y}" width="96" height="1
 const arrowR = (x, y, w, c) => `<path d="M ${x} ${y} H ${x + w}" stroke="${c || INK}" stroke-width="8" stroke-linecap="round"/><path d="M ${x + w - 14} ${y - 14} L ${x + w + 4} ${y} L ${x + w - 14} ${y + 14}" stroke="${c || INK}" stroke-width="8" fill="none" stroke-linecap="round" stroke-linejoin="round"/>`;
 const LG = '#c03a5c', G = '#ffe14d', W = '#7ec8ff', M = '#9be39b';
 
+/* 4번째 셔츠에 그은 빨간 X */
+const noMore = (x, y) => `<path d="M ${x - 26} ${y - 26} L ${x + 26} ${y + 26} M ${x + 26} ${y - 26} L ${x - 26} ${y + 26}" stroke="#e8443a" stroke-width="8" stroke-linecap="round"/>`;
+/* 작은 TV */
+const tv = (x, y, w, h, t) => `<rect x="${x}" y="${y}" width="${w}" height="${h}" rx="8" fill="#26324f" ${S}/><rect x="${x + 8}" y="${y + 8}" width="${w - 16}" height="${h - 16}" rx="4" fill="#3e5a99"/>
+  <text x="${x + w / 2}" y="${y + h / 2 + 7}" font-family="Jua" font-size="20" text-anchor="middle" fill="#ffe14d">${t}</text><rect x="${x + w / 2 - 20}" y="${y + h}" width="40" height="8" fill="#26324f" ${S}/>`;
+
 renderPanels([
-  { // 1. 도입: 'FA 시장'이 뭐야?
-    svg: emptyPark() + `<rect x="120" y="22" width="160" height="40" rx="6" fill="#fff" ${S}/><text x="200" y="50" font-family="Jua" font-size="22" text-anchor="middle" fill="#e8443a">FA 시장 개장!</text>` +
-      ryan({ x: 90, y: 222, s: .56, expr: 'wow' }) + aiden({ x: 310, y: 222, s: .56, expr: 'smile', flip: true }),
-    html: `<div class="b shout t-bl" style="left:1%;top:28%;width:32%">시장에서 선수를 판다고?</div>
-      <div class="b box t-br" style="left:64%;top:28%;width:34%">하하, 진짜 시장은 아니야</div>`
+  { // 1. [넓은 컷·장소] 겨울 아침 거실, TV 뉴스에 깜짝
+    size: 'wide',
+    svg: bgLiving(400, 200, false) + `<rect x="22" y="104" width="148" height="44" rx="4" fill="#a8774c" ${S}/><line x1="96" y1="104" x2="96" y2="148" stroke="${INK}" stroke-width="3"/>` +
+      tv(18, 14, 156, 84, 'FA 시장 개장!') +
+      ryan({ x: 258, y: 126, s: .5, expr: 'shock', pose: 'shock', mark: 'ex' }) + aiden({ x: 352, y: 128, s: .5, expr: 'smile', flip: true }),
+    html: `<div class="nar" style="left:2%;top:73%;width:44%">야구가 끝난 겨울 아침</div>
+      <div class="b shout t-bl" style="left:50%;top:5%;width:46%">선수를 시장에서 판다고?!</div>`
   },
-  { // 2. 피카 등장: 뉴스 전광판
-    svg: `<rect width="400" height="300" fill="#fbeef2"/>` + board(14, 62, 256, 170, 'FA 시장 열렸다', [
-      ['FA 선수 22명', W], ['17일부터 계약 가능', G], ['LG: 홍창기·박동원', M]], 18) +
-      pika({ x: 334, y: 252, s: .56, pose: 'explain', expr: 'happy', flip: true }),
-    html: `<div class="nar" style="left:2%;top:2.5%;width:62%">그때 피카가 뉴스를 들고 왔어요</div>
-      <div class="b box t-br" style="left:68%;top:22%;width:30%">겨울 야구가 시작됐어!</div>`
+  { // 2. [반 컷·얼굴] 에이든 웃음
+    half: true,
+    svg: bgLiving(200, 300) + aiden({ x: 100, y: 222, s: 1.25, expr: 'grin', mark: 'sweat', flip: true }),
+    html: `<div class="b box t-br" style="left:6%;top:5%;width:88%">하하, 진짜 시장은 아니야!</div>`
   },
-  { // 3. 핵심: FA의 뜻
-    svg: `<rect width="400" height="300" fill="#fff6e0"/>` + shirt(150, 110, LG, 'LG', .9) + shirt(250, 110, '#1f4fa8', '?', .9) +
-      ryan({ x: 60, y: 226, s: .52, expr: 'think' }) + pika({ x: 340, y: 264, s: .5, pose: 'explain', flip: true }),
-    html: `<div class="b box t-bl" style="left:1%;top:3%;width:30%">FA가 뭔데?</div>
-      <div class="b box t-br" style="left:56%;top:3%;width:42%">어느 팀과도 계약할 수 있는 자격!</div>`
+  { // 3. [반 컷·등장] 피카 짜잔
+    half: true,
+    svg: burst(100, 200, '#ffe14d', '#fff3b0', 200, 300) + pika({ x: 100, y: 214, s: 1.3, pose: 'explain', expr: 'happy', zap: true }),
+    html: `<div class="b shout t-bl" style="left:7%;top:5%;width:86%">찌릿! 설명 시작!</div>`
   },
-  { // 4. 규칙: 한 팀은 3명까지만
-    svg: stadium('#7d8597') + [0, 1, 2].map(i => shirt(250 + i * 50, 186, '#1f4fa8', i + 1, .55)).join('') +
-      aiden({ x: 70, y: 226, s: .52, expr: 'think' }) + pika({ x: 175, y: 262, s: .46, pose: 'explain', expr: 'happy' }),
+  { // 4. 핵심: FA의 뜻
+    svg: bgClassroom(400, 300, 'FA = 자유계약선수') +
+      `<text x="200" y="140" font-family="Jua" font-size="20" text-anchor="middle" fill="#ffe14d">LG → ? ? ? 어느 팀이든!</text>` +
+      ryan({ x: 72, y: 212, s: .62, pose: 'chin', expr: 'think', mark: 'q' }) + pika({ x: 328, y: 236, s: .72, pose: 'explain', flip: true }),
+    html: `<div class="b box t-bl" style="left:1%;top:3%;width:28%">FA가 뭔데?</div>
+      <div class="b box t-br" style="left:50%;top:3%;width:48%">몇 년 뛰면 팀을 고를 수 있는 자격!</div>`
+  },
+  { // 5. 규칙: 다른 팀 FA는 3명까지만
+    svg: bgStadium('#7d8597') + [0, 1, 2].map(i => shirt(200 + i * 52, 184, '#1f4fa8', i + 1, .5)).join('') +
+      shirt(356, 184, '#1f4fa8', 4, .5) + noMore(356, 184) +
+      aiden({ x: 64, y: 214, s: .6, pose: 'cross', expr: 'think', mark: 'sweat' }) + pika({ x: 150, y: 250, s: .55, pose: 'explain', expr: 'happy' }),
     html: `<div class="b box t-bl" style="left:1%;top:3%;width:38%">돈 많은 팀이 다 데려가면?</div>
-      <div class="b box t-br" style="left:56%;top:3%;width:42%">그래서 다른 팀 FA는 3명까지만!</div>`
+      <div class="b box t-br" style="left:54%;top:3%;width:44%">그래서 다른 팀 FA는 3명까지만!</div>`
   },
-  { // 5. 감정: LG 팬의 마음
-    svg: stadium(LG) + ryan({ x: 120, y: 226, s: .58, expr: 'sad' }) + aiden({ x: 290, y: 226, s: .58, expr: 'smile', flip: true }),
-    html: `<div class="b box t-bl" style="left:1%;top:3%;width:40%">홍창기 형 다른 팀 가면 어떡해…</div>
-      <div class="b box t-br" style="left:57%;top:3%;width:41%">선수가 고를 권리야. 그래도 남아 줘!</div>`
+  { // 6. [큰 컷·클로즈업] 감정: LG 팬 형제의 마음
+    size: 'big',
+    svg: sky('sad6', ['#8fa3c7', '#dfe6f1']) + `<rect y="300" width="400" height="40" fill="#dfe6f1"/>` +
+      shirt(150, 160, LG, 'LG', 1) + `<path d="M 210 160 Q 262 128 300 158" stroke="${INK}" stroke-width="5" fill="none" stroke-dasharray="10 9" stroke-linecap="round"/>` +
+      fx('?', 330, 178, 64, 8, '#ffffff') +
+      ryan({ x: 128, y: 278, s: 1.5, expr: 'cry' }) + aiden({ x: 322, y: 262, s: .8, expr: 'smile', flip: true }),
+    html: `<div class="b box t-bl" style="left:2%;top:4%;width:46%">홍창기 형이 다른 팀 가면 어떡해…</div>
+      <div class="b box t-br" style="left:54%;top:4%;width:44%">나도 같은 마음이야. 기다려 보자!</div>`
   },
-  { // 6. 역사 1: 1999년 첫 FA
-    svg: `<rect width="400" height="300" fill="#eceff4"/>` + cal(24, 70, '1999년', '첫 FA', '#7b4fd6') +
-      shirt(170, 140, LG, 'LG', .7) + arrowR(212, 140, 60, '#e8443a') + shirt(320, 140, '#1f6fd6', '삼성', .7) +
-      ryan({ x: 336, y: 260, s: .4, expr: 'wow', flip: true }),
+  { // 7. 역사 1: 1999년 첫 FA (옛날 느낌 색)
+    svg: `<rect width="400" height="300" fill="#f3e3c3"/>` + cal(24, 64, '1999년', '첫 FA', '#8a5a2b') +
+      shirt(170, 130, LG, 'LG', .7) + arrowR(212, 130, 60, '#e8443a') + shirt(320, 130, '#1f6fd6', '삼성', .7) +
+      ryan({ x: 336, y: 252, s: .42, expr: 'shock', mark: 'ex', flip: true }),
     html: `<div class="nar" style="left:2%;top:2.5%;width:66%">1999년, 한국 첫 FA 시장으로 가 보자!</div>
       <div class="b box t-bl" style="left:1%;top:72%;width:56%">LG 포수 김동수가 삼성으로 갔대!</div>`
   },
-  { // 7. 역사 2: 박동원, FA로 LG에 → 29년 만의 우승
-    svg: stadium(LG) + baseball(330, 70, 16) + fx('역전 홈런!', 200, 120, 34, -5, '#ffe14d') + fx('29년 만의 우승', 200, 176, 28, -2, '#ffffff') +
-      aiden({ x: 70, y: 232, s: .5, expr: 'happy', pose: 'wave' }) + ryan({ x: 330, y: 232, s: .5, expr: 'happy', pose: 'wave', flip: true }),
-    html: `<div class="nar" style="left:2%;top:2.5%;width:62%">반대로 2022년엔 박동원이 FA로 LG에!</div>
-      <div class="b shout t-bl" style="left:28%;top:74%;width:40%">FA가 우승 열쇠였어!</div>`
+  { // 8. [큰 컷·결정적 장면] 역사 2: 박동원 FA → 29년 만의 우승
+    size: 'big',
+    svg: burst(200, 160, '#ffd0dc', '#fff3f6', 400, 340) + speed(110, 92, 80, 3) + baseball(130, 96, 15) + impact(220, 150, 72) +
+      fx('역전 홈런!', 220, 162, 34, -6, '#e8443a') + fx('29년 만의 우승!', 200, 238, 28, -2, '#ffe14d') + sparkles(10, 4, 400, 340) +
+      aiden({ x: 72, y: 272, s: .55, pose: 'cheer', expr: 'happy' }) + ryan({ x: 328, y: 272, s: .55, pose: 'cheer', expr: 'grin', mark: 'sparkle', flip: true }),
+    html: `<div class="nar" style="left:2%;top:2.5%;width:76%">반대로 2022년엔 박동원이 FA로 LG에 왔어!</div>
+      <div class="b shout t-bl" style="left:26%;top:76%;width:48%">FA가 우승 열쇠!</div>`
   },
-  { // 8. 마무리: 겨울 동안 지켜보자
-    svg: emptyPark() + contract(200, 120, -6) +
-      aiden({ x: 80, y: 222, s: .58, expr: 'smile' }) + ryan({ x: 320, y: 222, s: .58, expr: 'happy', pose: 'wave', flip: true }),
-    html: `<div class="b box t-bl" style="left:1%;top:3%;width:34%">FA는 선수가 팀을 고르는 시간!</div>
-      <div class="b shout t-br" style="left:64%;top:3%;width:34%">봄에 누가 어디 있을까?</div>`
+  { // 9. [고정 엔딩] 오늘의 도감 획득!
+    svg: burst(190, 170, '#ffe14d', '#fff8d6') + ryan({ x: 140, y: 250, s: .55, pose: 'raise', expr: 'grin', mark: 'sparkle' }) + dexCard(190, 168, .8, '033', 'FA', LG, -8) +
+      aiden({ x: 50, y: 250, s: .48, expr: 'happy' }) +
+      pika({ x: 336, y: 262, s: .55, expr: 'wink', flip: true }),
+    html: `<div class="b shout t-bl" style="left:2%;top:3%;width:44%">📖 오늘의 도감 획득!</div>
+      <div class="b box t-br" style="left:58%;top:3%;width:40%">봄에 누가 어디 있을까?</div>`
   }
 ]);
 setupSave('2026-11-18-special');
