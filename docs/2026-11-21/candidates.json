@@ -1,0 +1,10 @@
+{
+  "date": "2026-11-21",
+  "candidates": [
+    {"emoji": "🛰️", "group": "우주·천문", "title": "보이저 1호, 지구에서 '빛으로 하루' 거리 도달", "summary": "1977년 발사된 보이저 1호가 11월 18일 지구에서 약 259억 km, 즉 빛이 하루 동안 가는 거리(1광일)에 도달했다. 사람이 만든 물체로는 처음이고, 전력이 해마다 줄어 2030년대엔 교신이 끊길 전망이다.", "hook": "야구공보다 훨씬 먼 곳! 신호가 닿는 데 하루가 걸리는 우주선, 피카가 거리를 체감하게 해 줘요.", "sources": ["https://science.nasa.gov/mission/voyager/voyager-1/voyager-1-what-is-a-light-day/", "https://www.sciencetimes.co.kr/nscvrg/view/menu/252?searchCategory=224&nscvrgSn=262611", "https://www.khan.co.kr/en/article/202611080830027"]},
+    {"emoji": "⚾", "group": "야구·스포츠", "title": "양의지, 두산과 2년 최대 55억 재계약", "summary": "두산 포수 양의지가 11월 17일 두산과 2년 최대 55억 원에 FA 재계약했다. 선수 옵션 대신 FA를 신청했지만 '두산에서 은퇴하고 싶다'며 잔류했다.", "hook": "FA가 뭘까? 스토브리그가 열리는 이유와 선수가 팀에 남는 선택을 알아봐요.", "sources": ["https://www.spotvnews.co.kr/news/articleView.html?idxno=1020204", "https://www.spotvnews.co.kr/news/articleView.html?idxno=1020191"]},
+    {"emoji": "🌌", "group": "과학·기술", "title": "안드로메다에서 별이 짝별을 삼키는 순간 첫 관측", "summary": "태양 질량의 약 7배인 별이 크게 부풀어 0.7배 크기의 짝별을 삼키는 '공통 외피 진화'가 처음 직접 관측됐다. 연구는 11월 19일 네이처에 실렸다.", "hook": "별이 별을 먹는다고? 우주에서 벌어지는 포식 장면을 그림으로 만나요.", "sources": ["https://www.sciencetimes.co.kr/nscvrg/view/menu/252?searchCategory=224&nscvrgSn=262700"]},
+    {"emoji": "🦈", "group": "동물·식물", "title": "부산 상어 '부캉이', 공공브랜드 대상 받았다", "summary": "9월 부산 북항에 나타나 150만 명 넘게 구경 온 상어 '부캉이'가 도시 캐릭터가 되어 도시브랜드 부문 대상을 받았다. 10월 27일 이후엔 따뜻한 남쪽으로 떠난 것으로 보인다.", "hook": "별명이 도시 스타가 된 상어! 상어는 왜 항구에 왔을까?", "sources": ["https://www.koreaherald.com/article/10944489"]},
+    {"emoji": "🔄", "group": "야구·스포츠", "title": "스토브리그 1호 트레이드: 정철원↔임지열", "summary": "11월 20일 롯데와 키움이 투수 정철원과 외야수 임지열을 맞바꾸는 1대1 트레이드를 발표했다. 이번 겨울 프로야구 첫 트레이드다.", "hook": "트레이드는 선수끼리 팀을 바꾸는 것! 왜 팀들은 선수를 맞바꿀까?", "sources": ["https://spotvnews.co.kr/news/articleView.html?idxno=1020940"]}
+  ]
+}
