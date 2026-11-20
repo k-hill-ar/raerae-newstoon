@@ -9,6 +9,7 @@
   function store(k, v) { try { if (v === undefined) return localStorage.getItem(k) || ''; if (v === null) localStorage.removeItem(k); else localStorage.setItem(k, v); } catch (e) { return ''; } }
 
   // 사람이 읽기 쉬운 기기 설명 만들기 (예: "안드로이드 14 · SM-A156N · 삼성 인터넷 · 화면 384×832")
+  window.ntDeviceInfo = deviceInfo;
   function deviceInfo() {
     var ua = navigator.userAgent || '';
     var os = '알 수 없음', model = '', br = '';
@@ -39,6 +40,7 @@
   var css = document.createElement('style');
   css.textContent =
     '.fb-btn{position:absolute;top:18px;right:16px;font-family:Jua,sans-serif;font-size:15px;background:var(--yellow);color:var(--ink);border:2.5px solid var(--ink);border-radius:999px;padding:6px 12px;box-shadow:3px 3px 0 var(--ink);cursor:pointer}' +
+    '@media (max-width:420px){.fb-long{display:none}}' +
     '.fb-btn:active{transform:translate(2px,2px);box-shadow:1px 1px 0 var(--ink)}' +
     '.fb-back{position:fixed;inset:0;background:rgba(0,0,0,.45);display:none;align-items:center;justify-content:center;padding:16px;z-index:50}' +
     '.fb-back.on{display:flex}' +
@@ -62,7 +64,7 @@
   var btn = document.createElement('button');
   btn.type = 'button';
   btn.className = 'fb-btn';
-  btn.textContent = '📮 의견 보내기';
+  btn.innerHTML = '📮 의견<span class="fb-long"> 보내기</span>';
   wrap.appendChild(btn);
 
   var back = document.createElement('div');

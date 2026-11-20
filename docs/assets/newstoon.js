@@ -12,6 +12,22 @@
    - 컷 크기: panel.size = 'wide'(400×200) | 'big'(400×340), panel.half = true(200×300, 두 컷 나란히)
    - 겹침 검사: 주소 뒤에 ?check 를 붙이면 말풍선·얼굴 겹침을 빨간 선으로 표시 (scripts/check_layout.js 도 같은 검사)
 */
+/* 앱 설치용: 모든 만화 페이지에 앱 정보(manifest)·아이콘을 붙이고 서비스 워커를 등록한다 */
+(function () {
+  const me = document.currentScript && document.currentScript.src;
+  if (!me) return;
+  const root = new URL('../', me).href; // docs/ 위치
+  const add = (tag, attrs) => { const el = document.createElement(tag); Object.assign(el, attrs); document.head.appendChild(el); };
+  if (!document.querySelector('link[rel="manifest"]')) {
+    add('link', { rel: 'manifest', href: root + 'manifest.webmanifest' });
+    add('link', { rel: 'icon', type: 'image/png', href: root + 'icons/favicon-48.png' });
+    add('link', { rel: 'apple-touch-icon', href: root + 'icons/apple-touch-icon.png' });
+    add('meta', { name: 'theme-color', content: '#e8443a' });
+    add('meta', { name: 'apple-mobile-web-app-title', content: '래래툰' });
+  }
+  if ('serviceWorker' in navigator) navigator.serviceWorker.register(root + 'sw.js', { scope: root }).catch(() => {});
+})();
+
 const INK = '#1d1d1f', SKIN = '#ffd9b8';
 const S = 'stroke="' + INK + '" stroke-width="3" stroke-linejoin="round"';
 
