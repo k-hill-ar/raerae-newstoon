@@ -1,0 +1,10 @@
+{
+  "date": "2026-11-23",
+  "candidates": [
+    {"emoji": "🪙", "group": "문화·세계", "title": "동전에 새겨진 세계유산 전시회가 열렸어요", "summary": "한국은행과 유네스코한국위원회가 11월 3일부터 내년 10월 31일까지 서울 한국은행 화폐박물관에서 세계유산 기념주화 기획전을 연다. 우리나라 세계유산 기념주화를 역사·문화·자연 세 갈래로 나눠 보여 준다.", "hook": "작은 동전 하나에 석굴암, 갯벌 같은 세계유산이 담겨 있다! 라이언의 도감 수집처럼 세계유산도 모아 볼까?", "sources": ["https://www.news1.kr/economy/trend/6339955", "https://www.sedaily.com/article/20109195"]},
+    {"emoji": "⚾", "group": "야구·스포츠", "title": "LG 오스틴, 외국인 타자 역대 최고 연봉 200만 달러", "summary": "LG 트윈스가 11월 12일 오스틴 딘과 1년 200만 달러에 재계약했다. 외국인 타자로는 KBO 역대 최고액이다. 오스틴은 올해 41홈런으로 구단 한 시즌 최다 홈런을 쳤다.", "hook": "LG 팬인 에이든과 라이언이 기뻐할 소식! 41홈런은 얼마나 대단한 기록일까?", "sources": ["http://www.osen.co.kr/article/G1112908761", "https://www.news1.kr/sports/baseball/6351562"]},
+    {"emoji": "🌍", "group": "환경", "title": "남극 오존 구멍, 올해 크기는 역대 7번째", "summary": "NASA와 NOAA에 따르면 2026년 남극 오존 구멍은 9월 중순 가장 컸고, 48년 관측 역사에서 크기 7번째였다. 오존층을 해치는 염소가 1980년대 정점보다 약 3분의 1 줄어 회복 중이다.", "hook": "지구의 선크림 오존층! 사람들이 힘을 모아 구멍을 줄여 온 이야기.", "sources": ["https://science.nasa.gov/earth/earth-observatory/ozone-hole-reaches-its-2026-maximum/", "https://science.nasa.gov/earth/climate-change/ozone-layer/2026-ozone-hole/"]},
+    {"emoji": "🚀", "group": "우주·천문", "title": "쌍둥이 화성 탐사선, 지구 중력으로 속도를 얻다", "summary": "NASA의 쌍둥이 탐사선 에스카페이드가 11월 7일과 9일 지구 곁을 스쳐 지나며 엔진을 약 9분씩 켜 화성으로 향하는 길을 잡았다. 화성에는 2027년 9월 도착할 예정이다.", "hook": "지구 중력을 새총처럼 쓰는 '스윙바이'! 투수의 투구 동작처럼 힘을 빌려 쓰는 우주 기술.", "sources": ["https://science.nasa.gov/science-research/heliophysics/nasas-escapade-completes-powered-earth-flybys-now-en-route-to-mars/", "https://www.space.com/astronomy/mars/nasas-escapade-twin-mars-probes-execute-a-1st-of-its-kind-gravity-slingshot-around-earth"]},
+    {"emoji": "🦴", "group": "과학·기술", "title": "300만 년 전 '타웅 아이' 화석이 알려 준 새 사실", "summary": "호주 모나시 대학 연구에 따르면 한 종으로 묶이던 고대 인류 조상들이 사실은 서로 다른 갈래일 수 있다. 타웅 아이 화석은 약 258만 년 전의 것으로 알려져 있다.", "hook": "인류의 가계도가 더 복잡해졌다! 화석 하나로 알 수 있는 것은?", "sources": ["https://www.sciencedaily.com/releases/2026/11/261118065531.htm", "https://www.livescience.com/archaeology/famous-taung-child-fossil-from-south-africa-is-258-million-years-old-new-study-finds"]}
+  ]
+}
