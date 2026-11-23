@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>래래 뉴스툰 11월 24일 특별편</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jua&family=Gowun+Dodum&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/newstoon.css">
+<script src="https://cdn.jsdelivr.net/npm/html-to-image@1.11.11/dist/html-to-image.js"></script>
+<script src="../assets/newstoon.js"></script>
+<style>
+  .hist{border:2.5px solid var(--line);border-radius:12px;background:#fff;padding:10px 12px;margin-bottom:12px}
+  .hist:last-child{margin-bottom:0}
+  .hist h3{font-family:Jua,sans-serif;font-weight:400;font-size:18px;margin:0 0 6px}
+  .hist p{margin:4px 0;font-size:15px}
+  .big{font-family:Jua,sans-serif;font-size:22px;color:var(--red)}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div id="capture">
+  <header class="card">
+    <div class="brand"><a href="../"><b>래래 뉴스툰</b> · 아침 만화 뉴스</a><span>2026.11.24 (화)</span></div>
+    <span class="tag" style="background:#3b5bdb">⭐ 특별편 · 🛰️ 우주 뉴스</span>
+    <h1>한국형 GPS 첫 위성, <em>제작</em> 단계로!</h1>
+    <p class="sub">휴대폰 지도 속 '파란 점'은 하늘의 위성이 알려 줘요. 이제 우리나라도 그 위성을 직접 만들어요.</p>
+  </header>
+
+  <section id="comic" aria-label="9컷 만화">
+    <div class="comic-title">⭐ 에이든 &amp; 라이언의 특별편 ⚡</div>
+    <div id="panels"></div>
+  </section>
+  </div>
+
+  <section class="card">
+    <h2><span class="chip">📰 뉴스 정리</span></h2>
+    <ul class="facts">
+      <li>우주항공청이 24~27일 <b>한국형 위성항법(KPS)</b> 설계를 마지막으로 점검해요.</li>
+      <li>점검이 끝나면 <b>위성 1호기</b>를 만들어 <b>2029년 9월</b>에 쏘아요.</li>
+      <li>2035년까지 위성 <b>8기</b>로 한반도 위치를 정밀하게 알려 줄 계획이에요.</li>
+    </ul>
+  </section>
+
+  <section class="card">
+    <h2><span class="chip">📊 역사 속 위성항법</span></h2>
+    <div class="hist">
+      <h3>🇺🇸 미국 GPS, 첫 위성 <span class="big">1978년</span></h3>
+      <p>원래 군대용으로 시작해 1990년대에 위성 24기가 다 갖춰졌어요.<br>첫 위성부터 완성까지 15년 넘게 걸렸어요.</p>
+    </div>
+    <div class="hist">
+      <h3>🇯🇵 이웃 일본, 우리 지역용 위성 <span class="big">4기</span></h3>
+      <p>일본도 자기 나라 하늘을 집중해서 비추는 위성항법(QZSS)을 운영해요.<br>지구 전체가 아닌 '우리 지역용'이라 위성 수가 적어도 돼요.</p>
+    </div>
+    <p style="margin:10px 0 0">👉 <b>기억할 것:</b> 지구 전체를 덮으려면 위성이 수십 기, <b>우리 지역만</b> 덮으면 KPS처럼 8기로 충분해요.</p>
+  </section>
+
+  <section class="card">
+    <h2><span class="chip">📖 뉴스 도감</span></h2>
+    <div class="dex">
+      <div class="no" style="background:#3b5bdb">도감<b>No.047</b></div>
+      <div class="body">
+        <div class="name">위성항법 <span class="type" style="background:#7b8cde">비행 타입</span></div>
+        <p>하늘의 위성이 보낸 신호로 <b>내가 어디 있는지</b> 알아내는 방법이에요. 내비게이션과 휴대폰 지도가 이걸로 길을 찾아요.</p>
+      </div>
+    </div>
+    <div class="dex">
+      <div class="no" style="background:#3b5bdb">도감<b>No.048</b></div>
+      <div class="body">
+        <div class="name">원자시계 <span class="type" style="background:#8a96a8">강철 타입</span></div>
+        <p>아주아주 정확한 시계예요. 위성은 신호를 보낸 <b>시각</b>을 정확히 알려 줘야 해서 이 시계를 싣고 다녀요.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2><span class="chip">🔭 한 걸음 더</span><span style="font-size:14px;color:var(--muted)">6학년 도전</span></h2>
+    <div class="step">
+      ① 위성 신호는 빛처럼 1초에 약 30만 km를 달려요. 약 3만 6천 km 높이에 있는 위성에서 신호가 오는 데 몇 초 걸릴까요?
+      <span class="calc">36,000 ÷ 300,000 = 0.12초</span>
+      ② 시계가 <b>100만분의 1초</b> 틀리면 거리는 얼마나 틀릴까요?
+      <span class="calc">300,000km ÷ 1,000,000 = 0.3km = 300m</span>
+      👉 <b>그래서 알 수 있는 것:</b> 눈 깜짝할 새보다 훨씬 짧은 시간만 틀려도 위치가 운동장 몇 개만큼 어긋나요. 그래서 위성에 원자시계가 꼭 필요해요.
+    </div>
+  </section>
+
+  <section class="card">
+    <h2><span class="chip">❓ 오늘의 퀴즈</span></h2>
+    <details>
+      <summary><span class="lv lv4">4학년</span>한국형 위성항법(KPS)은 2035년까지 위성을 몇 기 띄울 계획일까요?<span class="hint">① 4기 ② 8기 ③ 24기 — 눌러서 정답 확인</span></summary>
+      <div class="answer">정답은 <b>② 8기</b>! 첫 위성은 2029년 9월에 발사할 계획이에요.</div>
+    </details>
+    <details>
+      <summary><span class="lv lv6">6학년</span>위성으로 내 위치를 알려면 위성 신호가 <b>최소 몇 개</b> 필요할까요? 그 까닭은?<span class="hint">만화 6컷의 야구장을 떠올려 봐요 — 눌러서 정답 확인</span></summary>
+      <div class="answer">정답은 <b>4개</b>! 3개의 거리로 위치를 좁히고, 하나 더 받아서 내 휴대폰 시계의 작은 오차를 바로잡아요.</div>
+    </details>
+    <details>
+      <summary><span class="lv lvC">🧠 창의 도전</span>만약 <b>하루 동안 모든 위성항법 신호가 끊긴다면</b> 무엇이 달라질까요? 서로 다른 종류로 5가지 이상 써 보세요.<span class="hint">정답은 여러 개! 생각해 본 뒤 눌러 보세요</span></summary>
+      <div class="answer">
+        <b>생각 길잡이</b>: 위성 신호는 '<b>어디</b>'뿐 아니라 '<b>지금 몇 시</b>'도 알려 줘요. 길 찾기, 시간 맞추기, 일하는 사람들처럼 쓰임을 나눠서 떠올려 보세요.<br><br>
+        <b>예시 답</b><br>
+        ① <b>길 찾기</b>: 자동차 내비게이션이 멈춰 처음 가는 길을 헤매요. 그래서 종이 지도와 표지판을 다시 보게 될 거예요. (위치 기능이 사라지니까)<br>
+        ② <b>바다와 하늘</b>: 배는 밤바다에서 정확한 자리를 알기 어려워 천천히 다니고, 등대와 별을 다시 살펴요. (바다엔 표지판이 없으니까)<br>
+        ③ <b>배달·택시</b>: 지도 앱에 기사님 위치가 안 떠서 "지금 어디세요?" 전화가 많아져요. (사람과 사람을 잇는 일에도 위치가 쓰이니까)<br>
+        ④ <b>시간 맞추기</b>: 위성 신호로 시각을 맞추던 기계들의 시계가 조금씩 어긋날 수 있어요. (위성은 정확한 시계 역할도 하니까)<br>
+        ⑤ <b>구조</b>: 산이나 바다에서 길을 잃은 사람을 찾는 데 시간이 더 걸려요. (구조대도 위치 정보로 출동하니까)<br><br>
+        <b>🏅 한 단계 더</b>: 다른 나라 위성 신호가 끊겨도 KPS가 있다면 우리나라는 무엇이 덜 곤란할까요? 그래도 해결되지 않는 문제는 무엇일까요?
+        <span class="tip">채점 팁: 많이(유창성), 여러 종류로(융통성), 남과 다르게(독창성), 자세히(정교성) 쓸수록 좋은 답이에요.</span>
+      </div>
+    </details>
+  </section>
+
+  <section class="card">
+    <h2><span class="chip">💾 저장하기</span></h2>
+    <div class="btns">
+      <button type="button" id="saveComic">🖼️ 만화만 이미지로 저장</button>
+      <button type="button" class="alt" id="saveAll">📄 전체 페이지 저장</button>
+    </div>
+    <div class="status" id="status"></div>
+  </section>
+
+  <section class="card src">
+    출처: <a href="https://view.asiae.co.kr/article/2026112310252282428">아시아경제 (24~27일 KPS 통합 상세설계검토, 2029년 9월 1호기 발사, 2035년 8기, 3.7톤·13.25년·15.4m)</a> ·
+    <a href="https://biz.heraldcorp.com/article/10945405">헤럴드경제 (통합 상세설계검토, 제작 전 마지막 점검, 1호기 제원)</a> ·
+    <a href="https://biz.sbs.co.kr/amp/article/20000337003">SBS Biz (2029년 9월 발사, 2035년 8기, 한반도 정밀 위치·시각 정보)</a> ·
+    <a href="https://www.nasa.gov/history/global-positioning-system-history/">NASA (GPS 1978년 첫 위성, 1993년 완전 가동)</a> ·
+    <a href="https://www.history.com/this-day-in-history/february-22/navstar-1-first-operational-gps-satellite-launches">HISTORY (1978년 첫 GPS 위성, 1995년 24기 완전 가동)</a> ·
+    <a href="https://www.gps.gov/systems/gnss">GPS.gov (일본 QZSS 4기 등 나라별 위성항법)</a> ·
+    <a href="https://en.wikipedia.org/wiki/Satellite_navigation">위키백과 (지역 위성항법 QZSS 4기, 정지궤도 약 3만 6천 km)</a> ·
+    <a href="https://www.livescience.com/33783-gps-work-llmmp.html">Live Science (위치를 알려면 위성 4개, 시계 오차 바로잡기)</a><br>
+    에이든, 라이언, 피카는 래래 뉴스툰의 오리지널 캐릭터예요.
+  </section>
+
+  <footer><a href="../">← 지난 뉴스툰 모아보기</a></footer>
+</div>
+
+<script>
+const KBLUE = '#3b5bdb';
+/* 위성 (패널 두 장) */
+const sat = (x, y, s, rot = 0, flag = false) => `<g transform="translate(${x} ${y}) rotate(${rot}) scale(${s})">
+  <rect x="-92" y="-14" width="66" height="28" fill="#3e5a99" ${S}/><path d="M -70 -14 V 14 M -48 -14 V 14 M -92 0 H -26" stroke="#7ea0e0" stroke-width="2"/>
+  <rect x="26" y="-14" width="66" height="28" fill="#3e5a99" ${S}/><path d="M 48 -14 V 14 M 70 -14 V 14 M 26 0 H 92" stroke="#7ea0e0" stroke-width="2"/>
+  <rect x="-26" y="-22" width="52" height="44" rx="4" fill="#e9c46a" ${S}/><circle cx="0" cy="30" r="9" fill="#cfd6e2" ${S}/>
+  ${flag ? `<text x="0" y="7" font-family="Jua" font-size="16" text-anchor="middle" fill="${INK}">KPS</text>` : ''}</g>`;
+/* 휴대폰 지도 */
+const phoneMap = (x, y, s) => `<g transform="translate(${x} ${y}) scale(${s})"><rect x="-30" y="-52" width="60" height="104" rx="10" fill="#26324f" ${S}/>
+  <rect x="-24" y="-42" width="48" height="84" rx="4" fill="#dff1df"/><path d="M -24 -10 H 24 M 0 -42 V 42" stroke="#fff" stroke-width="6"/>
+  <circle cx="4" cy="6" r="7" fill="#2f6fde" stroke="#fff" stroke-width="3"/></g>`;
+/* 신호 물결 */
+const sig = (x1, y1, x2, y2) => `<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="#ffe14d" stroke-width="3" stroke-dasharray="6 6"/>`;
+
+renderPanels([
+  { // 1. [넓은 컷·장소] 등굣길, 휴대폰 지도
+    size: 'wide',
+    svg: bgCity(400, 200) + ryan({ x: 120, y: 142, s: .5, expr: 'wow', mark: 'q' }) + phoneMap(190, 110, .5) +
+      aiden({ x: 320, y: 144, s: .5, expr: 'smile', pose: 'point', flip: true }),
+    html: `<div class="nar" style="left:2%;top:4%;width:36%">11월 24일 등굣길</div>
+      <div class="b box t-bl" style="left:2%;top:22%;width:40%">파란 점이 나를 따라와!</div>
+      <div class="b box t-br" style="left:56%;top:4%;width:42%">하늘의 위성이 알려 주는 거야</div>`
+  },
+  { // 2. [반 컷·클로즈업] 라이언 궁금
+    half: true,
+    svg: bgCity(200, 300) + ryan({ x: 100, y: 226, s: 1.25, expr: 'think', mark: 'q' }),
+    html: `<div class="b think t-bl" style="left:6%;top:5%;width:88%">그 위성, 우리나라 거야?</div>`
+  },
+  { // 3. [반 컷·등장] 피카 짜잔
+    half: true,
+    svg: burst(100, 200, '#ffe14d', '#fff3b0', 200, 300) + pika({ x: 100, y: 214, s: 1.3, pose: 'explain', expr: 'happy', zap: true }),
+    html: `<div class="b shout t-bl" style="left:7%;top:5%;width:86%">찌릿! 설명 시작!</div>`
+  },
+  { // 4. 핵심: 지금은 다른 나라 위성을 빌려 써
+    svg: space(4) + earth(200, 330, 140) + sat(90, 70, .5, -12) + sat(310, 64, .5, 10) + sig(90, 84, 190, 196) + sig(310, 78, 210, 196) +
+      pika({ x: 64, y: 252, s: .56, pose: 'explain', expr: 'talk' }) + ryan({ x: 336, y: 244, s: .58, pose: 'shock', expr: 'shock', mark: 'sweat', flip: true }),
+    html: `<div class="b box t-bl" style="left:1%;top:30%;width:44%">지금은 대부분 미국 GPS 위성 신호를 써</div>
+      <div class="b shout t-br" style="left:58%;top:34%;width:40%">남의 위성이었어?!</div>`
+  },
+  { // 5. 뉴스: 오늘부터 마지막 설계 점검
+    svg: bgLab() + sat(200, 160, .62, 0, true) +
+      aiden({ x: 66, y: 246, s: .6, pose: 'point', expr: 'talk' }) + pika({ x: 336, y: 252, s: .56, pose: 'explain', expr: 'happy', flip: true }),
+    html: `<div class="nar" style="left:2%;top:2.5%;width:62%">오늘~27일, 대전 항공우주연구원</div>
+      <div class="b box t-bl" style="left:1%;top:20%;width:30%">그래서 우리 위성 KPS를 만든대</div>
+      <div class="b box t-br" style="left:69%;top:20%;width:30%">마지막 설계 점검! 끝나면 제작!</div>`
+  },
+  { // 6. [큰 컷·야구 비유] 거리 세 개면 내 자리가 딱 하나
+    size: 'big',
+    svg: bgField(400, 340) +
+      `<path d="M 200 313 L 262 150 M 302 211 L 262 150 M 200 109 L 262 150" stroke="#ffe14d" stroke-width="4" stroke-dasharray="8 7"/>` +
+      `<circle cx="262" cy="150" r="13" fill="#e8443a" ${S}/>` + fx('여기!', 262, 132, 22, -6, '#fff') +
+      ryan({ x: 70, y: 290, s: .62, pose: 'chin', expr: 'think', mark: 'q' }) + aiden({ x: 340, y: 292, s: .62, pose: 'point', expr: 'happy', mark: 'bulb', flip: true }),
+    html: `<div class="b box t-bl" style="left:1%;top:3%;width:44%">위성으로 어떻게 내 위치를 알아?</div>
+      <div class="b box t-br" style="left:52%;top:3%;width:46%">홈·1루·2루에서 거리를 알면 자리가 딱 하나!</div>`
+  },
+  { // 7. 역사: 1978년 미국 GPS 첫 위성
+    svg: space(9) + earth(200, 190, 70) + sat(84, 70, .4, -20) + sat(316, 74, .4, 18) + sat(330, 210, .36, 30) + sat(70, 216, .36, -28) +
+      aiden({ x: 60, y: 262, s: .46, pose: 'chin', expr: 'think' }) + pika({ x: 340, y: 266, s: .46, pose: 'explain', expr: 'talk', flip: true }),
+    html: `<div class="nar" style="left:2%;top:2.5%;width:60%">1978년, 미국 GPS 첫 위성 발사!</div>
+      <div class="b box t-br" style="left:58%;top:30%;width:40%">24기를 다 모으는 데 15년 넘게!</div>`
+  },
+  { // 8. 놀라운 포인트: 펼치면 15.4m
+    svg: space(6) + focusLines(200, 120, 400, 300, '#ffe14d', 30, .5) + sat(200, 112, 1.6, 0, true) +
+      `<path d="M 54 168 H 346" stroke="#fff" stroke-width="3"/><path d="M 54 160 V 176 M 346 160 V 176" stroke="#fff" stroke-width="3"/>` + fx('15.4m', 200, 194, 24, 0, '#fff') +
+      ryan({ x: 90, y: 262, s: .58, pose: 'shock', expr: 'wow', mark: 'ex' }) + pika({ x: 318, y: 268, s: .5, pose: 'explain', expr: 'happy', flip: true }),
+    html: `<div class="b shout t-bl" style="left:2%;top:3%;width:44%">버스보다 길어?!</div>
+      <div class="b box t-br" style="left:54%;top:3%;width:44%">3.7톤! 13년 넘게 일해</div>`
+  },
+  { // 9. [고정 엔딩] 오늘의 도감 획득!
+    svg: burst(190, 170, '#ffe14d', '#fff8d6') + ryan({ x: 140, y: 250, s: .55, pose: 'raise', expr: 'grin', mark: 'sparkle' }) + dexCard(190, 168, .8, '047', '위성항법', KBLUE, -8) +
+      aiden({ x: 50, y: 250, s: .48, expr: 'happy' }) + pika({ x: 336, y: 262, s: .55, expr: 'wink', flip: true }) + sat(336, 190, .3, 14, true),
+    html: `<div class="b shout t-bl" style="left:2%;top:3%;width:44%">📖 오늘의 도감 획득!</div>
+      <div class="b box t-br" style="left:52%;top:3%;width:46%">2029년엔 우리 위성이 길을 알려 줘!</div>`
+  }
+]);
+setupSave('2026-11-24-special');
+</script>
+</body>
+</html>
