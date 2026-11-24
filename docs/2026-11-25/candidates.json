@@ -1,0 +1,10 @@
+{
+  "date": "2026-11-25",
+  "candidates": [
+    {"emoji": "⚾", "group": "야구·스포츠", "title": "KBO 시상식 내일! MVP는 누가 받을까?", "summary": "11월 26일 오후 2시 서울 롯데호텔 월드에서 KBO 시상식이 열린다. MVP 후보는 14명, 신인상 후보는 9명이고 LG 문정빈도 신인상 후보다.", "hook": "LG 팬 형제가 응원할 신인 문정빈! 홈런 19개 vs 허인서 20개, 신인왕 대결 (MVP는 상금으로 전기차까지)", "sources": ["https://www.koreatimes.co.kr/sports/20261120/kbo-to-hand-out-mvp-top-rookie-awards-nov-26", "https://www.koreabaseball.com/Player/Awards/PlayerPrize.aspx"]},
+    {"emoji": "🚀", "group": "우주·천문", "title": "중국 우주정거장에 첫 외국인 우주비행사!", "summary": "중국이 선저우 24호에 파키스탄 우주비행사를 태워 보낸다. 중국이 외국인을 우주에 보내는 첫 사례로, 외국인은 약 일주일 머문다.", "hook": "우주정거장에 놀러 가는 첫 외국인 손님! 우주에서 일주일은 어떨까?", "sources": ["https://www.space.com/space-exploration/human-spaceflight/china-shenzhou-24-first-international-astronaut-launch-tiangong-space-station", "https://news.cgtn.com/news/2026-11-07/First-foreign-astronaut-set-to-visit-China-s-space-station-1RS6aTZm5he/p.html"]},
+    {"emoji": "🚢", "group": "문화·세계", "title": "2200년 전 로마 배의 방수 비법은 송진과 밀랍!", "summary": "크로아티아 앞바다의 로마 난파선에서 소나무 송진에 밀랍을 섞은 방수 코팅이 나왔다. 코팅 속 꽃가루로 배를 어디서 고쳤는지도 알 수 있다.", "hook": "벌집 밀랍이 배를 지켰다고? 꽃가루가 증거가 된 탐정 이야기", "sources": ["https://www.sciencedaily.com/releases/2026/11/261123232342.htm", "https://popsci.com/science/roman-shipwreck-pollen"]},
+    {"emoji": "⭐", "group": "우주·천문", "title": "죽어 가는 별의 '마지막 심장 박동'을 찍었다!", "summary": "칠레의 ALMA 망원경이 약 1만 2천 광년 떨어진 늙은 별 주변의 가스 껍질을 관측했다. 태양도 먼 훗날 비슷한 과정을 겪을 수 있어 연구가 주목받는다.", "hook": "태양도 언젠가 이렇게 끝난다고? 별의 일생 이야기", "sources": ["https://www.space.com/astronomy/stars/1st-ever-detection-of-a-dying-stars-final-nuclear-heartbeat-challenges-what-we-know-about-our-suns-eventual-death", "https://arxiv.org/abs/2508.19666"]},
+    {"emoji": "🎾", "group": "야구·스포츠", "title": "알카라스, 23세에 ATP 파이널스 우승!", "summary": "알카라스가 결승에서 즈베레프를 2-0으로 꺾고 우승했다. 4대 대회 우승을 모두 이룬 뒤 시즌 최종전까지 같은 해에 우승한 네 번째 선수다.", "hook": "손목 부상과 햄스트링 부상을 이겨 낸 23살 챔피언 이야기", "sources": ["https://www.koreaherald.com/article/10945730", "https://www.koreaherald.com/article/10947090"]}
+  ]
+}
