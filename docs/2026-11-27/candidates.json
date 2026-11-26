@@ -1,0 +1,10 @@
+{
+  "date": "2026-11-27",
+  "candidates": [
+    {"emoji": "🌤️", "group": "날씨·계절", "title": "포근한 금요일 낮 21도, 주말엔 영하권!", "summary": "27일 낮 최고기온은 15~21도로 포근하고 낮밤 기온 차가 15도 안팎으로 크다. 주말부터는 다시 추워져 28일 밤~29일 새벽엔 중부와 남부 내륙이 영하권으로 내려간다.", "hook": "하루 사이 기온이 롤러코스터! 일교차 15도는 몸에 어떤 영향을 줄까, 옷은 어떻게 입을까?", "sources": ["https://m.sedaily.com/article/20119588", "https://www.news1.kr/local/ulsan/6367621", "https://www.inews24.com/view/2031029"]},
+    {"emoji": "⚾", "group": "야구·스포츠", "title": "김도영 2년 만에 또 MVP! 신인왕은 허인서", "summary": "26일 KBO 시상식에서 KIA 김도영이 136표 중 80표로 통산 두 번째 MVP, 한화 허인서가 포수로는 2010년 양의지 이후 16년 만에 신인왕에 올랐다. LG 임찬규는 15승으로 공동 다승왕을 받았다.", "hook": "어제 '누가 받을까?' 하던 시상식 결과 발표! 포수 신인왕은 16년 만, LG 임찬규 다승왕은 형제 모두 반가운 소식", "sources": ["https://www.hankyung.com/article/202611262992i", "https://www.khan.co.kr/article/202611262035005", "https://www.spotvnews.co.kr/news/articleView.html?idxno=1022116"]},
+    {"emoji": "🚀", "group": "우주·천문", "title": "누리호 6호기는 순천에서 만들어 바다로 옮긴다", "summary": "우주항공청과 항우연은 24~26일 누리호 1·2·3단 모사체로 육상·해상 이송을 점검했다. 6차 발사부터는 한화 순천사업장에서 단별로 조립한 뒤 약 121km를 옮겨 고흥 나로우주센터에서 총조립한다.", "hook": "거대한 로켓을 트럭과 바지선으로 옮긴다고? 야구장보다 큰 로켓의 이사 대작전", "sources": ["https://www.news1.kr/it-science/general-science/6367099", "https://biz.heraldcorp.com/article/10949980"]},
+    {"emoji": "🏯", "group": "문화·세계", "title": "유네스코가 소개하는 한국 세계유산 영상", "summary": "유네스코 공식 채널에서 11월 17일부터 12월 22일까지 매주 한 편씩 한국 세계유산 영상이 공개된다. 첫 편은 반구천의 암각화이고, 석굴암·불국사, 창덕궁 등 세계유산 6곳과 탈춤·김장문화·장 담그기 등 인류무형유산 3건을 다룬다.", "hook": "세계 사람들이 보는 영상에 우리 문화유산이! 김장과 탈춤도 세계유산이라고?", "sources": ["https://zdnet.co.kr/view/?no=20261125143349", "https://www.iusm.co.kr/news/articleView.html?idxno=1071046"]},
+    {"emoji": "❄️", "group": "날씨·계절", "title": "소설 지나 대설까지, 진짜 겨울은 언제부터?", "summary": "22일 소설이 지났고 다음 절기 대설은 12월 7일이다. 소설 무렵 김장을 마무리하는 풍습이 있고, 이번 주말 영하권 추위가 오면 겨울이 성큼 온 느낌이 든다.", "hook": "절기 이름에 숨은 날씨 비밀! 눈이 적게 온다는 소설, 정말 눈이 올까?", "sources": ["https://www.lecturernews.com/news/articleView.html?idxno=213890", "https://www.wikitree.co.kr/articles/1174479"]}
+  ]
+}
