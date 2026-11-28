@@ -1,0 +1,47 @@
+{
+ "p1": {
+  "hash": "27cf4f54ae150d80",
+  "model": "gemini-nano-banana-2.1",
+  "ratio": "16:9"
+ },
+ "p2": {
+  "hash": "168465d00a84e7bb",
+  "model": "gemini-nano-banana-2.1",
+  "ratio": "2:3"
+ },
+ "p3": {
+  "hash": "6c532d507711c147",
+  "model": "gemini-nano-banana-2.1",
+  "ratio": "2:3"
+ },
+ "p4": {
+  "hash": "b7da179bab543998",
+  "model": "gemini-nano-banana-2.1",
+  "ratio": "4:3"
+ },
+ "p5": {
+  "hash": "ef58ce33625b62cd",
+  "model": "gemini-nano-banana-2.1",
+  "ratio": "4:3"
+ },
+ "p6": {
+  "hash": "9ee7869588b70550",
+  "model": "gemini-nano-banana-2.1",
+  "ratio": "5:4"
+ },
+ "p7": {
+  "hash": "d677d7551eaffe58",
+  "model": "gemini-nano-banana-2.1",
+  "ratio": "4:3"
+ },
+ "p8": {
+  "hash": "73ef5b9ba5629878",
+  "model": "gemini-nano-banana-2.1",
+  "ratio": "4:3"
+ },
+ "p9": {
+  "hash": "4a585274b325164c",
+  "model": "gemini-nano-banana-2.1",
+  "ratio": "4:3"
+ }
+}
