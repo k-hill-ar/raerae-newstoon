@@ -3,39 +3,80 @@
   "style": "bright, clean digital webtoon illustration for kids, soft cel shading, bold dark outlines, warm cheerful colors, gentle winter light",
   "panels": [
     {
-      "id": "p1", "size": "wide", "chars": ["ryan", "aiden"],
+      "id": "p1",
+      "size": "wide",
+      "chars": [
+        "ryan",
+        "aiden"
+      ],
       "prompt": "Wide shot of a calm river estuary on a cold, clear winter morning with reeds and sandbars. A group of large, all-white swans floats on the water in the middle distance. Ryan stands on the left bank, pointing at the swans with an amazed open-mouth face; Aiden stands on the right bank holding binoculars and smiling. Both wear warm jackets over their baseball jerseys and keep their caps on. The upper third of the image is a plain pale winter sky."
     },
     {
-      "id": "p2", "size": "half", "chars": ["ryan"],
+      "id": "p2",
+      "size": "half",
+      "chars": [
+        "ryan"
+      ],
       "prompt": "Vertical close-up of Ryan's face and shoulders, looking curious and puzzled, one finger on his chin. Behind him, slightly blurred, one white swan flies low over the water with wide-open wings. Upper third is plain pale sky."
     },
     {
-      "id": "p3", "size": "half", "chars": ["pika"],
+      "id": "p3",
+      "size": "half",
+      "chars": [
+        "pika"
+      ],
       "prompt": "Vertical panel. Pika jumps into view with a big happy grin, tiny yellow sparks around its lightning antenna, on a bright radiating yellow burst background typical of comics. Pika is in the lower two-thirds; upper third is the plain burst background."
     },
     {
-      "id": "p4", "size": "normal", "chars": ["pika", "ryan"],
+      "id": "p4",
+      "size": "normal",
+      "chars": [
+        "pika",
+        "ryan"
+      ],
       "prompt": "Two swans standing side by side on a muddy shore, shown from the side so their bills are clearly visible. LEFT swan: a slightly smaller Tundra (Bewick's) swan, all white, BLACK bill with only a SMALL rounded yellow patch at the base of the bill near the eye. RIGHT swan: a larger Whooper swan, all white, with a LARGE yellow wedge that extends far forward along the bill toward the tip, the tip black. Make the difference in yellow area obvious. Pika stands in the lower left corner pointing at the left swan's bill; Ryan leans in from the lower right corner, looking closely. Upper third is plain sky."
     },
     {
-      "id": "p5", "size": "normal", "chars": ["aiden"],
+      "id": "p5",
+      "size": "normal",
+      "chars": [
+        "aiden"
+      ],
       "prompt": "A flock of white swans flying in a V formation high over a vast, flat, snowy Arctic tundra with small frozen ponds, heading toward the right side of the image (south). In the lower right corner Aiden looks up at them and points in the direction they are flying. Upper third is plain pale sky."
     },
     {
-      "id": "p6", "size": "big", "chars": ["aiden", "ryan"],
+      "id": "p6",
+      "size": "big",
+      "chars": [
+        "aiden",
+        "ryan"
+      ],
       "prompt": "Baseball analogy scene. A small baseball field built on the edge of a mudflat wetland; the right half of the field is being covered with piles of sand and dirt by two yellow excavators, and a few white swans stand at the shrinking edge of the water looking for space. Aiden, in the lower left, explains with a serious face, one hand open toward the field. Ryan, in the lower right, looks shocked with both hands on his cheeks. No logos, no signs. Upper third is plain cloudy sky."
     },
     {
-      "id": "p7", "size": "normal", "chars": ["pika"],
-      "prompt": "A quiet winter lake with three kinds of swans swimming together: a Whooper swan (large yellow wedge on bill), a Tundra swan (black bill with small yellow base), and a Mute swan (ORANGE bill with a black knob at the base, curved S-shaped neck). Soft, slightly vintage warm colors as if in the past. Pika floats in the lower right corner smiling proudly. Upper third is plain sky."
+      "id": "p7",
+      "size": "normal",
+      "chars": [
+        "pika"
+      ],
+      "prompt": "A quiet winter lake with three kinds of swans swimming together, ALL THREE with PURE SNOW-WHITE feathers (no yellow, cream or beige tint on the body at all): on the left a large Whooper swan (black bill with a large yellow wedge reaching far toward the tip), in the middle a smaller Tundra swan (black bill with only a small yellow patch at the base), on the right a Mute swan (ORANGE bill with a black knob at the base, gracefully curved S-shaped neck). Soft, slightly nostalgic warm sky as if in the past, but the swans stay pure white. Pika floats in the lower right corner smiling proudly. Upper third is plain sky."
     },
     {
-      "id": "p8", "size": "normal", "chars": ["pika"],
+      "id": "p8",
+      "size": "normal",
+      "chars": [
+        "pika"
+      ],
       "prompt": "An English wetland pond in winter with many white Bewick's swans. In the foreground, a researcher seen only from behind (no face visible), wearing a dark coat, sketching swan heads in a notebook; the notebook page shows several small swan-head drawings, each bill with a different black-and-yellow pattern, and no writing. Pika sits on the researcher's shoulder looking amazed. Upper third is plain grey sky."
     },
     {
-      "id": "p9", "size": "normal", "chars": ["ryan", "aiden", "pika"],
+      "id": "p9",
+      "size": "normal",
+      "chars": [
+        "ryan",
+        "aiden",
+        "pika"
+      ],
       "prompt": "Celebration scene on a riverside at sunset with white swans resting on the water in the background. Ryan in the lower left raises both arms happily, Aiden in the lower right smiles and gives a thumbs-up, Pika jumps in the lower middle. Leave a large empty area in the center of the image for a card that will be added later. Upper third is plain warm sky."
     }
   ]
