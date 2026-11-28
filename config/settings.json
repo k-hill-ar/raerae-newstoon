@@ -5,5 +5,11 @@
   "image_model_fallbacks": [
     "gemini-3.1-flash-image",
     "gemini-2.5-flash-image"
-  ]
+  ],
+  "image_size": [
+    "512",
+    "1K"
+  ],
+  "max_images_per_run": 12,
+  "max_images_per_day": 30
 }

@@ -57,6 +57,11 @@
   - 예: `"Wide shot of a bright science exhibition hall. Ryan on the left points excitedly at a white humanoid robot in the center that is waving; Aiden on the right smiles. Upper third is the plain white ceiling."`
 - **그림 사실 검수(5-5)를 프롬프트에서 먼저 지킨다**: 방향·크기·순서가 중요한 컷은 그 사실을 문장으로 분명히 쓴다.
   - 예: `"seen from behind home plate: first base on the right, third base on the left; a left-handed batter stands on the RIGHT side of home plate; the curveball from the left-handed pitcher breaks toward the LEFT (third-base side), away from the batter."`
+- **반복 컷은 stock으로 (토큰 절약)**: 피카 등장 반 컷(3컷)과 도감 엔딩(마지막 컷)은 그리지 않고 돌려 쓴다.
+  - `{"id": "p3", "stock": "pika-intro-a"}` / `{"id": "p9", "stock": "ending-a"}` 처럼 `prompt` 대신 `stock`만 쓴다.
+  - 목록: `docs/assets/stock/stock.json` (pika-intro-a·b·c, ending-a·b·c). 직전 이미지개선편과 다른 것으로 돌린다.
+  - 처음 쓰는 stock은 그때 한 번만 그려져 저장되고, 다음부터는 복사만 한다(API 호출 없음).
+  - 그 회차 주제가 꼭 보여야 하는 엔딩이면 stock 대신 새로 그려도 된다(그날 1장 추가).
 - 글자는 그림에 넣지 않는다(스크립트가 금지 문장을 붙인다). 숫자·연도·이름은 말풍선과 나레이션으로.
 - 정확한 그래프·표·지도가 필요한 컷은 그림 대신 기존 SVG(`bgClassroom` 칠판, 전광판 등)로 그려도 된다. 한 회차 안에 섞어도 된다.
 
@@ -74,6 +79,14 @@
   - 말풍선이 그림 속 얼굴을 가리지 않는가? 가리면 말풍선 위치를 옮긴다.
 - 틀린 컷은 그 컷의 `prompt`를 고쳐 다시 올린다. **프롬프트가 바뀐 컷만** 다시 그려진다. 같은 프롬프트로 다시 그리고 싶으면 문장 끝에 `(v2)`처럼 덧붙인다.
 - 두 번 고쳐도 안 되는 컷은 그 컷만 기존 SVG 그림으로 바꾼다.
+
+## 토큰 절약 규칙 (자동 적용, config/settings.json)
+- 참고 그림은 `docs/assets/ref/small/*.jpg`(768px 이하)를 보낸다. 캐릭터 그림을 바꾸면 이 작은 판도 다시 만든다.
+- 출력 크기 `image_size: ["512", "1K"]`: 작은 크기부터 시도하고, 모델이 거절하면 다음 크기. 페이지는 어차피 가로 900px 이하로 줄여 쓴다.
+- 한도 초과(429)가 나오면 다른 모델로 넘어가지 않고 **바로 멈춘다**. 폴백 모델은 Flash 계열만 둔다.
+- 상한: `max_images_per_run` 12장, `max_images_per_day` 30장 (한국 날짜). 넘으면 멈추고 기록은 `config/image_usage.json`. `--force`도 상한을 따른다.
+- push로 돌 때는 **이번에 바뀐 회차만** 그린다. 한 회차 그림 수는 보통 7장(9컷 − stock 2컷).
+- 다시 그리기는 틀린 컷의 `prompt`만 고친다(바뀐 컷만 다시 그려진다).
 
 ## 7. 링크
 - `DISCORD_BOT_TOKEN` 비밀값이 있으면 Actions가 그림 완성 뒤 링크를 보낸다.

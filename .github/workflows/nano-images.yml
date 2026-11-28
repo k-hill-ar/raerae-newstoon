@@ -29,6 +29,8 @@ jobs:
     timeout-minutes: 30
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - uses: actions/setup-python@v5
         with:
@@ -43,22 +45,29 @@ jobs:
           GEN_REPORT: ${{ runner.temp }}/new_slugs.txt
         run: |
           ARGS="${{ github.event.inputs.slug }}"
+          if [ "${{ github.event_name }}" = "push" ]; then
+            # 토큰 절약: 이번 push에서 바뀐 회차만 그린다
+            ARGS=$(git diff --name-only "${{ github.event.before }}" "${{ github.sha }}" 2>/dev/null | grep -E '^docs/[^/]+/image-prompts.json$' | cut -d/ -f2 | sort -u | tr '\n' ' ')
+            if [ -z "$ARGS" ]; then echo "바뀐 회차 없음"; exit 0; fi
+          fi
           if [ "${{ github.event.inputs.force }}" = "true" ]; then ARGS="$ARGS --force"; fi
           python scripts/gen_images.py $ARGS
 
       - name: 그림 저장 (커밋)
         id: commit
+        if: always()
         run: |
           git config user.name "raerae-image-bot"
           git config user.email "actions@users.noreply.github.com"
-          git add docs/*/img
+          git add docs/*/img docs/assets/stock
+          if [ -f config/image_usage.json ]; then git add config/image_usage.json; fi
           if git diff --cached --quiet; then echo "changed=false" >> "$GITHUB_OUTPUT"; exit 0; fi
           git commit -m "이미지개선편 그림 생성 (나노바나나)"
           for i in 1 2 3; do git pull --rebase -q origin main && git push origin HEAD:main && break; sleep 5; done
           echo "changed=true" >> "$GITHUB_OUTPUT"
 
       - name: 웹페이지 다시 빌드 요청
-        if: steps.commit.outputs.changed == 'true'
+        if: always() && steps.commit.outputs.changed == 'true'
         env:
           GH_TOKEN: ${{ github.token }}
         run: gh api -X POST "repos/${{ github.repository }}/pages/builds" || true
