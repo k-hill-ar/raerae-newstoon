@@ -36,11 +36,16 @@ jobs:
         with:
           python-version: '3.12'
 
-      - name: Pillow 설치 (그림 크기 줄이기)
-        run: pip install pillow
+      - name: Pillow·구글 인증 설치
+        run: pip install pillow google-auth requests
 
       - name: 그림 만들기
         env:
+          # 구글 클라우드(Vertex AI, 크레딧 사용): GCP_SA_KEY 또는 VERTEX_API_KEY
+          GCP_SA_KEY: ${{ secrets.GCP_SA_KEY }}
+          VERTEX_API_KEY: ${{ secrets.VERTEX_API_KEY }}
+          GCP_PROJECT_ID: ${{ secrets.GCP_PROJECT_ID }}
+          # 예전 AI Studio 방식 (settings image_backend = ai_studio 일 때만 씀)
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           GEN_REPORT: ${{ runner.temp }}/new_slugs.txt
         run: |

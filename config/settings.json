@@ -1,6 +1,9 @@
 {
   "discord_channel_id": "1568571478553657387",
   "site_base_url": "https://k-hill-ar.github.io/raerae-newstoon",
+  "image_backend": "vertex",
+  "gcp_project": "",
+  "gcp_location": "global",
   "image_model": "gemini-nano-banana-2.1",
   "image_model_fallbacks": [
     "gemini-3.1-flash-image",
@@ -11,5 +14,10 @@
     "1K"
   ],
   "max_images_per_run": 12,
-  "max_images_per_day": 30
+  "max_images_per_day": 30,
+  "vertex_models": [
+    "gemini-nano-banana-2.1",
+    "gemini-3.1-flash-image",
+    "gemini-2.5-flash-image"
+  ]
 }

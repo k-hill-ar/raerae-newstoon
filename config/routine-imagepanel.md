@@ -5,7 +5,7 @@
 
 ## 어떻게 돌아가나
 1. Claude가 원고(대사·말풍선·본문)와 **컷별 그림 설명서** `image-prompts.json`을 써서 main에 올린다.
-2. 올라가는 순간 GitHub Actions(`.github/workflows/nano-images.yml`)가 저장소 비밀값 `GEMINI_API_KEY`로 나노바나나를 불러 그림을 그린다.
+2. 올라가는 순간 GitHub Actions(`.github/workflows/nano-images.yml`)가 구글 클라우드 Vertex AI(비밀값 `GCP_SA_KEY` 또는 `VERTEX_API_KEY`, 클라우드 크레딧으로 결제)로 나노바나나를 불러 그림을 그린다.
 3. 그림이 `docs/SLUG/img/`에 커밋되고 웹페이지가 다시 만들어진다. `DISCORD_BOT_TOKEN` 비밀값이 있으면 디스코드로 링크도 보낸다.
 - 그래서 **구글 API에 직접 접속할 수 없는 환경(claude.ai 채팅 등)에서도** git push만 되면 만들 수 있다.
 - 그림이 생기기 전에는 컷에 "🎨 그림을 그리는 중이에요"가 보인다. 보통 2~5분 걸린다.
@@ -72,7 +72,7 @@
 - 커밋하고 `git push origin HEAD:main` → Actions가 그림을 그린다.
 
 ## 6. 그림 검수 (그림이 생긴 뒤)
-- 2~5분 뒤 `git pull`. `docs/SLUG/img/manifest.json`에 모든 컷이 있으면 완료. (10분이 지나도 없으면 GitHub Actions 실행 기록을 확인하고 사용자에게 알린다. 대부분 `GEMINI_API_KEY` 비밀값이 없거나 한도 초과다. 로그에 `HTTP 429 … limit: 0 … Free Tier`가 보이면 무료 등급이라 이미지 모델을 쓸 수 없는 것이니, 사용자에게 Google AI Studio에서 결제(유료 등급) 연결을 요청한다. 연결 뒤 Actions → '이미지개선편 그림 만들기' → Run workflow(slug 입력)로 다시 돌리면 된다.)
+- 2~5분 뒤 `git pull`. `docs/SLUG/img/manifest.json`에 모든 컷이 있으면 완료. (10분이 지나도 없으면 GitHub Actions 실행 기록을 확인하고 사용자에게 알린다. 대부분 Vertex 인증 비밀값이 없거나(`Vertex AI 인증이 없습니다`), 권한 문제(`HTTP 403`: 서비스 계정에 `Vertex AI 사용자` 역할이 없거나 Vertex AI API가 꺼져 있음), 한도 초과(`HTTP 429`)다. 403·429면 사용자에게 Google Cloud 콘솔에서 확인을 요청한다. 연결 뒤 Actions → '이미지개선편 그림 만들기' → Run workflow(slug 입력)로 다시 돌리면 된다.)
 - `node scripts/render_comic.js docs/SLUG/index.html` → 이미지를 열어 `routine-comic.md` 5-5 체크리스트로 **모든 컷**을 본다. 추가로:
   - 캐릭터가 참고 그림과 같은가(모자 색·번호 4/6, 피카 모양)? 피카가 다른 유명 캐릭터처럼 보이지 않는가?
   - 그림에 글자·로고가 생기지 않았는가? 실제 인물 얼굴이 그려지지 않았는가?
@@ -93,8 +93,14 @@
 - 없으면 디스코드에 접속할 수 있는 환경에서 `python scripts/discord_bot.py link SLUG`.
 
 ## 처음 한 번 설정 (사용자)
-- Google AI Studio(또는 Google Cloud 콘솔의 Gemini API)에서 API 키를 만든다. 이미지 모델은 결제가 연결된 프로젝트가 필요할 수 있다.
-- GitHub 저장소 → Settings → Secrets and variables → Actions → New repository secret
-  - `GEMINI_API_KEY` (필수)
-  - `DISCORD_BOT_TOKEN` (선택: 그림 완성 뒤 디스코드 링크)
-- 모델은 `config/settings.json`의 `image_model`에서 바꾼다 (기본 `gemini-nano-banana-2.1`, 안 되면 `image_model_fallbacks` 순서로 시도).
+그림은 **Google Cloud Vertex AI**로 부른다(`config/settings.json` `"image_backend": "vertex"`). AI Studio 키와 달리 구글 클라우드 크레딧(무료 체험 $300 등)이 먼저 쓰인다.
+1. Google Cloud 콘솔에서 크레딧이 있는 결제 계정이 연결된 프로젝트를 고르고 **Vertex AI API**를 사용 설정한다.
+2. IAM 및 관리자 → 서비스 계정 → 만들기(예: `raerae-images`), 역할 **Vertex AI 사용자**(`roles/aiplatform.user`).
+3. 그 서비스 계정 → 키 → 키 추가 → JSON → 내려받은 파일 내용 **전체**를 복사.
+4. GitHub 저장소 → Settings → Secrets and variables → Actions → New repository secret
+   - `GCP_SA_KEY` = 3의 JSON 전체 (프로젝트 ID는 JSON 안에서 자동으로 읽는다)
+   - (대신) `VERTEX_API_KEY` = 서비스 계정에 묶은 Google Cloud API 키 (JSON 키를 못 만들 때)
+   - `DISCORD_BOT_TOKEN` (선택: 그림 완성 뒤 디스코드 링크)
+- 위치는 `gcp_location`(기본 `global`), 모델 순서는 `vertex_models`. 이 위치에 없는 모델(404)은 건너뛴다.
+- Vertex는 공유 한도라 429가 잠깐 몰릴 때도 나서 **30초 뒤 한 번만** 다시 하고, 그래도 429면 멈춘다. 401/403(인증·권한)도 바로 멈춘다.
+- 예전 AI Studio 방식으로 되돌리려면 `"image_backend": "ai_studio"` + 비밀값 `GEMINI_API_KEY` (크레딧은 안 쓰이고 카드로 결제됨).
