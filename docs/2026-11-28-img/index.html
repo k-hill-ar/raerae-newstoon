@@ -127,49 +127,112 @@
 
 <script>
 const SKYBLUE = '#3d8bd6';
+/* 그림이 아직 없을 때 보이는 SVG 그림 (나노바나나 그림이 생기면 그 위를 덮는다) */
+// 고니: kind = 'tundra'(고니: 노란 무늬 좁게) | 'whooper'(큰고니: 노랗게 길게) | 'mute'(혹고니: 주황 부리+검은 혹)
+function swan(x, y, s = 1, kind = 'tundra', flip = false) {
+  const f = flip ? -1 : 1;
+  const neck = kind === 'mute' ? 'M 18 -4 Q 38 -18 24 -34 Q 14 -46 28 -52' : 'M 18 -4 Q 30 -20 27 -36 Q 25 -46 30 -52';
+  let bill;
+  if (kind === 'mute') bill = `<path d="M 37 -55 L 52 -50 L 37 -47 Z" fill="#f08c00" ${S}/><circle cx="37" cy="-55" r="3.6" fill="${INK}"/>`;
+  else {
+    const yel = kind === 'whooper' ? 'M 37 -54.5 L 47 -51.5 L 46 -49.5 L 37 -47.5 Z' : 'M 37 -54.5 L 40.5 -53.2 L 40.5 -48.5 L 37 -47.5 Z';
+    bill = `<path d="M 37 -55 L 52 -50.5 L 37 -47 Z" fill="${INK}" stroke="${INK}" stroke-width="2" stroke-linejoin="round"/><path d="${yel}" fill="#ffd43b"/>`;
+  }
+  return `<g transform="translate(${x},${y}) scale(${s * f},${s})">
+    <path d="M -38 -2 Q -30 -20 0 -16 Q 26 -14 28 0 Q 22 14 -6 14 Q -34 14 -38 -2 Z" fill="#fff" ${S}/>
+    <path d="M -22 -10 Q -4 -6 10 -10" stroke="#c9d6e3" stroke-width="3" fill="none" stroke-linecap="round"/>
+    <path d="${neck}" stroke="${INK}" stroke-width="13" fill="none" stroke-linecap="round"/>
+    <path d="${neck}" stroke="#fff" stroke-width="7" fill="none" stroke-linecap="round"/>
+    <ellipse cx="31" cy="-52" rx="8" ry="6" fill="#fff" ${S}/>${bill}
+    <circle cx="33" cy="-53.5" r="1.6" fill="${INK}"/></g>`;
+}
+// 나는 고니 (오른쪽으로 날아간다)
+function flySwan(x, y, s = 1, flip = false) {
+  const f = flip ? -1 : 1;
+  return `<g transform="translate(${x},${y}) scale(${s * f},${s})">
+    <path d="M -6 -2 Q -24 -34 -44 -40 Q -26 -16 -16 4 Z" fill="#fff" ${S}/>
+    <path d="M -30 0 Q -10 -8 20 -4 Q 30 -2 46 -6" stroke="${INK}" stroke-width="13" fill="none" stroke-linecap="round"/>
+    <path d="M -30 0 Q -10 -8 20 -4 Q 30 -2 46 -6" stroke="#fff" stroke-width="7" fill="none" stroke-linecap="round"/>
+    <path d="M 47 -8 L 58 -5 L 47 -2 Z" fill="${INK}"/><path d="M 47 -8 L 49.5 -7.3 L 49.5 -2.7 L 47 -2 Z" fill="#ffd43b"/>
+    <path d="M -2 2 Q -12 30 -34 40 Q -14 34 6 6 Z" fill="#fff" ${S}/></g>`;
+}
+const water = (y, w, h, c = '#7fb6e0') => `<rect y="${y}" width="${w}" height="${h - y}" fill="${c}" stroke="${INK}" stroke-width="3"/>
+  ${[0, 1, 2, 3].map(i => `<path d="M ${w * (.08 + i * .24)} ${y + 18 + (i % 2) * 22} q 10 -6 20 0 t 20 0" stroke="#fff" stroke-width="2.5" fill="none" opacity=".8"/>`).join('')}`;
+const reeds = (x, y, n = 5) => Array.from({ length: n }, (_, i) => `<path d="M ${x + i * 7} ${y} q ${i % 2 ? 4 : -4} -26 ${i % 2 ? 2 : -2} -42" stroke="#9c7b45" stroke-width="3" fill="none"/><ellipse cx="${x + i * 7 + (i % 2 ? 2 : -2)}" cy="${y - 44}" rx="3" ry="8" fill="#8a5a2b" ${S}/>`).join('');
+const FB = {
+  p1: sky('s1', ['#cfe4f7', '#f4f9ff']).replace('height="300"', 'height="200"') + water(112, 400, 200) + reeds(14, 118, 4) + reeds(356, 118, 4)
+    + swan(160, 150, .6) + swan(205, 140, .55, 'whooper') + swan(250, 156, .6, 'tundra', true)
+    + ryan({ x: 66, y: 150, s: .42, pose: 'point', expr: 'wow', mark: 'ex' }) + aiden({ x: 340, y: 150, s: .42, expr: 'smile', flip: true }),
+  p2: sky('s2', ['#cfe4f7', '#eef6ff']) + water(210, 200, 300) + flySwan(150, 150, .6, true)
+    + ryan({ x: 100, y: 226, s: 1.2, expr: 'wow', mark: 'q' }),
+  p3: burst(100, 175, '#ffe14d', '#fff3b0', 200, 300) + pika({ x: 100, y: 200, s: 1.3, pose: 'explain', expr: 'happy', zap: true }),
+  p4: sky('s4', ['#d7e9f8', '#f4f9ff']) + `<rect y="212" width="400" height="88" fill="#a98b62" stroke="${INK}" stroke-width="3"/>`
+    + swan(118, 238, 1.55, 'tundra') + swan(282, 238, 1.8, 'whooper')
+    + `<circle cx="179" cy="150" r="20" fill="none" stroke="#e8443a" stroke-width="3" stroke-dasharray="5 4"/><circle cx="352" cy="146" r="26" fill="none" stroke="#e8443a" stroke-width="3" stroke-dasharray="5 4"/>`
+    + pika({ x: 40, y: 270, s: .45, pose: 'explain', expr: 'talk' }) + ryan({ x: 210, y: 270, s: .38, expr: 'wow' }),
+  p5: bgSnow(400, 300, 5) + [[150, 150], [120, 130], [120, 170], [90, 112], [90, 188], [60, 96]].map(([x, y]) => flySwan(x + 40, y, .42)).join('')
+    + aiden({ x: 340, y: 250, s: .45, pose: 'point', expr: 'talk' }),
+  p6: bgField(400, 340) + `<rect y="250" width="400" height="90" fill="#6d8a9c" opacity=".55"/>
+    <path d="M 220 340 L 250 200 Q 300 170 340 210 L 400 220 V 340 Z" fill="#d8b77a" ${S}/><path d="M 270 210 q 20 -18 44 -4" stroke="#b8925a" stroke-width="3" fill="none"/>
+    <g transform="translate(300,150)"><rect x="-30" y="0" width="60" height="30" rx="4" fill="#ffc21a" ${S}/><rect x="-18" y="-22" width="28" height="24" fill="#ffc21a" ${S}/><rect x="-34" y="28" width="68" height="12" rx="6" fill="#555" ${S}/>
+    <path d="M 26 4 L 60 -30 L 84 -6" stroke="${INK}" stroke-width="9" fill="none" stroke-linejoin="round"/><path d="M 26 4 L 60 -30 L 84 -6" stroke="#ffc21a" stroke-width="5" fill="none" stroke-linejoin="round"/><path d="M 76 -8 L 96 4 L 82 16 Z" fill="#888" ${S}/></g>`
+    + swan(70, 318, .45, 'tundra', true) + swan(30, 326, .4, 'whooper')
+    + aiden({ x: 70, y: 262, s: .5, pose: 'explain', expr: 'talk' }) + ryan({ x: 186, y: 262, s: .5, pose: 'shock', expr: 'shock', mark: 'sweat', flip: true }),
+  p7: sky('s7', ['#efe2c8', '#faf4e6']) + water(170, 400, 300, '#a9cde6')
+    + swan(80, 232, .95, 'whooper') + swan(180, 246, .85, 'tundra') + swan(280, 236, .95, 'mute')
+    + pika({ x: 360, y: 266, s: .45, expr: 'happy' }),
+  p8: sky('s8', ['#c9d3dc', '#eef2f5']) + water(150, 400, 300, '#93b6cc')
+    + swan(250, 196, .5) + swan(310, 186, .45, 'tundra', true) + swan(360, 204, .5)
+    + `<g transform="translate(150,220) rotate(-4)"><rect x="-120" y="-60" width="240" height="120" rx="6" fill="#fffdf4" ${S}/><path d="M 0 -60 V 60" stroke="#c9b98f" stroke-width="2"/>
+      ${[[-80, 10, 4], [-30, 10, 7], [40, 10, 2.5], [90, 10, 10]].map(([x, y, k]) => `<g transform="translate(${x},${y})"><ellipse cx="-6" cy="0" rx="14" ry="11" fill="#fff" ${S}/><path d="M 6 -6 L 30 0 L 6 6 Z" fill="${INK}"/><path d="M 6 -6 L ${6 + k} ${-6 + k * .25} L ${6 + k} ${6 - k * .25} L 6 6 Z" fill="#ffd43b"/></g>`).join('')}</g>`
+    + pika({ x: 350, y: 270, s: .45, expr: 'shock', mark: 'ex' }),
+  p9: sky('s9', ['#ffb36b', '#ffe3b8']) + water(190, 400, 300, '#e6a979') + swan(120, 220, .5) + swan(290, 214, .45, 'whooper', true)
+    + ryan({ x: 60, y: 256, s: .48, pose: 'cheer', expr: 'grin' }) + aiden({ x: 342, y: 256, s: .48, pose: 'cheer', expr: 'smile', flip: true })
+    + pika({ x: 300, y: 282, s: .38, expr: 'happy', zap: true }),
+};
 renderPanels([
   { // 1. [넓은 컷·장소] 낙동강 하구의 겨울 아침
-    size: 'wide', svg: imgPanel('p1', 400, 200),
+    size: 'wide', svg: imgPanel('p1', 400, 200, FB.p1),
     html: `<div class="nar" style="left:32%;top:4%;width:36%">겨울, 낙동강 하구</div>
       <div class="b shout t-bl" style="left:2%;top:4%;width:29%">내 키만 한 새!</div>
       <div class="b box t-br" style="left:69%;top:4%;width:29%">겨울 손님 고니야</div>`
   },
   { // 2. [반 컷·클로즈업]
-    half: true, svg: imgPanel('p2', 200, 300),
+    half: true, svg: imgPanel('p2', 200, 300, FB.p2),
     html: `<div class="b think t-bl" style="left:6%;top:5%;width:88%">백조랑 같은 새야?</div>`
   },
   { // 3. [반 컷·등장]
-    half: true, svg: imgPanel('p3', 200, 300),
+    half: true, svg: imgPanel('p3', 200, 300, FB.p3),
     html: `<div class="b shout t-bl" style="left:7%;top:5%;width:86%">찌릿! 설명 시작!</div>`
   },
   { // 4. 핵심: 고니와 큰고니 구별
-    svg: imgPanel('p4'),
+    svg: imgPanel('p4', 400, 300, FB.p4),
     html: `<div class="b box t-bl" style="left:1%;top:3%;width:40%">응, 백조 무리야! 부리 노란 부분이 좁으면 고니</div>
       <div class="b shout t-br" style="left:58%;top:3%;width:40%">길게 이어지면 큰고니!</div>`
   },
   { // 5. 어디서 오나
-    svg: imgPanel('p5'),
+    svg: imgPanel('p5', 400, 300, FB.p5),
     html: `<div class="nar" style="left:2%;top:3%;width:56%">여름엔 북쪽 끝 툰드라에서 새끼를 길러요</div>
       <div class="b box t-br" style="left:62%;top:3%;width:36%">겨울엔 한국·중국·일본으로!</div>`
   },
   { // 6. [큰 컷·야구 비유] 홈구장이 사라지면
-    size: 'big', svg: imgPanel('p6', 400, 340),
+    size: 'big', svg: imgPanel('p6', 400, 340, FB.p6),
     html: `<div class="b box t-bl" style="left:1%;top:3%;width:44%">갯벌과 습지는 고니의 홈구장이야</div>
       <div class="b shout t-br" style="left:54%;top:3%;width:44%">홈구장을 메우면 쉴 데가 없잖아!</div>`
   },
   { // 7. 역사(국내): 1968년 천연기념물
-    svg: imgPanel('p7'),
+    svg: imgPanel('p7', 400, 300, FB.p7),
     html: `<div class="nar" style="left:2%;top:3%;width:30%">1968년</div>
       <div class="b box t-br" style="left:46%;top:3%;width:52%">고니·큰고니·혹고니를 천연기념물로 지켰어</div>`
   },
   { // 8. 역사(해외)·놀라운 포인트: 부리 무늬로 이름 붙이기
-    svg: imgPanel('p8'),
+    svg: imgPanel('p8', 400, 300, FB.p8),
     html: `<div class="nar" style="left:2%;top:3%;width:40%">1960년대 영국의 습지</div>
       <div class="b box t-bl" style="left:1%;top:27%;width:40%">부리 무늬가 다 달라서 이름을 붙였대</div>
       <div class="b shout t-br" style="left:58%;top:3%;width:40%">60년 동안 1만 마리 가까이!</div>`
   },
   { // 9. [고정 엔딩] 오늘의 도감 획득!
-    svg: imgPanel('p9') + dexCard(200, 172, .8, '065', '고니', SKYBLUE, -8),
+    svg: imgPanel('p9', 400, 300, FB.p9) + dexCard(200, 172, .8, '065', '고니', SKYBLUE, -8),
     html: `<div class="b shout t-bl" style="left:2%;top:3%;width:44%">📖 오늘의 도감 획득!</div>
       <div class="b box t-br" style="left:52%;top:3%;width:46%">습지를 지키면 고니가 돌아와!</div>`
   }
