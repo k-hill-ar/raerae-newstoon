@@ -13,7 +13,9 @@ const vm = require('vm');
 const file = process.argv[2];
 if (!file) { console.error('사용법: node scripts/check_layout.js docs/SLUG/index.html'); process.exit(2); }
 const html = fs.readFileSync(file, 'utf8');
-const lib = fs.readFileSync(path.join(__dirname, '..', 'docs', 'assets', 'newstoon.js'), 'utf8');
+const assetDir = path.join(__dirname, '..', 'docs', 'assets');
+let lib = fs.readFileSync(path.join(assetDir, 'newstoon.js'), 'utf8');
+if (html.includes('imgpanel.js')) lib += '\n' + fs.readFileSync(path.join(assetDir, 'imgpanel.js'), 'utf8');
 const scripts = [...html.matchAll(/<script>([\s\S]*?)<\/script>/g)].map(m => m[1]).filter(s => s.includes('renderPanels'));
 if (!scripts.length) { console.error('renderPanels 대본을 찾지 못했습니다.'); process.exit(2); }
 
